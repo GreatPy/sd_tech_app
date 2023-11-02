@@ -10,7 +10,7 @@ class Filters extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-        appBar: Header(title: "Filtres"),
+        appBar: Header(screen: Screen.filters),
         body: Body(
           content: Center(child: Text("FILTRES")),
           footer: Footer(icons: [Screen.planning]),

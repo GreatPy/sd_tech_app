@@ -14,7 +14,7 @@ void main() {
       const MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-          appBar: Header(title: "Planning"),
+          appBar: Header(screen: Screen.planning),
           body: Body(
             content: PlanningContent(),
             footer: Footer(

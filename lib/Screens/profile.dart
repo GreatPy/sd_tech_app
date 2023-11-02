@@ -10,7 +10,9 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-        appBar: Header(title: "Profile"),
+        appBar: Header(
+          screen: Screen.profile,
+        ),
         body: Body(
           content: Center(child: Text("PROFILE")),
           footer: Footer(icons: [Screen.planning]),

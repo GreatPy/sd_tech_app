@@ -10,7 +10,7 @@ class Today extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-        appBar: Header(title: "Aujourd'hui"),
+        appBar: Header(screen: Screen.today),
         body: Body(
           content: Center(child: Text("AUJOIURD'HUI")),
           footer: Footer(icons: [Screen.planning]),

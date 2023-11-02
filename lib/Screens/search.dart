@@ -10,7 +10,7 @@ class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-        appBar: Header(title: "Recherche"),
+        appBar: Header(screen: Screen.searche),
         body: Body(
           content: Center(child: Text("RECHERCHE")),
           footer: Footer(icons: [Screen.planning]),
