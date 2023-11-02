@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:sd_tech/models/styles.dart';
-import 'package:sd_tech/widgets/generals/Footer/footer_item.dart';
+import 'package:sd_tech/widgets/generals/Footer/footer_icon.dart';
+import 'package:sd_tech/models/enums/screen.dart';
 
 class Footer extends StatelessWidget {
-  const Footer({super.key, required this.items});
-  final List<String> items;
+  const Footer({super.key, required this.icons});
+  final List<Screen> icons;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class Footer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           //action items:
-          for (var item in items) FooterItem(title: item),
+          for (var icon in icons) FooterIcon(icon: icon),
         ],
       ),
     );

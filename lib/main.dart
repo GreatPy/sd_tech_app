@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:sd_tech/models/enums/screen.dart';
 import 'package:sd_tech/widgets/generals/Footer/footer.dart';
 import 'package:sd_tech/widgets/generals/body.dart';
 import 'package:sd_tech/widgets/generals/header.dart';
@@ -17,7 +18,12 @@ void main() {
           body: Body(
             content: PlanningContent(),
             footer: Footer(
-              items: ["Profile", "Recherche", "Filtres", "Aujourd'hui"],
+              icons: [
+                Screen.profile,
+                Screen.searche,
+                Screen.filters,
+                Screen.today
+              ],
             ),
           ),
         ),
