@@ -5,15 +5,23 @@ class Body extends StatelessWidget {
   const Body({
     super.key,
     required this.content,
-    required this.footer,
+    this.footer,
   });
   final Widget content;
-  final Footer footer;
+  final Footer? footer;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [Expanded(child: content), footer],
-    );
+    if (footer == null) {
+      return Column(
+        children: [Expanded(child: content)],
+      );
+    }
+    if (footer != null) {
+      return Column(
+        children: [Expanded(child: content), footer!],
+      );
+    }
+    return const Placeholder();
   }
 }

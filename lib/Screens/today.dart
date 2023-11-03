@@ -15,7 +15,6 @@ class Today extends StatelessWidget {
           content: Center(child: Text("AUJOIURD'HUI")),
           footer: Footer(
             icons: [Screen.planning],
-            isKeyboardDisplayed: false,
           ),
         ));
   }

@@ -15,7 +15,6 @@ class Search extends StatelessWidget {
           content: Center(child: Text("RECHERCHE")),
           footer: Footer(
             icons: [Screen.planning],
-            isKeyboardDisplayed: false,
           ),
         ));
   }

@@ -15,7 +15,6 @@ class Filters extends StatelessWidget {
           content: Center(child: Text("FILTRES")),
           footer: Footer(
             icons: [Screen.planning],
-            isKeyboardDisplayed: false,
           ),
         ));
   }

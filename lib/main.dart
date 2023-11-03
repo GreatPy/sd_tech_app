@@ -24,7 +24,6 @@ void main() {
                 Screen.filters,
                 Screen.today
               ],
-              isKeyboardDisplayed: false,
             ),
           ),
         ),

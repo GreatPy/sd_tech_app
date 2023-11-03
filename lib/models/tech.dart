@@ -3,7 +3,7 @@ class Tech {
     required this.firstname,
     required this.lastname,
     required this.phone,
-    required this.mail,
+    required this.email,
     required this.address,
     required this.pg,
     required this.psg,
@@ -11,7 +11,7 @@ class Tech {
   final String firstname;
   final String lastname;
   final String phone;
-  final String mail;
+  final String email;
   final String address;
   final int pg;
   final int psg;
