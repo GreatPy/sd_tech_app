@@ -13,7 +13,10 @@ class Search extends StatelessWidget {
         appBar: Header(screen: Screen.searche),
         body: Body(
           content: Center(child: Text("RECHERCHE")),
-          footer: Footer(icons: [Screen.planning]),
+          footer: Footer(
+            icons: [Screen.planning],
+            isKeyboardDisplayed: false,
+          ),
         ));
   }
 }

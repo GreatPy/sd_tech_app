@@ -1,1 +1,8 @@
-enum Screen { planning, profile, searche, filters, today }
+enum Screen {
+  planning,
+  profile,
+  searche,
+  filters,
+  today,
+  keyboard,
+}

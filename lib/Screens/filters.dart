@@ -13,7 +13,10 @@ class Filters extends StatelessWidget {
         appBar: Header(screen: Screen.filters),
         body: Body(
           content: Center(child: Text("FILTRES")),
-          footer: Footer(icons: [Screen.planning]),
+          footer: Footer(
+            icons: [Screen.planning],
+            isKeyboardDisplayed: false,
+          ),
         ));
   }
 }

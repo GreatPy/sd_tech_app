@@ -13,7 +13,10 @@ class Today extends StatelessWidget {
         appBar: Header(screen: Screen.today),
         body: Body(
           content: Center(child: Text("AUJOIURD'HUI")),
-          footer: Footer(icons: [Screen.planning]),
+          footer: Footer(
+            icons: [Screen.planning],
+            isKeyboardDisplayed: false,
+          ),
         ));
   }
 }
