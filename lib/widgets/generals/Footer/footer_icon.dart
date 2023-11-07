@@ -25,7 +25,7 @@ class FooterIcon extends StatelessWidget {
         iconData = Icons.search;
         page = const Search();
       case Screen.filters:
-        iconData = Icons.filter_alt_outlined;
+        iconData = Icons.filter_list_outlined;
         page = const Filters();
       case Screen.today:
         iconData = Icons.bookmark_outline;

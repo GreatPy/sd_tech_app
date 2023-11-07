@@ -24,7 +24,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
         iconData = Icons.search_outlined;
         title = "Recherche";
       case Screen.filters:
-        iconData = Icons.filter_alt_outlined;
+        iconData = Icons.filter_list_outlined;
         title = "Filtres";
       case Screen.today:
         title = "Aujourd'hui";
