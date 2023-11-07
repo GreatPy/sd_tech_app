@@ -6,9 +6,11 @@ class Body extends StatelessWidget {
     super.key,
     required this.content,
     this.footer,
+    this.today,
   });
   final Widget content;
   final Footer? footer;
+  final DateTime? today;
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,4 @@
-enum FilterLabel {
+enum Status {
   cancelByHost,
   doesnTWant,
   noShow,

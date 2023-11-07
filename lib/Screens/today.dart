@@ -9,11 +9,12 @@ class Today extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        appBar: Header(screen: Screen.today),
+    return Scaffold(
+        appBar: const Header(screen: Screen.today),
         body: Body(
-          content: Center(child: Text("AUJOIURD'HUI")),
-          footer: Footer(
+          today: DateTime.now(),
+          content: const Center(child: Text("AUJOIURD'HUI")),
+          footer: const Footer(
             icons: [Screen.planning],
             needsDeconexion: false,
             needsValidation: false,

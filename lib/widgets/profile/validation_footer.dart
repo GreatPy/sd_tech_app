@@ -14,16 +14,12 @@ class ValidationFooter extends StatelessWidget {
         children: [
           TextButton(
             style: TextButton.styleFrom(foregroundColor: primaryColor),
-            onPressed: () {
-              print("cancel");
-            },
+            onPressed: () {},
             child: const Text("annuler"),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: primaryColor),
-            onPressed: () {
-              print("saved");
-            },
+            onPressed: () {},
             child: const Text("enregister"),
           )
         ],

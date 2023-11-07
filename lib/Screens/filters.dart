@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sd_tech/models/enums/screen.dart';
-import 'package:sd_tech/models/enums/filter_label.dart';
+import 'package:sd_tech/models/enums/status.dart';
 import 'package:sd_tech/widgets/filters/filter.dart';
 import 'package:sd_tech/widgets/generals/Footer/footer.dart';
 import 'package:sd_tech/widgets/generals/header.dart';
@@ -22,14 +22,14 @@ class _FiltersState extends State<Filters> {
           content: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Filter(label: FilterLabel.cancelByHost),
-              Filter(label: FilterLabel.doesnTWant),
-              Filter(label: FilterLabel.noShow),
-              Filter(label: FilterLabel.lateCancelation),
-              Filter(label: FilterLabel.timelyCancelation),
-              Filter(label: FilterLabel.conducted),
-              Filter(label: FilterLabel.scheduled),
-              Filter(label: FilterLabel.toBeScheduled),
+              Filter(label: Status.cancelByHost),
+              Filter(label: Status.doesnTWant),
+              Filter(label: Status.noShow),
+              Filter(label: Status.lateCancelation),
+              Filter(label: Status.timelyCancelation),
+              Filter(label: Status.conducted),
+              Filter(label: Status.scheduled),
+              Filter(label: Status.toBeScheduled),
             ],
           ),
           footer: Footer(

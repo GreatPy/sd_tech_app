@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sd_tech/models/enums/filter_label.dart';
+import 'package:sd_tech/models/enums/status.dart';
 import 'package:sd_tech/models/styles.dart';
 
 class Filter extends StatefulWidget {
   const Filter({super.key, required this.label});
-  final FilterLabel label;
+  final Status label;
 
   @override
   State<Filter> createState() => _FilterState();
@@ -17,28 +17,28 @@ class _FilterState extends State<Filter> {
     final String title;
     final IconData iconData;
     switch (widget.label) {
-      case FilterLabel.cancelByHost:
+      case Status.cancelByHost:
         title = "annulation SleepDoctor";
         iconData = Icons.build_circle_outlined;
-      case FilterLabel.doesnTWant:
+      case Status.doesnTWant:
         title = "ne veut plus";
         iconData = Icons.back_hand_outlined;
-      case FilterLabel.noShow:
+      case Status.noShow:
         title = "no show";
         iconData = Icons.cancel_outlined;
-      case FilterLabel.lateCancelation:
+      case Status.lateCancelation:
         title = "annulation après départ";
         iconData = Icons.alarm_off_outlined;
-      case FilterLabel.timelyCancelation:
+      case Status.timelyCancelation:
         title = "annulation avant départ";
         iconData = Icons.alarm_on_outlined;
-      case FilterLabel.conducted:
+      case Status.conducted:
         title = "éffectué";
         iconData = Icons.check_circle_outline_outlined;
-      case FilterLabel.scheduled:
+      case Status.scheduled:
         title = "rdv pris";
         iconData = Icons.date_range_outlined;
-      case FilterLabel.toBeScheduled:
+      case Status.toBeScheduled:
         title = "à programmer";
         iconData = Icons.hourglass_empty_outlined;
     }

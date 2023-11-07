@@ -1,6 +1,7 @@
 import 'package:sd_tech/models/tech.dart';
 
 Tech vahe = const Tech(
+  id: 1,
   firstname: "Vahé",
   lastname: "Serdjanian",
   phone: "06 00 00 00 00",

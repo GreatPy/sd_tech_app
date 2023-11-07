@@ -11,13 +11,14 @@ void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((cb) {
     runApp(
-      const MaterialApp(
+      MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-          appBar: Header(screen: Screen.planning),
+          appBar: const Header(screen: Screen.planning),
           body: Body(
-            content: PlanningContent(),
-            footer: Footer(
+            today: DateTime.now(),
+            content: const PlanningContent(),
+            footer: const Footer(
               icons: [
                 Screen.profile,
                 Screen.searche,
