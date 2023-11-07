@@ -24,6 +24,8 @@ void main() {
                 Screen.filters,
                 Screen.today
               ],
+              needsDeconexion: false,
+              needsValidation: false,
             ),
           ),
         ),

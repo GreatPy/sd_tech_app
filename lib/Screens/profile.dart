@@ -6,8 +6,7 @@ import 'package:sd_tech/models/enums/label.dart';
 import 'package:sd_tech/widgets/generals/Footer/footer.dart';
 import 'package:sd_tech/widgets/generals/header.dart';
 import 'package:sd_tech/widgets/generals/body.dart';
-import 'package:sd_tech/widgets/profile/input.dart';
-import 'package:sd_tech/widgets/profile/validation_footer.dart';
+import 'package:sd_tech/widgets/profile/tech_input.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -22,7 +21,8 @@ class _ProfileState extends State<Profile> {
   @override
   void initState() {
     super.initState();
-    footerContent = const Footer(icons: [Screen.planning]);
+    footerContent = const Footer(
+        icons: [Screen.planning], needsDeconexion: true, needsValidation: true);
   }
 
   void toggleFooter() {
@@ -32,7 +32,10 @@ class _ProfileState extends State<Profile> {
         return;
       }
       if (footerContent == null) {
-        footerContent = const Footer(icons: [Screen.planning]);
+        footerContent = const Footer(
+            icons: [Screen.planning],
+            needsDeconexion: true,
+            needsValidation: true);
         return;
       }
     });
@@ -47,13 +50,16 @@ class _ProfileState extends State<Profile> {
           key: _formKey,
           child: Column(
             children: [
-              Input(label: Label.firstname, tech: vahe, onFocus: toggleFooter),
-              Input(label: Label.lastname, tech: vahe, onFocus: toggleFooter),
-              Input(label: Label.phone, tech: vahe, onFocus: toggleFooter),
-              Input(label: Label.mail, tech: vahe, onFocus: toggleFooter),
-              Input(label: Label.address, tech: vahe, onFocus: toggleFooter),
-              Input(label: Label.pg, tech: vahe, onFocus: toggleFooter),
-              Input(label: Label.psg, tech: vahe, onFocus: toggleFooter),
+              TechInput(
+                  label: Label.firstname, tech: vahe, onFocus: toggleFooter),
+              TechInput(
+                  label: Label.lastname, tech: vahe, onFocus: toggleFooter),
+              TechInput(label: Label.phone, tech: vahe, onFocus: toggleFooter),
+              TechInput(label: Label.mail, tech: vahe, onFocus: toggleFooter),
+              TechInput(
+                  label: Label.address, tech: vahe, onFocus: toggleFooter),
+              TechInput(label: Label.pg, tech: vahe, onFocus: toggleFooter),
+              TechInput(label: Label.psg, tech: vahe, onFocus: toggleFooter),
             ],
           ),
         ),

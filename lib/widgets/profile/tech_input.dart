@@ -4,8 +4,8 @@ import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/tech.dart';
 import 'package:sd_tech/models/enums/label.dart';
 
-class Input extends StatefulWidget {
-  const Input(
+class TechInput extends StatefulWidget {
+  const TechInput(
       {super.key,
       required this.label,
       required this.tech,
@@ -15,10 +15,10 @@ class Input extends StatefulWidget {
   final void Function() onFocus;
 
   @override
-  State<Input> createState() => _InputState();
+  State<TechInput> createState() => _TechInputState();
 }
 
-class _InputState extends State<Input> {
+class _TechInputState extends State<TechInput> {
   final _focusNode = FocusNode();
 
   @override

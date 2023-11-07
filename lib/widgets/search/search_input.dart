@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sd_tech/models/styles.dart';
 
-class SearchForm extends StatefulWidget {
-  const SearchForm({
+class SearchInput extends StatefulWidget {
+  const SearchInput({
     super.key,
     required this.onFocus,
     required this.formKey,
@@ -11,10 +11,10 @@ class SearchForm extends StatefulWidget {
   final void Function() onFocus;
 
   @override
-  State<SearchForm> createState() => _SearchFormState();
+  State<SearchInput> createState() => _SearchInputState();
 }
 
-class _SearchFormState extends State<SearchForm> {
+class _SearchInputState extends State<SearchInput> {
   final _focusNode = FocusNode();
 
   @override
