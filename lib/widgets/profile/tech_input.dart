@@ -68,6 +68,8 @@ class _TechInputState extends State<TechInput> {
     return TextFormField(
       // controller: _inputControler,
       focusNode: _focusNode,
+      cursorColor: primaryColorLigth,
+      cursorWidth: 4,
       style: TextStyle(
         color: neutral,
         fontSize: 20,
