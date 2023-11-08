@@ -25,34 +25,36 @@ class ExamBox extends StatefulWidget {
 class _ExamBoxState extends State<ExamBox> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(4),
-      child: Card(
-        child: Padding(
-          padding: const EdgeInsets.all(4),
-          child: Row(
-            children: [
-              const ExamType(),
-              const SizedBox(width: 8),
-              const Expanded(child: CostumerInfos()),
-              const SizedBox(width: 2),
-              Icon(
-                Icons.warning_amber_rounded,
-                color: dangerColor,
-                size: 32,
-              ),
-              const SizedBox(width: 2),
-              Icon(
-                Icons.hourglass_empty_outlined,
-                size: 32,
-                color: primaryColorLigth,
-              ),
-              const SizedBox(width: 2),
-              const PayementStatus(),
-            ],
+    return Column(
+      children: [
+        const SizedBox(height: 8),
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(4),
+            child: Row(
+              children: [
+                const ExamType(),
+                const SizedBox(width: 8),
+                const Expanded(child: CostumerInfos()),
+                const SizedBox(width: 2),
+                Icon(
+                  Icons.warning_amber_rounded,
+                  color: dangerColor,
+                  size: 32,
+                ),
+                const SizedBox(width: 2),
+                Icon(
+                  Icons.hourglass_empty_outlined,
+                  size: 32,
+                  color: primaryColorLigth,
+                ),
+                const SizedBox(width: 2),
+                const PayementStatus(),
+              ],
+            ),
           ),
         ),
-      ),
+      ],
     );
   }
 }
