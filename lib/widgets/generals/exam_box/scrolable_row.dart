@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:sd_tech/models/enums/exam_costumer_info_line.dart';
+import 'package:sd_tech/models/styles.dart';
+import 'package:sd_tech/widgets/generals/styled_text.dart';
 
 class ScrolableRow extends StatelessWidget {
-  const ScrolableRow({super.key, required this.content});
+  const ScrolableRow({
+    super.key,
+    required this.content,
+    required this.line,
+  });
   final String content;
+  final ExamCostuerInfoLine line;
 
   @override
   Widget build(BuildContext context) {
@@ -11,10 +19,11 @@ class ScrolableRow extends StatelessWidget {
         Expanded(
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: Text(
-              content,
-              maxLines: 1,
-              // overflow: TextOverflow.ellipsis,
+            child: StyledText(
+              content: content,
+              color: neutral,
+              fontSize: 16,
+              fontWeight: FontWeight.w300,
             ),
           ),
         ),

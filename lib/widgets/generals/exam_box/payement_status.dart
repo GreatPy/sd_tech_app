@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sd_tech/models/styles.dart';
+import 'package:sd_tech/widgets/generals/styled_text.dart';
 
 class PayementStatus extends StatelessWidget {
   const PayementStatus({super.key});
@@ -10,9 +11,15 @@ class PayementStatus extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(8)),
           color: paymentSuccessColors),
-      height: 48,
-      width: 48,
-      child: const Center(child: Text("€")),
+      height: boxSize,
+      width: boxSize,
+      child: Center(
+          child: StyledText(
+        content: "€",
+        color: neutral,
+        fontSize: 28,
+        fontWeight: FontWeight.w300,
+      )),
     );
   }
 }

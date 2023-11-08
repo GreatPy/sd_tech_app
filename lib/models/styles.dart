@@ -7,4 +7,6 @@ Color neutralLigth = Colors.grey.shade100;
 Color neutralMediumLight = Colors.grey.shade200;
 Color neutral = Colors.grey.shade600;
 Color pgColor = Colors.lightBlue;
-Color paymentSuccessColors = Colors.green.shade300;
+Color paymentSuccessColors = Colors.green.shade200;
+Color dangerColor = Colors.red.shade200;
+const double boxSize = 52;

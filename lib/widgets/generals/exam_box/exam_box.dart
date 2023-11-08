@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sd_tech/models/costumer.dart';
 import 'package:sd_tech/models/doctor.dart';
-import 'package:sd_tech/models/enums/payment_status.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/tech.dart';
 import 'package:sd_tech/widgets/generals/exam_box/costumer_Infos.dart';
@@ -26,22 +25,32 @@ class ExamBox extends StatefulWidget {
 class _ExamBoxState extends State<ExamBox> {
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: neutralMediumLight,
-      child: const Padding(
-        padding: EdgeInsets.all(4),
-        child: Row(
-          children: [
-            ExamType(),
-            SizedBox(width: 8),
-            Expanded(child: CostumerInfos()),
-            SizedBox(width: 4),
-            Icon(Icons.warning_amber_rounded),
-            SizedBox(width: 4),
-            Icon(Icons.hourglass_empty_outlined),
-            SizedBox(width: 4),
-            PayementStatus(),
-          ],
+    return Padding(
+      padding: const EdgeInsets.all(4),
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(4),
+          child: Row(
+            children: [
+              const ExamType(),
+              const SizedBox(width: 8),
+              const Expanded(child: CostumerInfos()),
+              const SizedBox(width: 2),
+              Icon(
+                Icons.warning_amber_rounded,
+                color: dangerColor,
+                size: 32,
+              ),
+              const SizedBox(width: 2),
+              Icon(
+                Icons.hourglass_empty_outlined,
+                size: 32,
+                color: primaryColorLigth,
+              ),
+              const SizedBox(width: 2),
+              const PayementStatus(),
+            ],
+          ),
         ),
       ),
     );
