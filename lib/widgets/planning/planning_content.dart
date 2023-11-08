@@ -8,8 +8,7 @@ class PlanningContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: dummyList.length, // items is a List
-      itemBuilder: (ctx, index) =>
-          ListTile(title: Text("${dummyList[index]} $index")),
+      itemBuilder: (ctx, index) => dummyList[index],
     );
   }
 }

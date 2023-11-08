@@ -1,3 +1,5 @@
+import 'package:sd_tech/models/enums/rights.dart';
+
 class Costumer {
   const Costumer({
     required this.id,
@@ -10,6 +12,7 @@ class Costumer {
     this.address,
     this.weight,
     this.hight,
+    this.rights,
   });
   final int id;
   final String? firstname;
@@ -21,4 +24,5 @@ class Costumer {
   final String? address;
   final int? weight;
   final int? hight;
+  final Rights? rights;
 }

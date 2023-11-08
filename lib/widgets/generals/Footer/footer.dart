@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/widgets/profile/deconexion.dart';
 import 'package:sd_tech/widgets/profile/validation_footer.dart';
-import 'package:sd_tech/widgets/generals/Footer/footer_icon.dart';
+import 'package:sd_tech/widgets/generals/footer/footer_icon.dart';
 import 'package:sd_tech/models/enums/screen.dart';
 
 class Footer extends StatelessWidget {

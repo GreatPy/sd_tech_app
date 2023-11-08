@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sd_tech/models/enums/screen.dart';
 import 'package:sd_tech/models/enums/status.dart';
 import 'package:sd_tech/widgets/filters/filter.dart';
-import 'package:sd_tech/widgets/generals/Footer/footer.dart';
+import 'package:sd_tech/widgets/generals/footer/footer.dart';
 import 'package:sd_tech/widgets/generals/header.dart';
 import 'package:sd_tech/widgets/generals/body.dart';
 

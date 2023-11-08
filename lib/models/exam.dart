@@ -1,8 +1,9 @@
+import 'package:sd_tech/models/enums/payment_status.dart';
 import 'package:sd_tech/models/enums/status.dart';
 import 'package:sd_tech/models/costumer.dart';
 
-class Pg {
-  const Pg({
+class Exam {
+  const Exam({
     required this.customer,
     required this.id,
     required this.status,
@@ -14,6 +15,7 @@ class Pg {
     this.access,
     this.bedTime,
     this.wakeUpTime,
+    this.paymentStatus,
   });
   final int id;
   final Costumer customer;
@@ -26,4 +28,5 @@ class Pg {
   final String? access;
   final String? bedTime;
   final String? wakeUpTime;
+  final PaymentStatus? paymentStatus;
 }

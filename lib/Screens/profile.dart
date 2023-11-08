@@ -3,7 +3,7 @@ import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:sd_tech/data/tech.dart';
 import 'package:sd_tech/models/enums/screen.dart';
 import 'package:sd_tech/models/enums/label.dart';
-import 'package:sd_tech/widgets/generals/Footer/footer.dart';
+import 'package:sd_tech/widgets/generals/footer/footer.dart';
 import 'package:sd_tech/widgets/generals/header.dart';
 import 'package:sd_tech/widgets/generals/body.dart';
 import 'package:sd_tech/widgets/profile/tech_input.dart';

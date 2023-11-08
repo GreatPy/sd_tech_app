@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sd_tech/widgets/generals/Footer/footer.dart';
+import 'package:sd_tech/widgets/generals/footer/footer.dart';
 
 class Body extends StatelessWidget {
   const Body({
