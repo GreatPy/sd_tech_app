@@ -1,6 +1,8 @@
+import 'package:sd_tech/models/doctor.dart';
 import 'package:sd_tech/models/enums/payment_status.dart';
 import 'package:sd_tech/models/enums/status.dart';
 import 'package:sd_tech/models/costumer.dart';
+import 'package:sd_tech/models/tech.dart';
 
 class Exam {
   const Exam({
@@ -8,8 +10,8 @@ class Exam {
     required this.id,
     required this.status,
     required this.createdAt,
-    this.techId,
-    this.doctorId,
+    this.tech,
+    this.doctor,
     this.deliveryDate,
     this.note,
     this.access,
@@ -21,8 +23,8 @@ class Exam {
   final Costumer customer;
   final Status status;
   final DateTime createdAt;
-  final int? techId;
-  final int? doctorId;
+  final Tech? tech;
+  final Doctor? doctor;
   final DateTime? deliveryDate;
   final String? note;
   final String? access;
