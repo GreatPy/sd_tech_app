@@ -15,6 +15,7 @@ class ScrolableRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Widget content;
+    final DateTime today = DateTime.now();
     switch (line) {
       case ExamCostuerInfoLine.fullName:
         content = Row(children: [
@@ -25,7 +26,15 @@ class ScrolableRow extends StatelessWidget {
       case ExamCostuerInfoLine.city:
         content = StyledText(content: exam.customer.city);
       case ExamCostuerInfoLine.delay:
-        content = const StyledText(content: "4 jours");
+        Duration delay = today.difference(exam.createdAt);
+        content = Row(
+          children: [
+            StyledText(content: delay.inDays.toString()),
+            const SizedBox(width: 8),
+            StyledText(
+                content: delay > const Duration(days: 2) ? "jours" : "jour")
+          ],
+        );
       default:
         content = const Placeholder();
     }

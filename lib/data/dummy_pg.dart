@@ -15,7 +15,7 @@ Exam pg1 = Exam(
   status: Status.toBeScheduled,
   tech: vahe,
   doctor: doctor1,
-  createdAt: getRelativeDate(10),
+  createdAt: getRelativeDate(239),
 );
 
 final List<Exam> pgs = [
