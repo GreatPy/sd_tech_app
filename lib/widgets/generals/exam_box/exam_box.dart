@@ -30,7 +30,7 @@ class _ExamBoxState extends State<ExamBox> {
               children: [
                 const ExamType(),
                 const SizedBox(width: 8),
-                Expanded(child: CostumerInfos(exam: pg1)),
+                Expanded(child: CostumerInfos(exam: widget.exam)),
                 const SizedBox(width: 8),
                 Icon(
                   Icons.warning_amber_rounded,

@@ -17,7 +17,43 @@ Exam pg1 = Exam(
   doctor: doctor1,
   createdAt: getRelativeDate(239),
 );
+Exam pg2 = Exam(
+  id: 2,
+  customer: costumer2,
+  status: Status.toBeScheduled,
+  tech: vahe,
+  doctor: doctor1,
+  createdAt: getRelativeDate(23),
+);
+Exam pg3 = Exam(
+  id: 3,
+  customer: costumer3,
+  status: Status.toBeScheduled,
+  tech: vahe,
+  doctor: doctor1,
+  createdAt: getRelativeDate(18),
+);
+Exam pg4 = Exam(
+  id: 4,
+  customer: costumer4,
+  status: Status.toBeScheduled,
+  tech: vahe,
+  doctor: doctor1,
+  createdAt: getRelativeDate(3),
+);
+Exam pg5 = Exam(
+  id: 5,
+  customer: costumer5,
+  status: Status.toBeScheduled,
+  tech: vahe,
+  doctor: doctor1,
+  createdAt: getRelativeDate(1),
+);
 
 final List<Exam> pgs = [
   pg1,
+  pg2,
+  pg3,
+  pg4,
+  pg5,
 ];
