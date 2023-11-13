@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sd_tech/data/tech.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/tech.dart';
-import 'package:sd_tech/models/enums/label.dart';
+import 'package:sd_tech/models/enums/tech_form_label.dart';
 
 class TechInput extends StatefulWidget {
   const TechInput(
@@ -10,7 +10,7 @@ class TechInput extends StatefulWidget {
       required this.label,
       required this.tech,
       required this.onFocus});
-  final Label label;
+  final TechFormLabel label;
   final Tech tech;
   final void Function() onFocus;
 
@@ -35,31 +35,31 @@ class _TechInputState extends State<TechInput> {
     TextInputType type = TextInputType.text;
     String initialValue = "";
     switch (widget.label) {
-      case Label.firstname:
+      case TechFormLabel.firstname:
         strinLabel = "prénom";
         type = TextInputType.name;
         initialValue = vahe.firstname;
-      case Label.lastname:
+      case TechFormLabel.lastname:
         strinLabel = "nom";
         type = TextInputType.name;
         initialValue = vahe.lastname;
-      case Label.phone:
+      case TechFormLabel.phone:
         strinLabel = "téléphone";
         type = TextInputType.phone;
         initialValue = vahe.phone;
-      case Label.mail:
+      case TechFormLabel.mail:
         strinLabel = "mail";
         type = TextInputType.emailAddress;
         initialValue = vahe.email;
-      case Label.address:
+      case TechFormLabel.address:
         strinLabel = "adresse";
         type = TextInputType.streetAddress;
         initialValue = vahe.address;
-      case Label.pg:
+      case TechFormLabel.pg:
         strinLabel = "nombre de PGs";
         type = TextInputType.number;
         initialValue = vahe.pg.toString();
-      case Label.psg:
+      case TechFormLabel.psg:
         strinLabel = "nombre de PSGs";
         type = TextInputType.number;
         initialValue = vahe.psg.toString();

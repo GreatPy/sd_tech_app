@@ -4,8 +4,8 @@ import 'package:sd_tech/models/enums/status.dart';
 import 'package:sd_tech/models/costumer.dart';
 import 'package:sd_tech/models/tech.dart';
 
-class Exam {
-  const Exam({
+class RoughExam {
+  const RoughExam({
     required this.customer,
     required this.id,
     required this.status,

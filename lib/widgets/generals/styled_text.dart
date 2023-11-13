@@ -8,15 +8,16 @@ class StyledText extends StatelessWidget {
     this.fontSize,
     this.fontWeight,
   });
-  final String content;
+  final String? content;
   final Color? color;
   final double? fontSize;
   final FontWeight? fontWeight;
 
   @override
   Widget build(BuildContext context) {
+    final finalContent = content ?? "";
     return Text(
-      content,
+      finalContent,
       style: TextStyle(
         color: color,
         fontSize: fontSize,

@@ -1,0 +1,4 @@
+enum ExamTypeEnum {
+  pg,
+  psg,
+}

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:sd_tech/data/tech.dart';
 import 'package:sd_tech/models/enums/screen.dart';
-import 'package:sd_tech/models/enums/label.dart';
+import 'package:sd_tech/models/enums/tech_form_label.dart';
 import 'package:sd_tech/widgets/generals/footer/footer.dart';
 import 'package:sd_tech/widgets/generals/header.dart';
 import 'package:sd_tech/widgets/generals/body.dart';
@@ -51,15 +51,27 @@ class _ProfileState extends State<Profile> {
           child: Column(
             children: [
               TechInput(
-                  label: Label.firstname, tech: vahe, onFocus: toggleFooter),
+                  label: TechFormLabel.firstname,
+                  tech: vahe,
+                  onFocus: toggleFooter),
               TechInput(
-                  label: Label.lastname, tech: vahe, onFocus: toggleFooter),
-              TechInput(label: Label.phone, tech: vahe, onFocus: toggleFooter),
-              TechInput(label: Label.mail, tech: vahe, onFocus: toggleFooter),
+                  label: TechFormLabel.lastname,
+                  tech: vahe,
+                  onFocus: toggleFooter),
               TechInput(
-                  label: Label.address, tech: vahe, onFocus: toggleFooter),
-              TechInput(label: Label.pg, tech: vahe, onFocus: toggleFooter),
-              TechInput(label: Label.psg, tech: vahe, onFocus: toggleFooter),
+                  label: TechFormLabel.phone,
+                  tech: vahe,
+                  onFocus: toggleFooter),
+              TechInput(
+                  label: TechFormLabel.mail, tech: vahe, onFocus: toggleFooter),
+              TechInput(
+                  label: TechFormLabel.address,
+                  tech: vahe,
+                  onFocus: toggleFooter),
+              TechInput(
+                  label: TechFormLabel.pg, tech: vahe, onFocus: toggleFooter),
+              TechInput(
+                  label: TechFormLabel.psg, tech: vahe, onFocus: toggleFooter),
             ],
           ),
         ),

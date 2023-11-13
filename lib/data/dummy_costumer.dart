@@ -11,8 +11,8 @@ Costumer costumer1 = Costumer(
   phone: "06 78 65 55 43",
   mail: "pierrobern@gmail.fr",
   nir: "1 80 92 04 634 228 43",
-  hight: "178",
-  weight: "75",
+  hight: 178,
+  weight: 75,
   rights: Rights.required,
 );
 Costumer costumer2 = Costumer(
@@ -25,8 +25,8 @@ Costumer costumer2 = Costumer(
   phone: "06 98 00 21 21",
   mail: "superbernarda@gmail.fr",
   nir: "2 98 52 12 687 133 71",
-  hight: "178",
-  weight: "75",
+  hight: 178,
+  weight: 75,
   rights: Rights.required,
 );
 Costumer costumer3 = Costumer(
@@ -39,8 +39,8 @@ Costumer costumer3 = Costumer(
   phone: "06 77 23 85 85",
   mail: "patoch@wanadoo.fr",
   nir: "1 82 92 05 883 829 10",
-  hight: "166",
-  weight: "86",
+  hight: 166,
+  weight: 86,
   rights: Rights.required,
 );
 Costumer costumer4 = Costumer(
@@ -53,8 +53,8 @@ Costumer costumer4 = Costumer(
   phone: "07 22 78 37 21",
   mail: "momo@yahoo.fr",
   nir: "1 02 93 01 501 735 13",
-  hight: "190",
-  weight: "107",
+  hight: 190,
+  weight: 107,
   rights: Rights.notRequired,
 );
 Costumer costumer5 = Costumer(
@@ -67,8 +67,36 @@ Costumer costumer5 = Costumer(
   phone: "07 03 88 24 29",
   mail: "guiguim@gmail.fr",
   nir: "2 67 75 04 876 001 93",
-  hight: "158",
-  weight: "49",
+  hight: 158,
+  weight: 49,
+  rights: Rights.required,
+);
+Costumer costumer6 = Costumer(
+  id: 6,
+  firstname: "Sarah",
+  lastname: "SOULA ACOUI",
+  address: "123 rue mirabelle, 94000 CRETEIL",
+  city: "CRETEIL",
+  birthdate: DateTime(2002, 03, 27),
+  phone: "07 33 88 22 52",
+  mail: "sarahsoula@gmail.fr",
+  nir: "2 02 94 03 873 031 87",
+  hight: 162,
+  weight: 74,
+  rights: Rights.required,
+);
+Costumer costumer7 = Costumer(
+  id: 7,
+  firstname: "Jean",
+  lastname: "TALOULA",
+  address: "20 rue Lord Byron, 75016 PARIS",
+  city: "PARIS",
+  birthdate: DateTime(1950, 02, 21),
+  phone: "06 99 82 29 11",
+  mail: "tata@gmail.fr",
+  nir: "1 50 75 02 997 534 32",
+  hight: 178,
+  weight: 90,
   rights: Rights.required,
 );
 
@@ -77,5 +105,7 @@ final List<Costumer> costumers = [
   costumer2,
   costumer3,
   costumer4,
-  costumer5
+  costumer5,
+  costumer6,
+  costumer7,
 ];

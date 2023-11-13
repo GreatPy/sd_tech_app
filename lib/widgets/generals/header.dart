@@ -29,7 +29,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
       case Screen.today:
         title = "Aujourd'hui";
         iconData = Icons.bookmark_outline;
-      case Screen.keyboard:
+      default:
     }
     Icon icon = Icon(iconData, color: whiteColor);
 

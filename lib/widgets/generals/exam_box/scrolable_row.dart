@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sd_tech/models/enums/exam_costumer_info_line.dart';
-import 'package:sd_tech/models/exam.dart';
+import 'package:sd_tech/models/rough_exam.dart';
 import 'package:sd_tech/widgets/generals/styled_text.dart';
 
 class ScrolableRow extends StatelessWidget {
@@ -10,7 +10,7 @@ class ScrolableRow extends StatelessWidget {
     required this.exam,
   });
   final ExamCostuerInfoLine line;
-  final Exam exam;
+  final RoughExam exam;
 
   @override
   Widget build(BuildContext context) {

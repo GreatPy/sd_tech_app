@@ -1,4 +1,4 @@
-enum Label {
+enum TechFormLabel {
   firstname,
   lastname,
   phone,

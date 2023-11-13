@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sd_tech/data/dummy_pg.dart';
-import 'package:sd_tech/models/exam.dart';
+import 'package:sd_tech/models/rough_exam.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/widgets/generals/exam_box/costumer_infos.dart';
 import 'package:sd_tech/widgets/generals/exam_box/exam_type.dart';
@@ -11,7 +10,7 @@ class ExamBox extends StatefulWidget {
     super.key,
     required this.exam,
   });
-  final Exam exam;
+  final RoughExam exam;
 
   @override
   State<ExamBox> createState() => _ExamBoxState();
