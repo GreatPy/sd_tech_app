@@ -4,7 +4,7 @@ import 'package:sd_tech/models/rough_exam.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/widgets/generals/exam_box/costumer_infos.dart';
 import 'package:sd_tech/widgets/generals/exam_box/exam_type_box.dart';
-import 'package:sd_tech/widgets/generals/exam_box/payement_status.dart';
+import 'package:sd_tech/widgets/generals/exam_box/payement_status_box.dart';
 
 class ExamBox extends StatefulWidget {
   const ExamBox({
@@ -46,7 +46,7 @@ class _ExamBoxState extends State<ExamBox> {
                   color: primaryColorLigth,
                 ),
                 const SizedBox(width: 4),
-                const PayementStatus(),
+                const PayementStatusBox(),
               ],
             ),
           ),

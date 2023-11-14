@@ -1,5 +1,5 @@
 import 'package:sd_tech/models/rough_exam.dart';
-import 'package:sd_tech/widgets/generals/exam_box/exam_type.dart';
+import 'package:sd_tech/widgets/generals/exam_box/exam_type_box.dart';
 
 class TypedExam {
   const TypedExam({
@@ -7,5 +7,5 @@ class TypedExam {
     required this.type,
   });
   final RoughExam exam;
-  final ExamType type;
+  final ExamTypeBox type;
 }

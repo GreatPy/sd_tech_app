@@ -3,7 +3,7 @@ import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/enums/exam_type_enum.dart';
 import 'package:sd_tech/models/typed_exam.dart';
 import 'package:sd_tech/widgets/generals/exam_box/exam_type_box.dart';
-import 'package:sd_tech/widgets/generals/exam_box/payement_status.dart';
+import 'package:sd_tech/widgets/generals/exam_box/payement_status_box.dart';
 
 class TypedExamBox extends StatefulWidget {
   const TypedExamBox({
@@ -44,7 +44,7 @@ class _TypedExamBoxState extends State<TypedExamBox> {
                   color: primaryColorLigth,
                 ),
                 const SizedBox(width: 4),
-                const PayementStatus(),
+                const PayementStatusBox(),
               ],
             ),
           ),
