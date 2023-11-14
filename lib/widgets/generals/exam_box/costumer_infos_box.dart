@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sd_tech/models/enums/exam_costumer_info_line.dart';
-import 'package:sd_tech/models/rough_exam.dart';
+import 'package:sd_tech/models/typed_exam.dart';
 import 'package:sd_tech/widgets/generals/exam_box/scrolable_row.dart';
 
 class CostumerInfos extends StatelessWidget {
@@ -8,7 +8,7 @@ class CostumerInfos extends StatelessWidget {
     super.key,
     required this.exam,
   });
-  final RoughExam exam;
+  final TypedExam exam;
   @override
   Widget build(BuildContext context) {
     return Column(

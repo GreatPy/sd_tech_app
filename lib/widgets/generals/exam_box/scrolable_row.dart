@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sd_tech/models/enums/exam_costumer_info_line.dart';
-import 'package:sd_tech/models/rough_exam.dart';
+import 'package:sd_tech/models/typed_exam.dart';
 import 'package:sd_tech/widgets/generals/styled_text.dart';
 
 class ScrolableRow extends StatelessWidget {
@@ -10,7 +10,7 @@ class ScrolableRow extends StatelessWidget {
     required this.exam,
   });
   final ExamCostuerInfoLine line;
-  final RoughExam exam;
+  final TypedExam exam;
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +19,14 @@ class ScrolableRow extends StatelessWidget {
     switch (line) {
       case ExamCostuerInfoLine.fullName:
         content = Row(children: [
-          StyledText(content: exam.customer.firstname),
+          StyledText(content: exam.roughExam.customer.firstname),
           const SizedBox(width: 8),
-          StyledText(content: exam.customer.lastname)
+          StyledText(content: exam.roughExam.customer.lastname)
         ]);
       case ExamCostuerInfoLine.city:
-        content = StyledText(content: exam.customer.city);
+        content = StyledText(content: exam.roughExam.customer.city);
       case ExamCostuerInfoLine.delay:
-        Duration delay = today.difference(exam.createdAt);
+        Duration delay = today.difference(exam.roughExam.createdAt);
         content = Row(
           children: [
             StyledText(content: delay.inDays.toString()),

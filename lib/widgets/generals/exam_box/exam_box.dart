@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sd_tech/models/enums/exam_type_enum.dart';
-import 'package:sd_tech/models/rough_exam.dart';
 import 'package:sd_tech/models/styles.dart';
-import 'package:sd_tech/widgets/generals/exam_box/costumer_infos.dart';
+import 'package:sd_tech/models/enums/exam_type_enum.dart';
+import 'package:sd_tech/widgets/generals/exam_box/costumer_infos_box.dart';
+import 'package:sd_tech/models/typed_exam.dart';
 import 'package:sd_tech/widgets/generals/exam_box/exam_type_box.dart';
 import 'package:sd_tech/widgets/generals/exam_box/payement_status_box.dart';
 
@@ -11,13 +11,12 @@ class ExamBox extends StatefulWidget {
     super.key,
     required this.exam,
   });
-  final RoughExam exam;
-
+  final TypedExam exam;
   @override
-  State<ExamBox> createState() => _ExamBoxState();
+  State<ExamBox> createState() => _TypedExamBoxState();
 }
 
-class _ExamBoxState extends State<ExamBox> {
+class _TypedExamBoxState extends State<ExamBox> {
   @override
   Widget build(BuildContext context) {
     return Column(

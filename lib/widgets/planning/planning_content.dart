@@ -7,8 +7,8 @@ class PlanningContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: dummyList.length, // items is a List
-      itemBuilder: (ctx, index) => dummyList[index],
+      itemCount: dummyListTypedExam.length, // items is a List
+      itemBuilder: (ctx, index) => dummyListTypedExam[index],
     );
   }
 }
