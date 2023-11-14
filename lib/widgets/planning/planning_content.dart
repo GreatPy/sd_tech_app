@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:sd_tech/data/dummy_list_typed_exam.dart';
+import 'package:sd_tech/models/typed_exams.dart';
 
 class PlanningContent extends StatelessWidget {
   const PlanningContent({super.key});
 
   @override
   Widget build(BuildContext context) {
+    const typedExams = TypedExams();
+    final theList = typedExams.allTypedExamsBox;
     return ListView.builder(
-      itemCount: dummyListTypedExam.length, // items is a List
-      itemBuilder: (ctx, index) => dummyListTypedExam[index],
+      itemCount: theList.length, // items is a List
+      itemBuilder: (ctx, index) => theList[index],
     );
   }
 }
