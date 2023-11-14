@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sd_tech/models/styles.dart';
-import 'package:sd_tech/models/enums/exam_type_enum.dart';
 import 'package:sd_tech/widgets/generals/exam_box/costumer_infos_box.dart';
 import 'package:sd_tech/models/typed_exam.dart';
 import 'package:sd_tech/widgets/generals/exam_box/exam_type_box.dart';
@@ -27,9 +26,7 @@ class _TypedExamBoxState extends State<ExamBox> {
             padding: const EdgeInsets.all(12),
             child: Row(
               children: [
-                const ExamTypeBox(
-                  examType: ExamTypeEnum.pg,
-                ),
+                ExamTypeBox(exam: widget.exam),
                 const SizedBox(width: 8),
                 Expanded(child: CostumerInfos(exam: widget.exam)),
                 const SizedBox(width: 8),
