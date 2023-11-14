@@ -13,7 +13,7 @@ Costumer costumer1 = Costumer(
   nir: "1 80 92 04 634 228 43",
   hight: 178,
   weight: 75,
-  rights: Rights.required,
+  rights: Rights.notRequired,
 );
 Costumer costumer2 = Costumer(
   id: 2,

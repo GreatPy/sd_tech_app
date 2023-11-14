@@ -56,7 +56,7 @@ class _TypedExamBoxState extends State<ExamBox> {
                   color: primaryColorLigth,
                 ),
                 const SizedBox(width: 4),
-                const PayementStatusBox(),
+                PayementStatusBox(exam: widget.exam.roughExam),
               ],
             ),
           ),

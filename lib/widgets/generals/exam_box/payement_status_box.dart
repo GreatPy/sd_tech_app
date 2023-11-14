@@ -1,24 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:sd_tech/models/enums/rights.dart';
+import 'package:sd_tech/models/rough_exam.dart';
 import 'package:sd_tech/models/styles.dart';
-import 'package:sd_tech/widgets/generals/styled_text.dart';
 
-class PayementStatusBox extends StatelessWidget {
-  const PayementStatusBox({super.key});
+class PayementStatusBox extends StatefulWidget {
+  const PayementStatusBox({
+    super.key,
+    required this.exam,
+  });
+  final RoughExam exam;
 
   @override
+  State<PayementStatusBox> createState() => _PayementStatusBoxState();
+}
+
+class _PayementStatusBoxState extends State<PayementStatusBox> {
+  @override
   Widget build(BuildContext context) {
+    IconData iconData = Icons.euro;
+    Color boxColor = neutralLigth;
+    if (widget.exam.customer.rights == Rights.notRequired) {
+      iconData = Icons.volunteer_activism_outlined;
+      boxColor = paymentSuccessColors;
+    }
     return Container(
       decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(8)),
-          color: paymentSuccessColors),
+          color: boxColor),
       height: boxSize,
       width: boxSize,
       child: Center(
-          child: StyledText(
-        content: "€",
+          child: Icon(
+        iconData,
         color: neutral,
-        fontSize: 28,
-        fontWeight: FontWeight.w300,
       )),
     );
   }
