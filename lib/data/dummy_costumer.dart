@@ -99,6 +99,20 @@ Costumer costumer7 = Costumer(
   weight: 90,
   rights: Rights.required,
 );
+Costumer costumer8 = Costumer(
+  id: 7,
+  firstname: "Kevin",
+  lastname: "POUTOU",
+  address: "3 rue de la ferme, 91000 MASSY",
+  city: "MASSY",
+  birthdate: DateTime(1975, 06, 11),
+  phone: "06 28 81 55 09",
+  mail: "tata@gmail.fr",
+  nir: "1 75 91 06 377 934 14",
+  hight: 165,
+  weight: 70,
+  rights: Rights.required,
+);
 
 final List<Costumer> costumers = [
   costumer1,
@@ -108,4 +122,5 @@ final List<Costumer> costumers = [
   costumer5,
   costumer6,
   costumer7,
+  costumer8,
 ];

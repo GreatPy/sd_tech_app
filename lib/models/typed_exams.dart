@@ -15,6 +15,8 @@ class TypedExams {
     for (final psg in psgs) {
       typedExams.add(TypedExam(roughExam: psg, type: ExamTypeEnum.psg));
     }
+    typedExams
+        .sort((a, b) => a.roughExam.createdAt.compareTo(b.roughExam.createdAt));
     for (final exam in typedExams) {
       final examBox = ExamBox(exam: exam);
       allExamsBox.add(examBox);

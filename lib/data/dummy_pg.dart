@@ -15,7 +15,7 @@ RoughExam pg1 = RoughExam(
   status: Status.toBeScheduled,
   tech: vahe,
   doctor: doctor1,
-  createdAt: getRelativeDate(239),
+  createdAt: getRelativeDate(7),
 );
 RoughExam pg2 = RoughExam(
   id: 2,
@@ -23,7 +23,7 @@ RoughExam pg2 = RoughExam(
   status: Status.toBeScheduled,
   tech: vahe,
   doctor: doctor1,
-  createdAt: getRelativeDate(23),
+  createdAt: getRelativeDate(7),
 );
 RoughExam pg3 = RoughExam(
   id: 3,

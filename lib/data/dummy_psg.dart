@@ -25,8 +25,17 @@ RoughExam psg2 = RoughExam(
   doctor: doctor1,
   createdAt: getRelativeDate(23),
 );
+RoughExam psg3 = RoughExam(
+  id: 1,
+  customer: costumer8,
+  status: Status.toBeScheduled,
+  tech: vahe,
+  doctor: doctor1,
+  createdAt: getRelativeDate(4),
+);
 
 final List<RoughExam> psgs = [
   psg1,
   psg2,
+  psg3,
 ];
