@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/enums/exam_type_enum.dart';
+import 'package:sd_tech/widgets/generals/typed_exam_box/typed_costumer_infos.dart';
 import 'package:sd_tech/models/typed_exam.dart';
 import 'package:sd_tech/widgets/generals/exam_box/exam_type_box.dart';
 import 'package:sd_tech/widgets/generals/exam_box/payement_status_box.dart';
@@ -30,7 +31,7 @@ class _TypedExamBoxState extends State<TypedExamBox> {
                   examType: ExamTypeEnum.pg,
                 ),
                 const SizedBox(width: 8),
-                // Expanded(child: CostumerInfos(exam: widget.exam)),
+                Expanded(child: TypedCostumerInfos(exam: widget.exam)),
                 const SizedBox(width: 8),
                 Icon(
                   Icons.warning_amber_rounded,

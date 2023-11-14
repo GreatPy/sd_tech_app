@@ -3,8 +3,8 @@ import 'package:sd_tech/models/enums/exam_costumer_info_line.dart';
 import 'package:sd_tech/models/typed_exam.dart';
 import 'package:sd_tech/widgets/generals/exam_box/scrolable_row.dart';
 
-class CostumerInfos extends StatelessWidget {
-  const CostumerInfos({
+class TypedCostumerInfos extends StatelessWidget {
+  const TypedCostumerInfos({
     super.key,
     required this.exam,
   });

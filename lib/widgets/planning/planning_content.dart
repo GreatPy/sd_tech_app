@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sd_tech/data/dummy_list.dart';
+import 'package:sd_tech/data/dummy_list_typed_exam.dart';
 
 class PlanningContent extends StatelessWidget {
   const PlanningContent({super.key});
