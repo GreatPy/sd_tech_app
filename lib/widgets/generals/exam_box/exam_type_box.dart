@@ -13,7 +13,7 @@ class ExamTypeBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String content = exam.type.name.toUpperCase();
-    Color color = content == "PG" ? pgColor : Colors.brown.shade200;
+    Color color = content == "PG" ? pgColor : psgColor;
     return Container(
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(8)),
