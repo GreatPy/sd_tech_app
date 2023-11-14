@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sd_tech/models/costumer.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/widgets/generals/exam_box/costumer_infos_box.dart';
 import 'package:sd_tech/models/typed_exam.dart';
@@ -18,6 +19,19 @@ class ExamBox extends StatefulWidget {
 class _TypedExamBoxState extends State<ExamBox> {
   @override
   Widget build(BuildContext context) {
+    Costumer costumer = widget.exam.roughExam.customer;
+    bool isCostumerProfileIncomplete = false;
+    if (costumer.firstname == "") isCostumerProfileIncomplete = true;
+    if (costumer.lastname == "") isCostumerProfileIncomplete = true;
+    if (costumer.phone == "") isCostumerProfileIncomplete = true;
+    if (costumer.mail == "") isCostumerProfileIncomplete = true;
+    if (costumer.address == "") isCostumerProfileIncomplete = true;
+    if (costumer.city == "") isCostumerProfileIncomplete = true;
+    if (costumer.birthdate == null) isCostumerProfileIncomplete = true;
+    if (costumer.nir == "") isCostumerProfileIncomplete = true;
+    if (costumer.hight == null) isCostumerProfileIncomplete = true;
+    if (costumer.weight == null) isCostumerProfileIncomplete = true;
+    double alertIconSize = isCostumerProfileIncomplete ? 32 : 0;
     return Column(
       children: [
         const SizedBox(height: 4),
@@ -33,7 +47,7 @@ class _TypedExamBoxState extends State<ExamBox> {
                 Icon(
                   Icons.warning_amber_rounded,
                   color: dangerColor,
-                  size: 32,
+                  size: alertIconSize,
                 ),
                 const SizedBox(width: 4),
                 Icon(

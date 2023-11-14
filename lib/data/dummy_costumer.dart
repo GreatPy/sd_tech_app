@@ -39,7 +39,7 @@ Costumer costumer3 = Costumer(
   phone: "06 77 23 85 85",
   mail: "patoch@wanadoo.fr",
   nir: "1 82 92 05 883 829 10",
-  hight: 166,
+  // hight: 166,
   weight: 86,
   rights: Rights.required,
 );
@@ -52,7 +52,7 @@ Costumer costumer4 = Costumer(
   birthdate: DateTime(2002, 01, 30),
   phone: "07 22 78 37 21",
   mail: "momo@yahoo.fr",
-  nir: "1 02 93 01 501 735 13",
+  nir: "",
   hight: 190,
   weight: 107,
   rights: Rights.notRequired,
