@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:sd_tech/models/enums/exam_type_enum.dart';
-import 'package:sd_tech/models/rough_exam.dart';
 import 'package:sd_tech/models/styles.dart';
-import 'package:sd_tech/widgets/generals/exam_box/costumer_infos.dart';
+import 'package:sd_tech/models/enums/exam_type_enum.dart';
+import 'package:sd_tech/models/typed_exam.dart';
 import 'package:sd_tech/widgets/generals/exam_box/exam_type_box.dart';
 import 'package:sd_tech/widgets/generals/exam_box/payement_status.dart';
 
-class ExamBox extends StatefulWidget {
-  const ExamBox({
+class TypedExamBox extends StatefulWidget {
+  const TypedExamBox({
     super.key,
     required this.exam,
   });
-  final RoughExam exam;
-
+  final TypedExam exam;
   @override
-  State<ExamBox> createState() => _ExamBoxState();
+  State<TypedExamBox> createState() => _TypedExamBoxState();
 }
 
-class _ExamBoxState extends State<ExamBox> {
+class _TypedExamBoxState extends State<TypedExamBox> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -32,7 +30,7 @@ class _ExamBoxState extends State<ExamBox> {
                   examType: ExamTypeEnum.pg,
                 ),
                 const SizedBox(width: 8),
-                Expanded(child: CostumerInfos(exam: widget.exam)),
+                // Expanded(child: CostumerInfos(exam: widget.exam)),
                 const SizedBox(width: 8),
                 Icon(
                   Icons.warning_amber_rounded,
