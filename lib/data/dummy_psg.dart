@@ -14,7 +14,7 @@ RoughExam psg1 = RoughExam(
   status: Status.doesnTWant,
   tech: vahe,
   doctor: doctor1,
-  createdAt: methods.getPastRelativeDate(9),
+  createdAt: methods.getPastRelativeDate(9, 4),
 );
 RoughExam psg2 = RoughExam(
     id: 2,
@@ -22,7 +22,7 @@ RoughExam psg2 = RoughExam(
     status: Status.toBeScheduled,
     tech: vahe,
     doctor: doctor1,
-    createdAt: methods.getPastRelativeDate(12),
+    createdAt: methods.getPastRelativeDate(12, 6),
     paymentStatus: PaymentStatus.incomplete);
 RoughExam psg3 = RoughExam(
   id: 1,
@@ -30,9 +30,9 @@ RoughExam psg3 = RoughExam(
   status: Status.conducted,
   tech: vahe,
   doctor: doctor1,
-  createdAt: methods.getPastRelativeDate(14),
+  createdAt: methods.getPastRelativeDate(14, 12),
   paymentStatus: PaymentStatus.succeeded,
-  deliveryDate: methods.getFuturRelativeDate(2),
+  deliveryDate: methods.getFuturRelativeDate(2, 7),
 );
 
 final List<RoughExam> psgs = [

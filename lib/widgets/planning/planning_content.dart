@@ -7,7 +7,7 @@ class PlanningContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const typedExams = TypedExams();
-    final theList = typedExams.typedExamWithDeliveryDate;
+    final theList = typedExams.allTypedExamsBox;
     return ListView.builder(
       itemCount: theList.length, // items is a List
       itemBuilder: (ctx, index) => theList[index],

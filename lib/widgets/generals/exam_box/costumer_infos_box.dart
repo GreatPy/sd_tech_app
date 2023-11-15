@@ -22,8 +22,9 @@ class CostumerInfos extends StatelessWidget {
           exam: exam,
         ),
         ScrolableRow(
-          //if status == tobeScheduled:line = delay ,else: line = time
-          line: ExamCostuerInfoLine.delay,
+          line: exam.roughExam.deliveryDate == null
+              ? ExamCostuerInfoLine.delay
+              : ExamCostuerInfoLine.time,
           exam: exam,
         ),
       ],

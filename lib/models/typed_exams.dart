@@ -26,7 +26,7 @@ class TypedExams {
   }
 
   //ALL EXAMS WITH NO DELIVERY DATE
-  List<ExamBox> get typedExamWithNoDeliveryDate {
+  List<ExamBox> get typedExamWithDeliveryDate {
     List<ExamBox> allExamsBox = allTypedExamsBox;
     return allExamsBox
         .where((exam) => exam.exam.roughExam.deliveryDate != null)
@@ -34,7 +34,7 @@ class TypedExams {
   }
 
   // ALL EXAMS WITH DELIVERY DATE
-  List<ExamBox> get typedExamWithDeliveryDate {
+  List<ExamBox> get typedExamWithNoDeliveryDate {
     List<ExamBox> allExamsBox = allTypedExamsBox;
     return allExamsBox
         .where((exam) => exam.exam.roughExam.deliveryDate == null)
