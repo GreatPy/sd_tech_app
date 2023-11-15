@@ -17,20 +17,23 @@ RoughExam pg1 = RoughExam(
   createdAt: methods.getPastRelativeDate(7),
 );
 RoughExam pg2 = RoughExam(
-    id: 2,
-    customer: costumer2,
-    status: Status.toBeScheduled,
-    tech: vahe,
-    doctor: doctor1,
-    createdAt: methods.getPastRelativeDate(8),
-    paymentStatus: PaymentStatus.failed);
+  id: 2,
+  customer: costumer2,
+  status: Status.conducted,
+  tech: vahe,
+  doctor: doctor1,
+  createdAt: methods.getPastRelativeDate(8),
+  paymentStatus: PaymentStatus.failed,
+  deliveryDate: methods.getPastRelativeDate(3),
+);
 RoughExam pg3 = RoughExam(
   id: 3,
   customer: costumer3,
-  status: Status.toBeScheduled,
+  status: Status.scheduled,
   tech: vahe,
   doctor: doctor1,
   createdAt: methods.getPastRelativeDate(18),
+  deliveryDate: methods.getFuturRelativeDate(3),
 );
 RoughExam pg4 = RoughExam(
   id: 4,

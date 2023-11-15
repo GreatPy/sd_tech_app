@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sd_tech/models/costumer.dart';
+import 'package:sd_tech/models/enums/status.dart';
+import 'package:sd_tech/models/icons_data/status.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/widgets/generals/exam_box/costumer_infos_box.dart';
 import 'package:sd_tech/models/typed_exam.dart';
@@ -20,6 +22,8 @@ class _TypedExamBoxState extends State<ExamBox> {
   @override
   Widget build(BuildContext context) {
     Costumer costumer = widget.exam.roughExam.customer;
+    Status status = widget.exam.roughExam.status;
+    IconData statusIconData = toBeScheduledIconData;
     bool isCostumerProfileIncomplete = false;
     if (costumer.firstname == "") isCostumerProfileIncomplete = true;
     if (costumer.lastname == "") isCostumerProfileIncomplete = true;
@@ -32,6 +36,24 @@ class _TypedExamBoxState extends State<ExamBox> {
     if (costumer.hight == null) isCostumerProfileIncomplete = true;
     if (costumer.weight == null) isCostumerProfileIncomplete = true;
     double alertIconSize = isCostumerProfileIncomplete ? 32 : 0;
+    switch (status) {
+      case Status.cancelByHost:
+        statusIconData = cancelByHostIconData;
+      case Status.doesnTWant:
+        statusIconData = doesntWantIconData;
+      case Status.noShow:
+        statusIconData = noShowIconData;
+      case Status.lateCancelation:
+        statusIconData = lateCancelationIconData;
+      case Status.timelyCancelation:
+        statusIconData = timelyCancelationIconData;
+      case Status.conducted:
+        statusIconData = conductedIconData;
+      case Status.scheduled:
+        statusIconData = scheduledIconData;
+      case Status.toBeScheduled:
+        statusIconData = toBeScheduledIconData;
+    }
     return Column(
       children: [
         const SizedBox(height: 4),
@@ -51,7 +73,7 @@ class _TypedExamBoxState extends State<ExamBox> {
                 ),
                 const SizedBox(width: 4),
                 Icon(
-                  Icons.hourglass_empty_outlined,
+                  statusIconData,
                   size: 32,
                   color: primaryColorLigth,
                 ),

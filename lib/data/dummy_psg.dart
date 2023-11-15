@@ -11,7 +11,7 @@ final methods = Methods();
 RoughExam psg1 = RoughExam(
   id: 1,
   customer: costumer6,
-  status: Status.toBeScheduled,
+  status: Status.doesnTWant,
   tech: vahe,
   doctor: doctor1,
   createdAt: methods.getPastRelativeDate(9),
@@ -27,7 +27,7 @@ RoughExam psg2 = RoughExam(
 RoughExam psg3 = RoughExam(
   id: 1,
   customer: costumer8,
-  status: Status.toBeScheduled,
+  status: Status.conducted,
   tech: vahe,
   doctor: doctor1,
   createdAt: methods.getPastRelativeDate(14),
