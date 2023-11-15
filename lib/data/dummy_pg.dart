@@ -1,14 +1,12 @@
 import 'package:sd_tech/data/dummy_doctor.dart';
 import 'package:sd_tech/data/tech.dart';
+import 'package:sd_tech/models/methods.dart';
 import 'package:sd_tech/models/enums/payment_status.dart';
 import 'package:sd_tech/models/rough_exam.dart';
 import 'package:sd_tech/models/enums/status.dart';
 import 'package:sd_tech/data/dummy_costumer.dart';
 
-final DateTime today = DateTime.now();
-DateTime getRelativeDate(int days) {
-  return today.subtract(Duration(days: days));
-}
+final methods = Methods();
 
 RoughExam pg1 = RoughExam(
   id: 1,
@@ -16,7 +14,7 @@ RoughExam pg1 = RoughExam(
   status: Status.toBeScheduled,
   tech: vahe,
   doctor: doctor1,
-  createdAt: getRelativeDate(7),
+  createdAt: methods.getPastRelativeDate(7),
 );
 RoughExam pg2 = RoughExam(
     id: 2,
@@ -24,7 +22,7 @@ RoughExam pg2 = RoughExam(
     status: Status.toBeScheduled,
     tech: vahe,
     doctor: doctor1,
-    createdAt: getRelativeDate(7),
+    createdAt: methods.getPastRelativeDate(8),
     paymentStatus: PaymentStatus.failed);
 RoughExam pg3 = RoughExam(
   id: 3,
@@ -32,7 +30,7 @@ RoughExam pg3 = RoughExam(
   status: Status.toBeScheduled,
   tech: vahe,
   doctor: doctor1,
-  createdAt: getRelativeDate(18),
+  createdAt: methods.getPastRelativeDate(18),
 );
 RoughExam pg4 = RoughExam(
   id: 4,
@@ -40,7 +38,7 @@ RoughExam pg4 = RoughExam(
   status: Status.toBeScheduled,
   tech: vahe,
   doctor: doctor1,
-  createdAt: getRelativeDate(3),
+  createdAt: methods.getPastRelativeDate(3),
 );
 RoughExam pg5 = RoughExam(
   id: 5,
@@ -48,7 +46,7 @@ RoughExam pg5 = RoughExam(
   status: Status.toBeScheduled,
   tech: vahe,
   doctor: doctor1,
-  createdAt: getRelativeDate(1),
+  createdAt: methods.getPastRelativeDate(1),
 );
 
 final List<RoughExam> pgs = [
