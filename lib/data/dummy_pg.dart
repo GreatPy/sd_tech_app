@@ -1,5 +1,6 @@
 import 'package:sd_tech/data/dummy_doctor.dart';
 import 'package:sd_tech/data/tech.dart';
+import 'package:sd_tech/models/enums/payment_status.dart';
 import 'package:sd_tech/models/rough_exam.dart';
 import 'package:sd_tech/models/enums/status.dart';
 import 'package:sd_tech/data/dummy_costumer.dart';
@@ -18,13 +19,13 @@ RoughExam pg1 = RoughExam(
   createdAt: getRelativeDate(7),
 );
 RoughExam pg2 = RoughExam(
-  id: 2,
-  customer: costumer2,
-  status: Status.toBeScheduled,
-  tech: vahe,
-  doctor: doctor1,
-  createdAt: getRelativeDate(7),
-);
+    id: 2,
+    customer: costumer2,
+    status: Status.toBeScheduled,
+    tech: vahe,
+    doctor: doctor1,
+    createdAt: getRelativeDate(7),
+    paymentStatus: PaymentStatus.failed);
 RoughExam pg3 = RoughExam(
   id: 3,
   customer: costumer3,

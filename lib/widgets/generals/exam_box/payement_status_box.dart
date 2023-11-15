@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sd_tech/models/enums/payment_status.dart';
 import 'package:sd_tech/models/enums/rights.dart';
 import 'package:sd_tech/models/rough_exam.dart';
 import 'package:sd_tech/models/styles.dart';
+import 'package:sd_tech/widgets/generals/exam_box/payement_status_icon.dart';
 
 class PayementStatusBox extends StatefulWidget {
   const PayementStatusBox({
@@ -17,23 +19,27 @@ class PayementStatusBox extends StatefulWidget {
 class _PayementStatusBoxState extends State<PayementStatusBox> {
   @override
   Widget build(BuildContext context) {
-    IconData iconData = Icons.euro;
-    Color boxColor = neutralLigth;
+    Color payementSatusBoxColor = neutralLigth;
+    if (widget.exam.paymentStatus == PaymentStatus.failed) {
+      payementSatusBoxColor = dangerColor;
+    }
+    if (widget.exam.paymentStatus == PaymentStatus.succeeded) {
+      payementSatusBoxColor = paymentSuccessColors;
+    }
     if (widget.exam.customer.rights == Rights.notRequired) {
-      iconData = Icons.volunteer_activism_outlined;
-      boxColor = paymentSuccessColors;
+      payementSatusBoxColor = paymentSuccessColors;
     }
     return Container(
       decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(8)),
-          color: boxColor),
+        color: payementSatusBoxColor,
+        borderRadius: const BorderRadius.all(Radius.circular(8)),
+      ),
       height: boxSize,
       width: boxSize,
       child: Center(
-          child: Icon(
-        iconData,
-        color: neutral,
-      )),
+          child: PaymentStausIcon(
+              rights: widget.exam.customer.rights,
+              paymentStatus: widget.exam.paymentStatus)),
     );
   }
 }
