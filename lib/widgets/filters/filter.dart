@@ -11,44 +11,53 @@ class Filter extends StatefulWidget {
 }
 
 class _FilterState extends State<Filter> {
-  bool _isChecked = false;
+  bool filterSet = false;
   @override
   Widget build(BuildContext context) {
     final String title;
     final IconData iconData;
+
     switch (widget.label) {
       case Status.cancelByHost:
         title = "annulation SleepDoctor";
         iconData = Icons.build_circle_outlined;
+
       case Status.doesnTWant:
         title = "ne veut plus";
         iconData = Icons.back_hand_outlined;
+
       case Status.noShow:
         title = "no show";
         iconData = Icons.cancel_outlined;
+
       case Status.lateCancelation:
         title = "annulation après départ";
         iconData = Icons.alarm_off_outlined;
+
       case Status.timelyCancelation:
         title = "annulation avant départ";
         iconData = Icons.alarm_on_outlined;
+
       case Status.conducted:
         title = "éffectué";
         iconData = Icons.check_circle_outline_outlined;
+
       case Status.scheduled:
         title = "rdv pris";
         iconData = Icons.date_range_outlined;
+
       case Status.toBeScheduled:
         title = "à programmer";
         iconData = Icons.hourglass_empty_outlined;
     }
+
     return Column(
       children: [
         SwitchListTile(
-          value: _isChecked,
+          value: filterSet,
           onChanged: (isChecked) {
             setState(() {
-              _isChecked = isChecked;
+              filterSet = isChecked;
             });
           },
           dense: false,
