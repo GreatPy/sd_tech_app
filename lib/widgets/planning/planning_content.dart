@@ -13,6 +13,6 @@ class PlanningContent extends StatelessWidget {
     //   itemCount: theList.length, // items is a List
     //   itemBuilder: (ctx, index) => theList[index],
     // );
-    return typedExams.toBeScheduledShift;
+    return SingleChildScrollView(child: typedExams.allShift);
   }
 }

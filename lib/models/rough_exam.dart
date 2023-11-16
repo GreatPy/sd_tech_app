@@ -31,4 +31,11 @@ class RoughExam {
   final String? bedTime;
   final String? wakeUpTime;
   final PaymentStatus? paymentStatus;
+  DateTime? get deliveryDay {
+    if (deliveryDate != null) {
+      return DateTime(
+          deliveryDate!.year, deliveryDate!.month, deliveryDate!.day);
+    }
+    return null;
+  }
 }

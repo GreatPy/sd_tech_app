@@ -27,29 +27,8 @@ class TypedExams {
     return allExamsBox;
   }
 
-  // ALL EXAMBOXS WITH NO DELIVERY DATE
-  List<ExamBox> get typedExamWithNoDeliveryDate {
-    List<ExamBox> allExamsBox = allTypedExamsBox;
-    return allExamsBox
-        .where((exam) => exam.exam.roughExam.deliveryDate == null)
-        .toList();
-  }
-
-  //ALL EXAMBOXS WITH DELIVERY DATE
-  List<ExamBox> get typedExamWithDeliveryDate {
-    List<ExamBox> allExamsBox = allTypedExamsBox;
-    return allExamsBox
-        .where((exam) => exam.exam.roughExam.deliveryDate != null)
-        .toList();
-  }
-
-  //ALL EXAMBOXS SPLITED
-  List<List<ExamBox>> get spitedScheduledShift {
-    return [];
-  }
-
-  // TO BE SCHEDULED SHIFT
-  Shift get toBeScheduledShift {
-    return Shift(examBoxs: typedExamWithNoDeliveryDate);
+  // ALL SHIFT
+  Shift get allShift {
+    return Shift(examBoxs: allTypedExamsBox);
   }
 }

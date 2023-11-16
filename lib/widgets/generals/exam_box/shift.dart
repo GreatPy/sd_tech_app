@@ -16,7 +16,7 @@ class Shift extends StatefulWidget {
 class _ShiftState extends State<Shift> {
   @override
   Widget build(BuildContext context) {
-    String content = "";
+    String content = "SHIFT";
     if (widget.examBoxs[0].exam.roughExam.deliveryDate == null) {
       content = "Non progammés";
     }
