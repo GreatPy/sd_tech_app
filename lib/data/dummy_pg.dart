@@ -33,7 +33,7 @@ RoughExam pg3 = RoughExam(
   tech: vahe,
   doctor: doctor1,
   createdAt: methods.getPastRelativeDate(18, 9),
-  deliveryDate: methods.getFuturRelativeDate(3, 5),
+  deliveryDate: methods.getFuturRelativeDate(32, 5),
 );
 RoughExam pg4 = RoughExam(
   id: 4,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:collection/collection.dart';
 import 'package:sd_tech/data/dummy_pg.dart';
 import 'package:sd_tech/data/dummy_psg.dart';
 import 'package:sd_tech/models/enums/exam_type_enum.dart';
@@ -10,19 +11,30 @@ class TypedExams {
   const TypedExams();
   //ALL EXAMS
   List<ExamBox> get allTypedExamsBox {
-    List<TypedExam> typedExams = [];
+    List<TypedExam> allTypedExams = [];
     List<ExamBox> allExamsBox = [];
     for (final pg in pgs) {
-      typedExams.add(TypedExam(roughExam: pg, type: ExamTypeEnum.pg));
+      allTypedExams.add(TypedExam(roughExam: pg, type: ExamTypeEnum.pg));
     }
     for (final psg in psgs) {
-      typedExams.add(TypedExam(roughExam: psg, type: ExamTypeEnum.psg));
+      allTypedExams.add(TypedExam(roughExam: psg, type: ExamTypeEnum.psg));
     }
-    typedExams
-        .sort((a, b) => a.roughExam.createdAt.compareTo(b.roughExam.createdAt));
-    for (final exam in typedExams) {
+    for (final exam in allTypedExams) {
       final examBox = ExamBox(exam: exam);
       allExamsBox.add(examBox);
+    }
+    //GROUPS
+    Map<DateTime?, List<TypedExam>> groupedByDate = groupBy(allTypedExams,
+        (TypedExam typedExam) => typedExam.roughExam.deliveryDay);
+    List<List<TypedExam>> groupsList = groupedByDate.values.toList();
+
+    //PRINT TEST
+    for (List<TypedExam> group in groupsList) {
+      print("SHIFT");
+      for (TypedExam typedExam in group) {
+        print(
+            "${typedExam.roughExam.customer.firstname} : ${typedExam.roughExam.deliveryDay}");
+      }
     }
     return allExamsBox;
   }
