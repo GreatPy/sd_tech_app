@@ -38,6 +38,7 @@ dependencies:
   keyboard_dismisser: ^3.0.0
   date_format: ^2.0.7
   intl: ^0.18.1
+  collection: ^1.17.2
 
 dev_dependencies:
   flutter_test:
