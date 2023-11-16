@@ -27,14 +27,36 @@ class TypedExams {
     Map<DateTime?, List<TypedExam>> groupedByDate = groupBy(allTypedExams,
         (TypedExam typedExam) => typedExam.roughExam.deliveryDay);
     List<List<TypedExam>> groupsList = groupedByDate.values.toList();
-
-    //PRINT TEST
+    List<List<TypedExam>> undatedTypedExams = [];
+    List<List<TypedExam>> datedTypedExams = [];
     for (List<TypedExam> group in groupsList) {
-      print("SHIFT");
+      if (group.first.roughExam.deliveryDate == null) {
+        undatedTypedExams.add(group);
+      }
+
+      if (group.first.roughExam.deliveryDate != null) {
+        datedTypedExams.add(group);
+      }
+    }
+    datedTypedExams.sort((a, b) => a.first.roughExam.deliveryDate!
+        .compareTo(b.first.roughExam.deliveryDate!));
+
+    //START PRINT TEST
+    for (List<TypedExam> group in undatedTypedExams) {
+      print("NO DATE");
       for (TypedExam typedExam in group) {
         print(
             "${typedExam.roughExam.customer.firstname} : ${typedExam.roughExam.deliveryDay}");
       }
+    }
+    for (List<TypedExam> group in datedTypedExams) {
+      print(
+          "SHIFT du ${group.first.roughExam.deliveryDate!.day} ${group.first.roughExam.deliveryDate!.month} ${group.first.roughExam.deliveryDate!.year}");
+      for (TypedExam typedExam in group) {
+        print(
+            "${typedExam.roughExam.customer.firstname} : ${typedExam.roughExam.deliveryDay}");
+      }
+      print("==============");
     }
     return allExamsBox;
   }
