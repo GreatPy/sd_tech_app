@@ -30,33 +30,47 @@ class TypedExams {
     List<List<TypedExam>> undatedTypedExams = [];
     List<List<TypedExam>> datedTypedExams = [];
     for (List<TypedExam> group in groupsList) {
+      //UNDATED LIST
       if (group.first.roughExam.deliveryDate == null) {
         undatedTypedExams.add(group);
       }
-
+      //DATED LIST
       if (group.first.roughExam.deliveryDate != null) {
         datedTypedExams.add(group);
       }
     }
+    //SORTED UNDATED LIST BY CREATEDAT DATE
+    undatedTypedExams.sort((a, b) =>
+        a.first.roughExam.createdAt.compareTo(b.first.roughExam.createdAt));
+
+    //SORTED DATED LIST BY DELIVERY DATE
     datedTypedExams.sort((a, b) => a.first.roughExam.deliveryDate!
         .compareTo(b.first.roughExam.deliveryDate!));
 
+    //CLEAN TYPED EXAMS
+    List<List<TypedExam>> cleanTypedExam = [
+      undatedTypedExams.first,
+      ...datedTypedExams
+    ];
+
     //START PRINT TEST
-    for (List<TypedExam> group in undatedTypedExams) {
-      print("NO DATE");
-      for (TypedExam typedExam in group) {
-        print(
-            "${typedExam.roughExam.customer.firstname} : ${typedExam.roughExam.deliveryDay}");
+    for (final shift in cleanTypedExam) {
+      final date = shift.first.roughExam.deliveryDate;
+      if (date == null) {
+        print(" >>>>> NO DATES >>>>>");
+        for (final exam in shift) {
+          print(
+              "${exam.roughExam.customer.firstname} created at ${exam.roughExam.createdAt.day}/${exam.roughExam.createdAt.month}/${exam.roughExam.createdAt.year}");
+        }
       }
-    }
-    for (List<TypedExam> group in datedTypedExams) {
-      print(
-          "SHIFT du ${group.first.roughExam.deliveryDate!.day} ${group.first.roughExam.deliveryDate!.month} ${group.first.roughExam.deliveryDate!.year}");
-      for (TypedExam typedExam in group) {
-        print(
-            "${typedExam.roughExam.customer.firstname} : ${typedExam.roughExam.deliveryDay}");
+      if (shift.first.roughExam.deliveryDate != null) {
+        print(" >>>>> SHIFT du ${date!.day} ${date.month} ${date.year} >>>>>");
+        for (final exam in shift) {
+          print(
+              "${exam.roughExam.customer.firstname} : ${exam.roughExam.deliveryDate!.hour}h${exam.roughExam.deliveryDate!.hour}");
+        }
       }
-      print("==============");
+      print("================================================");
     }
     return allExamsBox;
   }
