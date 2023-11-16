@@ -32,7 +32,7 @@ RoughExam psg3 = RoughExam(
   doctor: doctor1,
   createdAt: methods.getPastRelativeDate(14, 12),
   paymentStatus: PaymentStatus.succeeded,
-  deliveryDate: methods.getFuturRelativeDate(2, 7),
+  deliveryDate: methods.getFuturRelativeDate(1, 7),
 );
 
 final List<RoughExam> psgs = [

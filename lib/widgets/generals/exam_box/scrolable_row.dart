@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sd_tech/models/costumer.dart';
 import 'package:sd_tech/models/enums/exam_costumer_info_line.dart';
+import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/typed_exam.dart';
 import 'package:sd_tech/widgets/generals/styled_text.dart';
 import 'package:intl/intl.dart';
@@ -37,32 +39,45 @@ class _ScrolableRowState extends State<ScrolableRow> {
   Widget build(BuildContext context) {
     final Widget content;
     final DateTime today = DateTime.now();
+    Costumer customer = widget.exam.roughExam.customer;
     switch (widget.line) {
       //FULLNAME
       case ExamCostuerInfoLine.fullName:
         content = Row(children: [
-          StyledText(content: widget.exam.roughExam.customer.firstname),
+          StyledText(content: customer.firstname, color: neutral),
           const SizedBox(width: 8),
-          StyledText(content: widget.exam.roughExam.customer.lastname)
+          StyledText(content: customer.lastname, color: neutral)
         ]);
       //CITY
       case ExamCostuerInfoLine.city:
-        content = StyledText(content: widget.exam.roughExam.customer.city);
+        content = StyledText(
+          content: customer.city,
+          color: neutral,
+          fontWeight: FontWeight.w500,
+        );
       //DELAY
       case ExamCostuerInfoLine.delay:
         Duration delay = today.difference(widget.exam.roughExam.createdAt);
         content = Row(
           children: [
-            StyledText(content: delay.inDays.toString()),
+            StyledText(
+              content: delay.inDays.toString(),
+              color: neutral,
+            ),
             const SizedBox(width: 8),
             StyledText(
               content: delay > const Duration(days: 2) ? "jours" : "jour",
+              color: neutral,
             )
           ],
         );
       //TIME
       case ExamCostuerInfoLine.time:
-        content = StyledText(content: time);
+        content = StyledText(
+          content: time,
+          color: neutral,
+          fontSize: 16,
+        );
     }
     return Row(
       children: [

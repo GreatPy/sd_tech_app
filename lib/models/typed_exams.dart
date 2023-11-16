@@ -48,32 +48,6 @@ class TypedExams {
       undatedTypedExams.first,
       ...datedTypedExams
     ];
-
-    // //START PRINT TEST
-    // for (final shift in cleanTypedExam) {
-    //   final date = shift.first.roughExam.deliveryDate;
-    //   if (date == null) {
-    //     print(" >>>>> NO DATES >>>>>");
-    //     for (final exam in shift) {
-    //       print(
-    //           "${exam.roughExam.customer.firstname} created at ${exam.roughExam.createdAt.day}/${exam.roughExam.createdAt.month}/${exam.roughExam.createdAt.year}");
-    //     }
-    //   }
-    //   if (shift.first.roughExam.deliveryDate != null) {
-    //     print(" >>>>> SHIFT du ${date!.day} ${date.month} ${date.year} >>>>>");
-    //     for (final exam in shift) {
-    //       print(
-    //           "${exam.roughExam.customer.firstname} : ${exam.roughExam.deliveryDate!.hour}h${exam.roughExam.deliveryDate!.hour}");
-    //     }
-    //   }
-    //   print("================================================");
-    // }
-
-    // for (final exam in allTypedExams) {
-    //   final examBox = ExamBox(exam: exam);
-    //   allExamsBox.add(examBox);
-    // }
-
     return cleanTypedExam;
   }
 
@@ -87,7 +61,6 @@ class TypedExams {
       }
       allExamBoxList.add(examBoxList);
     }
-    // print(allExamBoxList);
     return allExamBoxList;
   }
 
