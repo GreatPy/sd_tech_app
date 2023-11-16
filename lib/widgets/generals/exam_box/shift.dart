@@ -16,10 +16,15 @@ class Shift extends StatefulWidget {
 class _ShiftState extends State<Shift> {
   @override
   Widget build(BuildContext context) {
-    String content = "SHIFT";
-    if (widget.examBoxs[0].exam.roughExam.deliveryDate == null) {
+    DateTime? date = widget.examBoxs.first.exam.roughExam.deliveryDate;
+    String content = "";
+    if (date == null) {
       content = "Non progammés";
     }
+    if (date != null) {
+      content = "${date!.day} / ${date.month} / ${date.year}";
+    }
+
     return Column(
       children: [
         const SizedBox(height: 24),
@@ -30,7 +35,7 @@ class _ShiftState extends State<Shift> {
           fontWeight: FontWeight.bold,
         ),
         Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
           child: Column(children: [...widget.examBoxs]),
         )
       ],

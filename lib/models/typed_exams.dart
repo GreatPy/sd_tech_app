@@ -10,19 +10,15 @@ import 'package:sd_tech/widgets/generals/exam_box/shift.dart';
 class TypedExams {
   const TypedExams();
   //ALL EXAMS
-  List<ExamBox> get allTypedExamsBox {
+  List<List<TypedExam>> get allTypedExams {
     List<TypedExam> allTypedExams = [];
-    List<ExamBox> allExamsBox = [];
     for (final pg in pgs) {
       allTypedExams.add(TypedExam(roughExam: pg, type: ExamTypeEnum.pg));
     }
     for (final psg in psgs) {
       allTypedExams.add(TypedExam(roughExam: psg, type: ExamTypeEnum.psg));
     }
-    for (final exam in allTypedExams) {
-      final examBox = ExamBox(exam: exam);
-      allExamsBox.add(examBox);
-    }
+
     //GROUPS
     Map<DateTime?, List<TypedExam>> groupedByDate = groupBy(allTypedExams,
         (TypedExam typedExam) => typedExam.roughExam.deliveryDay);
@@ -53,30 +49,59 @@ class TypedExams {
       ...datedTypedExams
     ];
 
-    //START PRINT TEST
-    for (final shift in cleanTypedExam) {
-      final date = shift.first.roughExam.deliveryDate;
-      if (date == null) {
-        print(" >>>>> NO DATES >>>>>");
-        for (final exam in shift) {
-          print(
-              "${exam.roughExam.customer.firstname} created at ${exam.roughExam.createdAt.day}/${exam.roughExam.createdAt.month}/${exam.roughExam.createdAt.year}");
-        }
-      }
-      if (shift.first.roughExam.deliveryDate != null) {
-        print(" >>>>> SHIFT du ${date!.day} ${date.month} ${date.year} >>>>>");
-        for (final exam in shift) {
-          print(
-              "${exam.roughExam.customer.firstname} : ${exam.roughExam.deliveryDate!.hour}h${exam.roughExam.deliveryDate!.hour}");
-        }
-      }
-      print("================================================");
-    }
-    return allExamsBox;
+    // //START PRINT TEST
+    // for (final shift in cleanTypedExam) {
+    //   final date = shift.first.roughExam.deliveryDate;
+    //   if (date == null) {
+    //     print(" >>>>> NO DATES >>>>>");
+    //     for (final exam in shift) {
+    //       print(
+    //           "${exam.roughExam.customer.firstname} created at ${exam.roughExam.createdAt.day}/${exam.roughExam.createdAt.month}/${exam.roughExam.createdAt.year}");
+    //     }
+    //   }
+    //   if (shift.first.roughExam.deliveryDate != null) {
+    //     print(" >>>>> SHIFT du ${date!.day} ${date.month} ${date.year} >>>>>");
+    //     for (final exam in shift) {
+    //       print(
+    //           "${exam.roughExam.customer.firstname} : ${exam.roughExam.deliveryDate!.hour}h${exam.roughExam.deliveryDate!.hour}");
+    //     }
+    //   }
+    //   print("================================================");
+    // }
+
+    // for (final exam in allTypedExams) {
+    //   final examBox = ExamBox(exam: exam);
+    //   allExamsBox.add(examBox);
+    // }
+
+    return cleanTypedExam;
   }
 
   // ALL SHIFT
-  Shift get allShift {
-    return Shift(examBoxs: allTypedExamsBox);
+  List<List<ExamBox>> get allExamBoxList {
+    List<List<ExamBox>> allExamBoxList = [];
+    for (List<TypedExam> shift in allTypedExams) {
+      List<ExamBox> examBoxList = [];
+      for (TypedExam typedExam in shift) {
+        examBoxList.add(ExamBox(exam: typedExam));
+      }
+      allExamBoxList.add(examBoxList);
+    }
+    // print(allExamBoxList);
+    return allExamBoxList;
+  }
+
+  List<Shift> get allShift {
+    List<Shift> allShift = [];
+    for (List<ExamBox> shift in allExamBoxList) {
+      allShift.add(Shift(examBoxs: shift));
+    }
+    return allShift;
+  }
+
+  Widget get planning {
+    return Column(
+      children: [...allShift],
+    );
   }
 }
