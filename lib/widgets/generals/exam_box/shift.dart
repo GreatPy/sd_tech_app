@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/widgets/generals/exam_box/exam_box.dart';
 import 'package:sd_tech/widgets/generals/styled_text.dart';
@@ -14,6 +16,14 @@ class Shift extends StatefulWidget {
 }
 
 class _ShiftState extends State<Shift> {
+  late String formatedDate;
+  @override
+  void initState() {
+    super.initState();
+    initializeDateFormatting("fr_FR", null);
+    // formatedDate = DateFormat("EEEE dd LLLL yyyy", "fr_FR").format(date());
+  }
+
   @override
   Widget build(BuildContext context) {
     DateTime? date = widget.examBoxs.first.exam.roughExam.deliveryDate;
@@ -22,7 +32,9 @@ class _ShiftState extends State<Shift> {
       content = "Non progammés";
     }
     if (date != null) {
-      content = "${date!.day} / ${date.month} / ${date.year}";
+      formatedDate = DateFormat("EEEE dd LLLL yyyy", "fr_FR").format(date);
+      // content = "${date.day} / ${date.month} / ${date.year}";
+      content = formatedDate;
     }
 
     return Column(
