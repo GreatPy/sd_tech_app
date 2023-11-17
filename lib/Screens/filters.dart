@@ -8,16 +8,11 @@ import 'package:sd_tech/widgets/generals/footer/footer.dart';
 import 'package:sd_tech/widgets/generals/header.dart';
 import 'package:sd_tech/widgets/generals/body.dart';
 
-class Filters extends StatefulWidget {
+class Filters extends ConsumerWidget {
   const Filters({super.key});
 
   @override
-  State<Filters> createState() => _FiltersState();
-}
-
-class _FiltersState extends State<Filters> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return const Scaffold(
         appBar: Header(screen: Screen.filters),
         body: Body(

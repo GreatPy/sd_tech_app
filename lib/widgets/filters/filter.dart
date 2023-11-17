@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sd_tech/models/enums/status.dart';
 import 'package:sd_tech/models/styles.dart';
+import 'package:sd_tech/providers/filters_provider.dart';
 
 class Filter extends StatefulWidget {
   const Filter({
