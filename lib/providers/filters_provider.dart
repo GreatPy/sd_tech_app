@@ -1,10 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sd_tech/providers/typed_exams_provider.dart';
 import 'package:sd_tech/models/enums/status.dart';
-import 'package:sd_tech/models/typed_exams.dart';
-import 'package:sd_tech/models/enums/status.dart';
-import 'package:sd_tech/models/typed_exam.dart';
-// import 'package:meals/providers/meal_provider.dart';
+// import 'package:sd_tech/models/typed_exams.dart';
+// import 'package:sd_tech/models/enums/status.dart';
+// import 'package:sd_tech/models/typed_exam.dart';
 
 class FiltersNotifier extends StateNotifier<Map<Status, bool>> {
   //Initialisation

@@ -3,15 +3,26 @@ import 'package:sd_tech/models/enums/status.dart';
 import 'package:sd_tech/models/styles.dart';
 
 class Filter extends StatefulWidget {
-  const Filter({super.key, required this.label});
+  const Filter({
+    super.key,
+    required this.label,
+    required this.initialValue,
+  });
   final Status label;
+  final bool initialValue;
 
   @override
   State<Filter> createState() => _FilterState();
 }
 
 class _FilterState extends State<Filter> {
-  bool filterSet = false;
+  bool isChecked = false;
+  @override
+  void initState() {
+    super.initState();
+    isChecked = widget.initialValue;
+  }
+
   @override
   Widget build(BuildContext context) {
     final String title;
@@ -54,10 +65,10 @@ class _FilterState extends State<Filter> {
     return Column(
       children: [
         SwitchListTile(
-          value: filterSet,
-          onChanged: (isChecked) {
+          value: isChecked,
+          onChanged: (value) {
             setState(() {
-              filterSet = isChecked;
+              isChecked = value;
             });
           },
           dense: false,
