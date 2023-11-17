@@ -6,9 +6,12 @@ import 'package:sd_tech/models/enums/exam_type_enum.dart';
 import 'package:sd_tech/models/typed_exam.dart';
 import 'package:sd_tech/widgets/generals/exam_box/exam_box.dart';
 import 'package:sd_tech/widgets/generals/exam_box/shift.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sd_tech/providers/filters_provider.dart';
 
 class TypedExams {
   const TypedExams();
+
 //ALL SINGLE EXAMS
   List<TypedExam> get allSigngleTypedExams {
     List<TypedExam> allSigngleTypedExams = [];

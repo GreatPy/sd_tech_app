@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sd_tech/models/enums/status.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/providers/filters_provider.dart';
+import 'package:sd_tech/providers/typed_exams_provider.dart';
 
 class Filter extends ConsumerStatefulWidget {
   const Filter({
@@ -20,7 +21,11 @@ class Filter extends ConsumerStatefulWidget {
 class _FilterState extends ConsumerState<Filter> {
   @override
   Widget build(BuildContext context) {
-    final activFilters = ref.read(filtersProvider);
+    Status filter = widget.label;
+    //START TEST
+    final exams = ref.read(allSigngleTypedExamsProvider);
+    //END TEST
+    final activFilters = ref.watch(filtersProvider);
     final String title;
     final IconData iconData;
 
@@ -61,13 +66,16 @@ class _FilterState extends ConsumerState<Filter> {
     return Column(
       children: [
         SwitchListTile(
-          value: activFilters[widget.label]!,
+          value: activFilters[filter]!,
           onChanged: (isChecked) {
-            ref
-                .read(filtersProvider.notifier)
-                .setFilter(widget.label, isChecked);
+            //START TEST
+            print(activFilters);
+            for (final exam in exams) {
+              print(exams[exams.indexOf(exam)].roughExam.customer.firstname);
+            }
+            //END TEST
+            ref.read(filtersProvider.notifier).setFilter(filter, isChecked);
           },
-          dense: false,
           activeColor: primaryColorLigth,
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 32, vertical: 8),

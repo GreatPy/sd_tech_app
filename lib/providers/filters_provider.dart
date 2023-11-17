@@ -28,9 +28,9 @@ class FiltersNotifier extends StateNotifier<Map<Status, bool>> {
     }; // state hold data's value
   }
 
-  void setFilters(Map<Status, bool> chosenFilters) {
-    state = chosenFilters;
-  }
+  // void setFilters(Map<Status, bool> chosenFilters) {
+  //   state = chosenFilters;
+  // }
 }
 
 final filtersProvider =
@@ -43,35 +43,35 @@ final filteredTypedExams = Provider((ref) {
   final activeFilters = ref.watch(filtersProvider);
   return typedExams.where((typedExam) {
     if (activeFilters[Status.cancelByHost]! &&
-        typedExam.roughExam.status == Status.cancelByHost) {
+        typedExam.roughExam.status != Status.cancelByHost) {
       return false;
     }
     if (activeFilters[Status.doesnTWant]! &&
-        typedExam.roughExam.status == Status.doesnTWant) {
+        typedExam.roughExam.status != Status.doesnTWant) {
       return false;
     }
     if (activeFilters[Status.noShow]! &&
-        typedExam.roughExam.status == Status.noShow) {
+        typedExam.roughExam.status != Status.noShow) {
       return false;
     }
     if (activeFilters[Status.lateCancelation]! &&
-        typedExam.roughExam.status == Status.lateCancelation) {
+        typedExam.roughExam.status != Status.lateCancelation) {
       return false;
     }
     if (activeFilters[Status.timelyCancelation]! &&
-        typedExam.roughExam.status == Status.timelyCancelation) {
+        typedExam.roughExam.status != Status.timelyCancelation) {
       return false;
     }
     if (activeFilters[Status.conducted]! &&
-        typedExam.roughExam.status == Status.conducted) {
+        typedExam.roughExam.status != Status.conducted) {
       return false;
     }
     if (activeFilters[Status.scheduled]! &&
-        typedExam.roughExam.status == Status.scheduled) {
+        typedExam.roughExam.status != Status.scheduled) {
       return false;
     }
     if (activeFilters[Status.toBeScheduled]! &&
-        typedExam.roughExam.status == Status.toBeScheduled) {
+        typedExam.roughExam.status != Status.toBeScheduled) {
       return false;
     }
 
