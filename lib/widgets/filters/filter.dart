@@ -22,9 +22,6 @@ class _FilterState extends ConsumerState<Filter> {
   @override
   Widget build(BuildContext context) {
     Status filter = widget.label;
-    //START TEST
-    final exams = ref.read(allSigngleTypedExamsProvider);
-    //END TEST
     final activFilters = ref.watch(filtersProvider);
     final String title;
     final IconData iconData;
@@ -68,12 +65,6 @@ class _FilterState extends ConsumerState<Filter> {
         SwitchListTile(
           value: activFilters[filter]!,
           onChanged: (isChecked) {
-            //START TEST
-            print(activFilters);
-            for (final exam in exams) {
-              print(exams[exams.indexOf(exam)].roughExam.customer.firstname);
-            }
-            //END TEST
             ref.read(filtersProvider.notifier).setFilter(filter, isChecked);
           },
           activeColor: primaryColorLigth,

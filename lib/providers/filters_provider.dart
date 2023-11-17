@@ -38,43 +38,43 @@ final filtersProvider =
   (ref) => FiltersNotifier(),
 );
 
-final filteredTypedExams = Provider((ref) {
+final filteredTypedExamsProvider = Provider((ref) {
   final typedExams = ref.watch(allSigngleTypedExamsProvider);
   final activeFilters = ref.watch(filtersProvider);
   return typedExams.where((typedExam) {
     if (activeFilters[Status.cancelByHost]! &&
-        typedExam.roughExam.status != Status.cancelByHost) {
-      return false;
+        typedExam.roughExam.status == Status.cancelByHost) {
+      return true;
     }
     if (activeFilters[Status.doesnTWant]! &&
-        typedExam.roughExam.status != Status.doesnTWant) {
-      return false;
+        typedExam.roughExam.status == Status.doesnTWant) {
+      return true;
     }
     if (activeFilters[Status.noShow]! &&
-        typedExam.roughExam.status != Status.noShow) {
-      return false;
+        typedExam.roughExam.status == Status.noShow) {
+      return true;
     }
     if (activeFilters[Status.lateCancelation]! &&
-        typedExam.roughExam.status != Status.lateCancelation) {
-      return false;
+        typedExam.roughExam.status == Status.lateCancelation) {
+      return true;
     }
     if (activeFilters[Status.timelyCancelation]! &&
-        typedExam.roughExam.status != Status.timelyCancelation) {
-      return false;
+        typedExam.roughExam.status == Status.timelyCancelation) {
+      return true;
     }
     if (activeFilters[Status.conducted]! &&
-        typedExam.roughExam.status != Status.conducted) {
-      return false;
+        typedExam.roughExam.status == Status.conducted) {
+      return true;
     }
     if (activeFilters[Status.scheduled]! &&
-        typedExam.roughExam.status != Status.scheduled) {
-      return false;
+        typedExam.roughExam.status == Status.scheduled) {
+      return true;
     }
     if (activeFilters[Status.toBeScheduled]! &&
-        typedExam.roughExam.status != Status.toBeScheduled) {
-      return false;
+        typedExam.roughExam.status == Status.toBeScheduled) {
+      return true;
     }
 
-    return true;
+    return false;
   }).toList();
 });

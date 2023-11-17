@@ -11,7 +11,6 @@ import 'package:sd_tech/providers/filters_provider.dart';
 
 class TypedExams {
   const TypedExams();
-
 //ALL SINGLE EXAMS
   List<TypedExam> get allSigngleTypedExams {
     List<TypedExam> allSigngleTypedExams = [];
