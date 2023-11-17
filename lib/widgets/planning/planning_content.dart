@@ -12,6 +12,7 @@ class PlanningContent extends ConsumerWidget {
     for (final typedExam in filteredTypedExam) {
       print(typedExam.roughExam.customer.firstname);
     }
+    print("====================");
     return const TypedExams().planning;
   }
 }

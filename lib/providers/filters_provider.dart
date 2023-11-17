@@ -16,8 +16,8 @@ class FiltersNotifier extends StateNotifier<Map<Status, bool>> {
           Status.lateCancelation: false,
           Status.timelyCancelation: false,
           Status.conducted: false,
-          Status.scheduled: true,
-          Status.toBeScheduled: true,
+          Status.scheduled: false,
+          Status.toBeScheduled: false,
         });
 
   //Update methods (always REPLACE, never MUTATE)
@@ -41,7 +41,7 @@ final filtersProvider =
 final filteredTypedExamsProvider = Provider((ref) {
   final typedExams = ref.watch(allSigngleTypedExamsProvider);
   final activeFilters = ref.watch(filtersProvider);
-  return typedExams.where((typedExam) {
+  var result = typedExams.where((typedExam) {
     if (activeFilters[Status.cancelByHost]! &&
         typedExam.roughExam.status == Status.cancelByHost) {
       return true;
@@ -77,4 +77,8 @@ final filteredTypedExamsProvider = Provider((ref) {
 
     return false;
   }).toList();
+  if (result.isEmpty) {
+    result = typedExams;
+  }
+  return result;
 });
