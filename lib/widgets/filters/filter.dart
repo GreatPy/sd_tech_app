@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sd_tech/models/enums/status.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/providers/filters_provider.dart';
 
-class Filter extends StatefulWidget {
+class Filter extends ConsumerStatefulWidget {
   const Filter({
     super.key,
     required this.label,
@@ -13,19 +14,13 @@ class Filter extends StatefulWidget {
   final bool initialValue;
 
   @override
-  State<Filter> createState() => _FilterState();
+  ConsumerState<Filter> createState() => _FilterState();
 }
 
-class _FilterState extends State<Filter> {
-  bool isChecked = false;
-  @override
-  void initState() {
-    super.initState();
-    isChecked = widget.initialValue;
-  }
-
+class _FilterState extends ConsumerState<Filter> {
   @override
   Widget build(BuildContext context) {
+    final activFilters = ref.read(filtersProvider);
     final String title;
     final IconData iconData;
 
@@ -66,11 +61,11 @@ class _FilterState extends State<Filter> {
     return Column(
       children: [
         SwitchListTile(
-          value: isChecked,
-          onChanged: (value) {
-            setState(() {
-              isChecked = value;
-            });
+          value: activFilters[widget.label]!,
+          onChanged: (isChecked) {
+            ref
+                .read(filtersProvider.notifier)
+                .setFilter(widget.label, isChecked);
           },
           dense: false,
           activeColor: primaryColorLigth,

@@ -4,6 +4,7 @@ import 'package:sd_tech/models/enums/status.dart';
 // import 'package:sd_tech/models/typed_exams.dart';
 // import 'package:sd_tech/models/enums/status.dart';
 // import 'package:sd_tech/models/typed_exam.dart';
+// import 'package:meals/providers/meal_provider.dart';
 
 class FiltersNotifier extends StateNotifier<Map<Status, bool>> {
   //Initialisation
