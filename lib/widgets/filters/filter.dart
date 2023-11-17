@@ -65,7 +65,6 @@ class _FilterState extends State<Filter> {
           value: filterSet,
           onChanged: (isChecked) {
             setState(() {
-              print(filterSet);
               filterSet = isChecked;
             });
           },
