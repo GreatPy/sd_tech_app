@@ -9,18 +9,24 @@ import 'package:sd_tech/widgets/generals/exam_box/shift.dart';
 
 class TypedExams {
   const TypedExams();
-  //ALL EXAMS
-  List<List<TypedExam>> get allTypedExams {
-    List<TypedExam> allTypedExams = [];
+//ALL SINGLE EXAMS
+  List<TypedExam> get allSigngleTypedExams {
+    List<TypedExam> allSigngleTypedExams = [];
     for (final pg in pgs) {
-      allTypedExams.add(TypedExam(roughExam: pg, type: ExamTypeEnum.pg));
+      allSigngleTypedExams.add(TypedExam(roughExam: pg, type: ExamTypeEnum.pg));
     }
     for (final psg in psgs) {
-      allTypedExams.add(TypedExam(roughExam: psg, type: ExamTypeEnum.psg));
+      allSigngleTypedExams
+          .add(TypedExam(roughExam: psg, type: ExamTypeEnum.psg));
     }
+    return allSigngleTypedExams;
+  }
 
+  //ALL EXAMS
+  List<List<TypedExam>> get allTypedExams {
     //GROUPS
-    Map<DateTime?, List<TypedExam>> groupedByDate = groupBy(allTypedExams,
+    Map<DateTime?, List<TypedExam>> groupedByDate = groupBy(
+        allSigngleTypedExams,
         (TypedExam typedExam) => typedExam.roughExam.deliveryDay);
     List<List<TypedExam>> groupsList = groupedByDate.values.toList();
     List<List<TypedExam>> undatedTypedExams = [];
@@ -36,8 +42,8 @@ class TypedExams {
       }
     }
     //SORTED UNDATED LIST BY CREATEDAT DATE
-    undatedTypedExams.sort((a, b) =>
-        a.first.roughExam.createdAt.compareTo(b.first.roughExam.createdAt));
+    undatedTypedExams.first
+        .sort((a, b) => a.roughExam.createdAt.compareTo(b.roughExam.createdAt));
 
     //SORTED DATED LIST BY DELIVERY DATE
     datedTypedExams.sort((a, b) => a.first.roughExam.deliveryDate!
@@ -64,6 +70,17 @@ class TypedExams {
     return allExamBoxList;
   }
 
+  // ALL SINGLE EXAMBOX
+  List<ExamBox> get allSingleExamBoxList {
+    List<ExamBox> allSingleExamBoxList = [];
+    for (List<TypedExam> typedExamList in allTypedExams) {
+      for (TypedExam typedExam in typedExamList) {
+        allSingleExamBoxList.add(ExamBox(exam: typedExam));
+      }
+    }
+    return allSingleExamBoxList;
+  }
+
   List<Shift> get allShift {
     List<Shift> allShift = [];
     for (List<ExamBox> shift in allExamBoxList) {
@@ -80,7 +97,7 @@ class TypedExams {
 
   Widget get search {
     return ListView.builder(
-        itemCount: allShift.length, // items is a List
-        itemBuilder: (ctx, index) => allShift[index]);
+        itemCount: allSingleExamBoxList.length, // items is a List
+        itemBuilder: (ctx, index) => allSingleExamBoxList[index]);
   }
 }

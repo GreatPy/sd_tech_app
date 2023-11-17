@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:sd_tech/models/enums/screen.dart';
-import 'package:sd_tech/widgets/Planning/planning_content.dart';
 import 'package:sd_tech/widgets/generals/footer/footer.dart';
 import 'package:sd_tech/widgets/generals/header.dart';
 import 'package:sd_tech/widgets/generals/body.dart';
+import 'package:sd_tech/widgets/search/search_content.dart';
 import 'package:sd_tech/widgets/search/search_input.dart';
 
 class Search extends StatefulWidget {
@@ -55,7 +55,7 @@ class _SearchState extends State<Search> {
                   Form(
                       child: SearchInput(
                           onFocus: toggleFooter, formKey: _formKey)),
-                  const Expanded(child: PlanningContent()),
+                  const Expanded(child: SearchContent()),
                 ],
               ),
               footer: footerContent,
