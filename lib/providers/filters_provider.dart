@@ -16,8 +16,8 @@ class FiltersNotifier extends StateNotifier<Map<Status, bool>> {
           Status.lateCancelation: false,
           Status.timelyCancelation: false,
           Status.conducted: false,
-          Status.scheduled: false,
-          Status.toBeScheduled: false,
+          Status.scheduled: true,
+          Status.toBeScheduled: true,
         });
 
   //Update methods (always REPLACE, never MUTATE)
