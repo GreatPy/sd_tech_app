@@ -73,8 +73,14 @@ class TypedExams {
   }
 
   Widget get planning {
-    return Column(
-      children: [...allShift],
-    );
+    return ListView.builder(
+        itemCount: allShift.length, // items is a List
+        itemBuilder: (ctx, index) => allShift[index]);
+  }
+
+  Widget get search {
+    return ListView.builder(
+        itemCount: allShift.length, // items is a List
+        itemBuilder: (ctx, index) => allShift[index]);
   }
 }

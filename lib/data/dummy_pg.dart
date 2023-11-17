@@ -24,7 +24,7 @@ RoughExam pg2 = RoughExam(
   doctor: doctor1,
   createdAt: methods.getPastRelativeDate(8, 8),
   paymentStatus: PaymentStatus.failed,
-  deliveryDate: methods.getPastRelativeDate(3, 2),
+  deliveryDate: methods.getFuturRelativeDate(0, 2),
 );
 RoughExam pg3 = RoughExam(
   id: 3,
@@ -50,7 +50,7 @@ RoughExam pg5 = RoughExam(
     tech: vahe,
     doctor: doctor1,
     createdAt: methods.getPastRelativeDate(1, 4),
-    deliveryDate: methods.getFuturRelativeDate(2, 1));
+    deliveryDate: methods.getFuturRelativeDate(1, 1));
 
 final List<RoughExam> pgs = [
   pg1,
