@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sd_tech/models/enums/status.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/providers/filters_provider.dart';
-import 'package:sd_tech/providers/typed_exams_provider.dart';
 
 class Filter extends ConsumerStatefulWidget {
   const Filter({

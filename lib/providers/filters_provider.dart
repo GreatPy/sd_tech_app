@@ -77,7 +77,14 @@ final filteredTypedExamsProvider = Provider((ref) {
 
     return false;
   }).toList();
-  if (result.isEmpty) {
+  if (activeFilters[Status.cancelByHost] == false &&
+      activeFilters[Status.doesnTWant] == false &&
+      activeFilters[Status.noShow] == false &&
+      activeFilters[Status.timelyCancelation] == false &&
+      activeFilters[Status.lateCancelation] == false &&
+      activeFilters[Status.conducted] == false &&
+      activeFilters[Status.scheduled] == false &&
+      activeFilters[Status.toBeScheduled] == false) {
     result = typedExams;
   }
   return result;
