@@ -21,42 +21,34 @@ class _FilterState extends State<Filter> {
       case Status.cancelByHost:
         title = "annulation SleepDoctor";
         iconData = Icons.build_circle_outlined;
-      // filterSet = false;
 
       case Status.doesnTWant:
         title = "ne veut plus";
         iconData = Icons.back_hand_outlined;
-      // filterSet = false;
 
       case Status.noShow:
         title = "no show";
         iconData = Icons.cancel_outlined;
-      // filterSet = false;
 
       case Status.lateCancelation:
         title = "annulation après départ";
         iconData = Icons.alarm_off_outlined;
-      // filterSet = false;
 
       case Status.timelyCancelation:
         title = "annulation avant départ";
         iconData = Icons.alarm_on_outlined;
-      // filterSet = false;
 
       case Status.conducted:
         title = "éffectué";
         iconData = Icons.check_circle_outline_outlined;
-      // filterSet = false;
 
       case Status.scheduled:
         title = "rdv pris";
         iconData = Icons.date_range_outlined;
-      // filterSet = true;
 
       case Status.toBeScheduled:
         title = "à programmer";
         iconData = Icons.hourglass_empty_outlined;
-      // filterSet = true;
     }
 
     return Column(
