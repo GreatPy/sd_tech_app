@@ -27,10 +27,6 @@ class FiltersNotifier extends StateNotifier<Map<Status, bool>> {
       filter: isActive,
     }; // state hold data's value
   }
-
-  // void setFilters(Map<Status, bool> chosenFilters) {
-  //   state = chosenFilters;
-  // }
 }
 
 final filtersProvider =
