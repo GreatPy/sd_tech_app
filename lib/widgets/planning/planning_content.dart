@@ -40,7 +40,6 @@ class _PlanningContentState extends ConsumerState<PlanningContent> {
       if (group.first.roughExam.deliveryDate == null) {
         undatedTypedExams.add(group);
       }
-
       //DATED LIST
       if (group.first.roughExam.deliveryDate != null) {
         datedTypedExams.add(group);
