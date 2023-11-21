@@ -20,10 +20,19 @@ class ExamInfos extends StatefulWidget {
 class _ExamInfosState extends State<ExamInfos> {
   @override
   Widget build(BuildContext context) {
+    final DateTime today = DateTime.now();
+    String formatedDeliverydate = "";
+    int delay = today.difference(widget.typedExam.roughExam.createdAt).inDays;
     final RoughExam roughExam = widget.typedExam.roughExam;
     final DateTime? deliverlyDate = roughExam.deliveryDate;
-    const String formatedDeliverydate = """vendredi
+    if (widget.typedExam.roughExam.deliveryDate != null) {
+      formatedDeliverydate = """vendredi
 23 Décembre 2023""";
+    }
+    if (widget.typedExam.roughExam.deliveryDate == null) {
+      formatedDeliverydate = """en attente de rdv depuis
+3 jours """;
+    }
     return Card(
       child: Row(
         children: [
@@ -37,6 +46,7 @@ class _ExamInfosState extends State<ExamInfos> {
               StyledText(
                 content: formatedDeliverydate,
                 color: neutral,
+                fontSize: 16,
               ),
             ],
           )),
