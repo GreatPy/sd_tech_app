@@ -32,7 +32,7 @@ class FooterIcon extends StatelessWidget {
         page = const Today();
       case Screen.keyboard:
         iconData = Icons.arrow_drop_down_circle_outlined;
-      case Screen.planning:
+      default:
         iconData = Icons.arrow_back_ios_new_rounded;
         page = const Placeholder();
     }

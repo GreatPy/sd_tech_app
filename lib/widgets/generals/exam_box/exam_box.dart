@@ -3,6 +3,7 @@ import 'package:sd_tech/models/costumer.dart';
 import 'package:sd_tech/models/enums/status.dart';
 import 'package:sd_tech/models/icons_data/status.dart';
 import 'package:sd_tech/models/styles.dart';
+import 'package:sd_tech/screens/patient.dart';
 import 'package:sd_tech/widgets/generals/exam_box/costumer_infos_box.dart';
 import 'package:sd_tech/models/typed_exam.dart';
 import 'package:sd_tech/widgets/generals/exam_box/exam_type_box.dart';
@@ -57,29 +58,37 @@ class _TypedExamBoxState extends State<ExamBox> {
     return Column(
       children: [
         const SizedBox(height: 4),
-        Card(
-          child: Padding(
-            padding: const EdgeInsets.all(12),
-            child: Row(
-              children: [
-                ExamTypeBox(exam: widget.exam),
-                const SizedBox(width: 8),
-                Expanded(child: CostumerInfos(exam: widget.exam)),
-                const SizedBox(width: 8),
-                Icon(
-                  Icons.warning_amber_rounded,
-                  color: dangerColor,
-                  size: alertIconSize,
-                ),
-                const SizedBox(width: 4),
-                Icon(
-                  statusIconData,
-                  size: 32,
-                  color: primaryColorLigth,
-                ),
-                const SizedBox(width: 4),
-                PayementStatusBox(exam: widget.exam.roughExam),
-              ],
+        InkWell(
+          onDoubleTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Patient(costumer: costumer)));
+          },
+          child: Card(
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Row(
+                children: [
+                  ExamTypeBox(exam: widget.exam),
+                  const SizedBox(width: 8),
+                  Expanded(child: CostumerInfos(exam: widget.exam)),
+                  const SizedBox(width: 8),
+                  Icon(
+                    Icons.warning_amber_rounded,
+                    color: dangerColor,
+                    size: alertIconSize,
+                  ),
+                  const SizedBox(width: 4),
+                  Icon(
+                    statusIconData,
+                    size: 32,
+                    color: primaryColorLigth,
+                  ),
+                  const SizedBox(width: 4),
+                  PayementStatusBox(exam: widget.exam.roughExam),
+                ],
+              ),
             ),
           ),
         ),

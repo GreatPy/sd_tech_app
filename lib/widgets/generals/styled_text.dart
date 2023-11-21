@@ -7,11 +7,13 @@ class StyledText extends StatelessWidget {
     this.color,
     this.fontSize,
     this.fontWeight,
+    this.textAlign,
   });
   final String? content;
   final Color? color;
   final double? fontSize;
   final FontWeight? fontWeight;
+  final TextAlign? textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class StyledText extends StatelessWidget {
         fontSize: fontSize,
         fontWeight: fontWeight,
       ),
+      textAlign: textAlign,
     );
   }
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sd_tech/models/typed_exam.dart';
 import 'package:sd_tech/providers/filters_provider.dart';
-import 'package:sd_tech/models/typed_exams.dart';
 import 'package:sd_tech/widgets/generals/exam_box/exam_box.dart';
 
 class SearchContent extends ConsumerStatefulWidget {

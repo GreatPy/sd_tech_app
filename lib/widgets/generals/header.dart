@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:sd_tech/models/costumer.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/enums/screen.dart';
+import 'package:sd_tech/widgets/generals/styled_text.dart';
 
 class Header extends StatelessWidget implements PreferredSizeWidget {
-  const Header({super.key, required this.screen});
+  const Header({
+    super.key,
+    required this.screen,
+    this.costumer,
+  });
   final Screen screen;
+  final Costumer? costumer;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -29,6 +36,10 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
       case Screen.today:
         title = "Aujourd'hui";
         iconData = Icons.bookmark_outline;
+      case Screen.patient:
+        title = """${costumer!.firstname}
+${costumer!.lastname}""";
+        iconData = Icons.sentiment_satisfied;
       default:
     }
     Icon icon = Icon(iconData, color: whiteColor);
@@ -37,7 +48,11 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       backgroundColor: primaryColor,
       leading: icon,
-      title: Text(title),
+      title: StyledText(
+        content: title,
+        fontSize: 16,
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }

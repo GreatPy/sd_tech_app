@@ -4,5 +4,6 @@ enum Screen {
   searche,
   filters,
   today,
+  patient,
   keyboard,
 }
