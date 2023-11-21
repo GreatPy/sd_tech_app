@@ -63,7 +63,9 @@ class _TypedExamBoxState extends State<ExamBox> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => Patient(costumer: costumer)));
+                    builder: (context) => Patient(
+                          typedExam: widget.exam,
+                        )));
           },
           child: Card(
             child: Padding(

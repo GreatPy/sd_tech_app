@@ -2,22 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:sd_tech/models/costumer.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/enums/screen.dart';
+import 'package:sd_tech/models/typed_exam.dart';
 import 'package:sd_tech/widgets/generals/styled_text.dart';
 
 class Header extends StatelessWidget implements PreferredSizeWidget {
   const Header({
     super.key,
     required this.screen,
-    this.costumer,
+    this.exam,
   });
   final Screen screen;
-  final Costumer? costumer;
+  final TypedExam? exam;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
+    Costumer? costumer;
+    if (exam != null) {
+      costumer = exam!.roughExam.customer;
+    }
     late IconData iconData;
     late String title;
     switch (screen) {
