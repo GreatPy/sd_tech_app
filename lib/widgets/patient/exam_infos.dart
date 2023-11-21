@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:sd_tech/models/rough_exam.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/typed_exam.dart';
@@ -19,20 +21,33 @@ class ExamInfos extends StatefulWidget {
 
 class _ExamInfosState extends State<ExamInfos> {
   @override
+  late String formatedDate;
+  @override
+  void initState() {
+    super.initState();
+    initializeDateFormatting("fr_FR", null);
+    // formatedDate = DateFormat("EEEE dd LLLL yyyy", "fr_FR").format(date());
+  }
+
   Widget build(BuildContext context) {
     final DateTime today = DateTime.now();
-    String formatedDeliverydate = "";
-    int delay = today.difference(widget.typedExam.roughExam.createdAt).inDays;
+    late String daysDelay;
+    Duration delay = today.difference(widget.typedExam.roughExam.createdAt);
+    DateTime? date = widget.typedExam.roughExam.deliveryDate;
+    String content = "";
+    if (date == null) {
+      daysDelay = delay > const Duration(days: 2) ? "jours" : "jour";
+      content = """en attente de rdv depuis
+${delay.inDays.toString()} $daysDelay""";
+    }
+    if (date != null) {
+      formatedDate = DateFormat("EEEE dd LLLL yyyy", "fr_FR").format(date);
+      // content = "${date.day} / ${date.month} / ${date.year}";
+      content = formatedDate;
+    }
+
     final RoughExam roughExam = widget.typedExam.roughExam;
-    final DateTime? deliverlyDate = roughExam.deliveryDate;
-    if (widget.typedExam.roughExam.deliveryDate != null) {
-      formatedDeliverydate = """vendredi
-23 Décembre 2023""";
-    }
-    if (widget.typedExam.roughExam.deliveryDate == null) {
-      formatedDeliverydate = """en attente de rdv depuis
-3 jours """;
-    }
+
     return Card(
       child: Row(
         children: [
@@ -44,7 +59,7 @@ class _ExamInfosState extends State<ExamInfos> {
                 child: ExamTypeBox(exam: widget.typedExam),
               ),
               StyledText(
-                content: formatedDeliverydate,
+                content: content,
                 color: neutral,
                 fontSize: 16,
               ),

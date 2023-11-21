@@ -22,7 +22,7 @@ RoughExam psg2 = RoughExam(
     status: Status.toBeScheduled,
     tech: vahe,
     doctor: doctor1,
-    createdAt: methods.getPastRelativeDate(12, 6),
+    createdAt: methods.getPastRelativeDate(1, 6),
     paymentStatus: PaymentStatus.incomplete);
 RoughExam psg3 = RoughExam(
   id: 1,
