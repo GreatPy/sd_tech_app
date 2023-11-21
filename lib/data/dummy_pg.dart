@@ -52,8 +52,10 @@ RoughExam pg5 = RoughExam(
   createdAt: methods.getPastRelativeDate(1, 4),
   deliveryDate: methods.getFuturRelativeDate(1, 1),
   notes: "PG 2 (PG1 : soucis de cannule, déjà payé)",
-  bedTime: "23h00",
-  wakeUpTime: "7h00",
+  bedTimeHours: "23",
+  bedTimeMinuts: "00",
+  wakeUpTimeHours: "2",
+  wakeUpTimeMinuts: "30",
 );
 
 final List<RoughExam> pgs = [

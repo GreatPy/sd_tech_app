@@ -31,8 +31,9 @@ class _PatientCardState extends State<PatientCard> {
         content = widget.roughExam.customer.access;
       case PatientBoxLabel.bedTime:
         title = "Horraires d'enregistrement";
-        content = """début : ${widget.roughExam.bedTime ?? ""}
-fin : ${widget.roughExam.wakeUpTime ?? ""}""";
+        content = """début : ${widget.roughExam.bedTime}
+fin : ${widget.roughExam.wakeUpTime}        
+durée : ${widget.roughExam.duration} """;
     }
     return SizedBox(
       width: double.infinity,

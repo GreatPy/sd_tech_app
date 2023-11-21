@@ -2,7 +2,10 @@ import 'package:sd_tech/models/doctor.dart';
 import 'package:sd_tech/models/enums/payment_status.dart';
 import 'package:sd_tech/models/enums/status.dart';
 import 'package:sd_tech/models/costumer.dart';
+import 'package:sd_tech/models/methods.dart';
 import 'package:sd_tech/models/tech.dart';
+
+final methods = Methods();
 
 class RoughExam {
   const RoughExam({
@@ -14,8 +17,10 @@ class RoughExam {
     this.doctor,
     this.deliveryDate,
     this.notes,
-    this.bedTime,
-    this.wakeUpTime,
+    this.bedTimeHours,
+    this.bedTimeMinuts,
+    this.wakeUpTimeHours,
+    this.wakeUpTimeMinuts,
     this.paymentStatus,
   });
   final int id;
@@ -26,8 +31,10 @@ class RoughExam {
   final Doctor? doctor;
   final DateTime? deliveryDate;
   final String? notes;
-  final String? bedTime;
-  final String? wakeUpTime;
+  final String? bedTimeHours;
+  final String? bedTimeMinuts;
+  final String? wakeUpTimeHours;
+  final String? wakeUpTimeMinuts;
   final PaymentStatus? paymentStatus;
   DateTime? get deliveryDay {
     if (deliveryDate != null) {
@@ -35,5 +42,42 @@ class RoughExam {
           deliveryDate!.year, deliveryDate!.month, deliveryDate!.day);
     }
     return null;
+  }
+
+  String get bedTime {
+    String formtedTime = "${bedTimeHours}h$bedTimeMinuts";
+    return formtedTime;
+  }
+
+  String get wakeUpTime {
+    String formtedTime = "${wakeUpTimeHours}h$wakeUpTimeMinuts";
+    return formtedTime;
+  }
+
+  String get duration {
+    if (bedTimeHours != null &&
+        bedTimeMinuts != null &&
+        wakeUpTimeHours != null &&
+        wakeUpTimeMinuts != null) {
+      int startHours = int.tryParse(bedTimeHours!)!;
+      int startMinuts = int.tryParse(bedTimeMinuts!)!;
+      int endHours = int.tryParse(wakeUpTimeHours!)!;
+      int endMinuts = int.tryParse(wakeUpTimeMinuts!)!;
+      //TODAT AND TOMORROW
+      DateTime today = DateTime.now();
+      DateTime tomorrow = methods.getFuturRelativeDate(1, 0);
+      //DATETIME
+      DateTime bedTime =
+          DateTime(today.year, today.month, today.day, startHours, startMinuts);
+      DateTime wakeUpTime = DateTime(
+          tomorrow.year, tomorrow.month, tomorrow.day, endHours, endMinuts);
+      //DURATION
+      int minDuration = wakeUpTime.difference(bedTime).inMinutes;
+      double hoursDuration = minDuration / 60;
+      double minutsDuration = minDuration % 60;
+
+      return "${hoursDuration.floor()}h${minutsDuration.floor()}";
+    }
+    return "";
   }
 }
