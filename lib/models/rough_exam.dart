@@ -13,8 +13,7 @@ class RoughExam {
     this.tech,
     this.doctor,
     this.deliveryDate,
-    this.note,
-    this.access,
+    this.notes,
     this.bedTime,
     this.wakeUpTime,
     this.paymentStatus,
@@ -26,8 +25,7 @@ class RoughExam {
   final Tech? tech;
   final Doctor? doctor;
   final DateTime? deliveryDate;
-  final String? note;
-  final String? access;
+  final String? notes;
   final String? bedTime;
   final String? wakeUpTime;
   final PaymentStatus? paymentStatus;

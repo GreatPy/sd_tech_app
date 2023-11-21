@@ -8,6 +8,7 @@ class Costumer {
     this.phone,
     this.mail,
     this.address,
+    this.access,
     this.city,
     this.birthdate,
     this.nir,
@@ -22,6 +23,7 @@ class Costumer {
   final String? mail;
   final String? address;
   final String? city;
+  final String? access;
   final DateTime? birthdate;
   final String? nir;
   final int? hight;

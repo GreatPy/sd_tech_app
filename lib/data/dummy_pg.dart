@@ -44,13 +44,17 @@ RoughExam pg4 = RoughExam(
   createdAt: methods.getPastRelativeDate(3, 9),
 );
 RoughExam pg5 = RoughExam(
-    id: 5,
-    customer: costumer5,
-    status: Status.scheduled,
-    tech: vahe,
-    doctor: doctor1,
-    createdAt: methods.getPastRelativeDate(1, 4),
-    deliveryDate: methods.getFuturRelativeDate(1, 1));
+  id: 5,
+  customer: costumer5,
+  status: Status.scheduled,
+  tech: vahe,
+  doctor: doctor1,
+  createdAt: methods.getPastRelativeDate(1, 4),
+  deliveryDate: methods.getFuturRelativeDate(1, 1),
+  notes: "PG 2 (PG1 : soucis de cannule, déjà payé)",
+  bedTime: "23h00",
+  wakeUpTime: "7h00",
+);
 
 final List<RoughExam> pgs = [
   pg1,
