@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sd_tech/models/costumer.dart';
 import 'package:sd_tech/models/enums/screen.dart';
 import 'package:sd_tech/models/typed_exam.dart';
 import 'package:sd_tech/widgets/generals/body.dart';
@@ -22,9 +21,11 @@ class _PatientState extends State<Patient> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Header(screen: Screen.patient, exam: widget.typedExam),
-      body: const Body(
-        content: PatientContent(),
-        footer: Footer(
+      body: Body(
+        content: PatientContent(
+          typedExam: widget.typedExam,
+        ),
+        footer: const Footer(
           icons: [Screen.planning],
           needsDeconexion: false,
           needsValidation: false,

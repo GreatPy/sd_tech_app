@@ -43,7 +43,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
         iconData = Icons.bookmark_outline;
       case Screen.patient:
         title = """${costumer!.firstname}
-${costumer!.lastname}""";
+${costumer.lastname}""";
         iconData = Icons.sentiment_satisfied;
       default:
     }
