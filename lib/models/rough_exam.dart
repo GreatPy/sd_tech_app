@@ -45,13 +45,19 @@ class RoughExam {
   }
 
   String get bedTime {
-    String formtedTime = "${bedTimeHours}h$bedTimeMinuts";
-    return formtedTime;
+    if (bedTimeHours != null && bedTimeHours != null) {
+      String formtedTime = "${bedTimeHours}h$bedTimeMinuts";
+      return formtedTime;
+    }
+    return "";
   }
 
   String get wakeUpTime {
-    String formtedTime = "${wakeUpTimeHours}h$wakeUpTimeMinuts";
-    return formtedTime;
+    if (wakeUpTimeHours != null && wakeUpTimeMinuts != null) {
+      String formtedTime = "${wakeUpTimeHours}h$wakeUpTimeMinuts";
+      return formtedTime;
+    }
+    return "";
   }
 
   String get duration {
