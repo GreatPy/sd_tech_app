@@ -4,8 +4,8 @@ import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/typed_exam.dart';
 import 'package:sd_tech/widgets/generals/styled_text.dart';
 
-class PatientBtn extends StatelessWidget {
-  const PatientBtn({
+class CostmumerBtn extends StatelessWidget {
+  const CostmumerBtn({
     super.key,
     required this.patientBtnLabel,
     required this.typedExam,

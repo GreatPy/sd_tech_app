@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/widgets/generals/styled_text.dart';
 
-class IncompletPatientInfo extends StatelessWidget {
-  const IncompletPatientInfo({
+class IncompleCostumerInfo extends StatelessWidget {
+  const IncompleCostumerInfo({
     super.key,
     required this.hight,
   });

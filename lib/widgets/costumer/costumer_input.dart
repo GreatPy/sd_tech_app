@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:sd_tech/data/tech.dart';
+import 'package:sd_tech/models/costumer.dart';
+import 'package:sd_tech/models/rough_exam.dart';
 import 'package:sd_tech/models/styles.dart';
-import 'package:sd_tech/models/tech.dart';
 import 'package:sd_tech/models/enums/tech_form_label.dart';
 
-class TechInput extends StatefulWidget {
-  const TechInput(
+class CostumerInput extends StatefulWidget {
+  const CostumerInput(
       {super.key,
       required this.label,
-      required this.tech,
+      required this.roughExam,
       required this.onFocus});
   final TechFormLabel label;
-  final Tech tech;
+  final RoughExam roughExam;
   final void Function() onFocus;
 
   @override
-  State<TechInput> createState() => _TechInputState();
+  State<CostumerInput> createState() => _TechInputState();
 }
 
-class _TechInputState extends State<TechInput> {
+class _TechInputState extends State<CostumerInput> {
   final _focusNode = FocusNode();
 
   @override
@@ -32,37 +33,31 @@ class _TechInputState extends State<TechInput> {
   @override
   Widget build(BuildContext context) {
     String strinLabel = "";
+    String? initialValue = "";
+    Costumer costumer = widget.roughExam.customer;
     TextInputType type = TextInputType.text;
-    String initialValue = "";
     switch (widget.label) {
       case TechFormLabel.firstname:
         strinLabel = "prénom";
         type = TextInputType.name;
-        initialValue = vahe.firstname;
+        initialValue = costumer.firstname;
       case TechFormLabel.lastname:
         strinLabel = "nom";
         type = TextInputType.name;
-        initialValue = vahe.lastname;
+        initialValue = costumer.lastname;
       case TechFormLabel.phone:
         strinLabel = "téléphone";
         type = TextInputType.phone;
-        initialValue = vahe.phone;
+        initialValue = costumer.phone;
       case TechFormLabel.mail:
         strinLabel = "mail";
         type = TextInputType.emailAddress;
-        initialValue = vahe.mail;
+        initialValue = costumer.mail;
       case TechFormLabel.address:
         strinLabel = "adresse";
         type = TextInputType.streetAddress;
         initialValue = vahe.address;
-      case TechFormLabel.pg:
-        strinLabel = "nombre de PGs";
-        type = TextInputType.number;
-        initialValue = vahe.pg.toString();
-      case TechFormLabel.psg:
-        strinLabel = "nombre de PSGs";
-        type = TextInputType.number;
-        initialValue = vahe.psg.toString();
+      default:
     }
 
     return TextFormField(

@@ -4,8 +4,8 @@ import 'package:sd_tech/models/rough_exam.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/widgets/generals/styled_text.dart';
 
-class PatientCard extends StatefulWidget {
-  const PatientCard({
+class CostumerCard extends StatefulWidget {
+  const CostumerCard({
     super.key,
     required this.roughExam,
     required this.label,
@@ -14,10 +14,10 @@ class PatientCard extends StatefulWidget {
   final PatientBoxLabel label;
 
   @override
-  State<PatientCard> createState() => _PatientCardState();
+  State<CostumerCard> createState() => _PatientCardState();
 }
 
-class _PatientCardState extends State<PatientCard> {
+class _PatientCardState extends State<CostumerCard> {
   @override
   Widget build(BuildContext context) {
     late final String title;

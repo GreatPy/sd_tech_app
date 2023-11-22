@@ -6,23 +6,23 @@ import 'package:sd_tech/models/enums/status.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/typed_exam.dart';
 import 'package:sd_tech/widgets/generals/styled_text.dart';
-import 'package:sd_tech/widgets/patient/exam_infos.dart';
-import 'package:sd_tech/widgets/patient/incomplete_patient_info.dart';
-import 'package:sd_tech/widgets/patient/patient_btn.dart';
-import 'package:sd_tech/widgets/patient/patient_card.dart';
+import 'package:sd_tech/widgets/costumer/exam_infos.dart';
+import 'package:sd_tech/widgets/costumer/incomplete_costumer_info.dart';
+import 'package:sd_tech/widgets/costumer/costumer_btn.dart';
+import 'package:sd_tech/widgets/costumer/costumer_card.dart';
 
-class PatientContent extends StatefulWidget {
-  const PatientContent({
+class CostumerContent extends StatefulWidget {
+  const CostumerContent({
     super.key,
     required this.typedExam,
   });
   final TypedExam typedExam;
 
   @override
-  State<PatientContent> createState() => _PatientContentState();
+  State<CostumerContent> createState() => _PatientContentState();
 }
 
-class _PatientContentState extends State<PatientContent> {
+class _PatientContentState extends State<CostumerContent> {
   @override
   Widget build(BuildContext context) {
     late String stringStatus;
@@ -106,45 +106,45 @@ class _PatientContentState extends State<PatientContent> {
             ),
             ExamInfos(typedExam: widget.typedExam),
             const SizedBox(height: 32),
-            IncompletPatientInfo(hight: height),
-            PatientCard(
+            IncompleCostumerInfo(hight: height),
+            CostumerCard(
               roughExam: widget.typedExam.roughExam,
               label: PatientBoxLabel.notes,
             ),
-            PatientCard(
+            CostumerCard(
               roughExam: widget.typedExam.roughExam,
               label: PatientBoxLabel.acces,
             ),
-            PatientCard(
+            CostumerCard(
               roughExam: widget.typedExam.roughExam,
               label: PatientBoxLabel.bedTime,
             ),
             const SizedBox(height: 16),
-            PatientBtn(
+            CostmumerBtn(
                 patientBtnLabel: PatientBtnLabel.document,
                 typedExam: widget.typedExam),
-            PatientBtn(
+            CostmumerBtn(
                 patientBtnLabel: PatientBtnLabel.payment,
                 typedExam: widget.typedExam),
-            PatientBtn(
+            CostmumerBtn(
                 patientBtnLabel: PatientBtnLabel.schedule,
                 typedExam: widget.typedExam),
-            PatientBtn(
+            CostmumerBtn(
                 patientBtnLabel: PatientBtnLabel.status,
                 typedExam: widget.typedExam),
-            PatientBtn(
+            CostmumerBtn(
                 patientBtnLabel: PatientBtnLabel.tel,
                 typedExam: widget.typedExam),
-            PatientBtn(
+            CostmumerBtn(
                 patientBtnLabel: PatientBtnLabel.sms,
                 typedExam: widget.typedExam),
-            PatientBtn(
+            CostmumerBtn(
                 patientBtnLabel: PatientBtnLabel.whatsapp,
                 typedExam: widget.typedExam),
-            PatientBtn(
+            CostmumerBtn(
                 patientBtnLabel: PatientBtnLabel.gps,
                 typedExam: widget.typedExam),
-            PatientBtn(
+            CostmumerBtn(
                 patientBtnLabel: PatientBtnLabel.edit,
                 typedExam: widget.typedExam),
           ],
