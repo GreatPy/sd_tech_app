@@ -21,7 +21,7 @@ class ScrolableRow extends StatefulWidget {
 }
 
 class _ScrolableRowState extends State<ScrolableRow> {
-  String time = "";
+  late String time;
   @override
   void initState() {
     super.initState();
