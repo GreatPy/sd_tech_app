@@ -4,7 +4,7 @@ import 'package:sd_tech/models/typed_exam.dart';
 import 'package:sd_tech/widgets/generals/body.dart';
 import 'package:sd_tech/widgets/generals/footer/footer.dart';
 import 'package:sd_tech/widgets/generals/header.dart';
-import 'package:sd_tech/widgets/patient/costumer_content.dart';
+import 'package:sd_tech/widgets/costumer/costumer_content.dart';
 
 class Patient extends StatefulWidget {
   const Patient({

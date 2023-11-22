@@ -3,7 +3,7 @@ import 'package:sd_tech/models/costumer.dart';
 import 'package:sd_tech/models/enums/status.dart';
 import 'package:sd_tech/models/icons_data/status.dart';
 import 'package:sd_tech/models/styles.dart';
-import 'package:sd_tech/screens/patient.dart';
+import 'package:sd_tech/screens/costumer.dart';
 import 'package:sd_tech/widgets/generals/exam_box/costumer_infos_box.dart';
 import 'package:sd_tech/models/typed_exam.dart';
 import 'package:sd_tech/widgets/generals/exam_box/exam_type_box.dart';

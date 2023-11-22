@@ -1,0 +1,18 @@
+enum FormLabel {
+  firstname,
+  lastname,
+  phone,
+  mail,
+  address,
+  city,
+  birthdate,
+  nir,
+  hight,
+  weight,
+  rights,
+  access,
+  bedTime,
+  wakeUpTime,
+  pg,
+  psg,
+}

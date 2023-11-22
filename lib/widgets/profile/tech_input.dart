@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sd_tech/data/tech.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/tech.dart';
-import 'package:sd_tech/models/enums/tech_form_label.dart';
+import 'package:sd_tech/models/enums/form_label.dart';
 
 class TechInput extends StatefulWidget {
   const TechInput(
@@ -10,7 +10,7 @@ class TechInput extends StatefulWidget {
       required this.label,
       required this.tech,
       required this.onFocus});
-  final TechFormLabel label;
+  final FormLabel label;
   final Tech tech;
   final void Function() onFocus;
 
@@ -35,34 +35,35 @@ class _TechInputState extends State<TechInput> {
     TextInputType type = TextInputType.text;
     String initialValue = "";
     switch (widget.label) {
-      case TechFormLabel.firstname:
+      case FormLabel.firstname:
         strinLabel = "prénom";
         type = TextInputType.name;
         initialValue = vahe.firstname;
-      case TechFormLabel.lastname:
+      case FormLabel.lastname:
         strinLabel = "nom";
         type = TextInputType.name;
         initialValue = vahe.lastname;
-      case TechFormLabel.phone:
+      case FormLabel.phone:
         strinLabel = "téléphone";
         type = TextInputType.phone;
         initialValue = vahe.phone;
-      case TechFormLabel.mail:
+      case FormLabel.mail:
         strinLabel = "mail";
         type = TextInputType.emailAddress;
         initialValue = vahe.mail;
-      case TechFormLabel.address:
+      case FormLabel.address:
         strinLabel = "adresse";
         type = TextInputType.streetAddress;
         initialValue = vahe.address;
-      case TechFormLabel.pg:
+      case FormLabel.pg:
         strinLabel = "nombre de PGs";
         type = TextInputType.number;
         initialValue = vahe.pg.toString();
-      case TechFormLabel.psg:
+      case FormLabel.psg:
         strinLabel = "nombre de PSGs";
         type = TextInputType.number;
         initialValue = vahe.psg.toString();
+      default:
     }
 
     return TextFormField(

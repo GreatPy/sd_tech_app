@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
-import 'package:sd_tech/data/tech.dart';
 import 'package:sd_tech/models/enums/screen.dart';
 import 'package:sd_tech/models/enums/form_label.dart';
+import 'package:sd_tech/models/rough_exam.dart';
+import 'package:sd_tech/widgets/costumer/btns/patient_profil_edit/costumer_input.dart';
 import 'package:sd_tech/widgets/generals/footer/footer.dart';
 import 'package:sd_tech/widgets/generals/header.dart';
 import 'package:sd_tech/widgets/generals/body.dart';
-import 'package:sd_tech/widgets/profile/tech_input.dart';
 
 class Profile extends StatefulWidget {
-  const Profile({super.key});
-
+  const Profile({
+    super.key,
+    required this.roughExam,
+  });
+  final RoughExam roughExam;
   @override
   State<Profile> createState() => _ProfileState();
 }
@@ -22,7 +25,9 @@ class _ProfileState extends State<Profile> {
   void initState() {
     super.initState();
     footerContent = const Footer(
-        icons: [Screen.planning], needsDeconexion: true, needsValidation: true);
+        icons: [Screen.planning],
+        needsDeconexion: false,
+        needsValidation: true);
   }
 
   void toggleFooter() {
@@ -34,7 +39,7 @@ class _ProfileState extends State<Profile> {
       if (footerContent == null) {
         footerContent = const Footer(
             icons: [Screen.planning],
-            needsDeconexion: true,
+            needsDeconexion: false,
             needsValidation: true);
         return;
       }
@@ -50,38 +55,69 @@ class _ProfileState extends State<Profile> {
           key: _formKey,
           child: Column(
             children: [
-              TechInput(
-                  label: FormLabel.firstname,
-                  tech: vahe,
-                  onFocus: toggleFooter),
-              TechInput(
+              CostumerInput(
+                label: FormLabel.firstname,
+                roughExam: widget.roughExam,
+                onFocus: toggleFooter,
+              ),
+              CostumerInput(
                 label: FormLabel.lastname,
-                tech: vahe,
+                roughExam: widget.roughExam,
                 onFocus: toggleFooter,
               ),
-              TechInput(
+              CostumerInput(
                 label: FormLabel.phone,
-                tech: vahe,
+                roughExam: widget.roughExam,
                 onFocus: toggleFooter,
               ),
-              TechInput(
+              CostumerInput(
                 label: FormLabel.mail,
-                tech: vahe,
+                roughExam: widget.roughExam,
                 onFocus: toggleFooter,
               ),
-              TechInput(
+              CostumerInput(
                 label: FormLabel.address,
-                tech: vahe,
+                roughExam: widget.roughExam,
                 onFocus: toggleFooter,
               ),
-              TechInput(
-                label: FormLabel.pg,
-                tech: vahe,
+              CostumerInput(
+                label: FormLabel.city,
+                roughExam: widget.roughExam,
                 onFocus: toggleFooter,
               ),
-              TechInput(
-                label: FormLabel.psg,
-                tech: vahe,
+              CostumerInput(
+                label: FormLabel.birthdate,
+                roughExam: widget.roughExam,
+                onFocus: toggleFooter,
+              ),
+              CostumerInput(
+                label: FormLabel.nir,
+                roughExam: widget.roughExam,
+                onFocus: toggleFooter,
+              ),
+              CostumerInput(
+                label: FormLabel.hight,
+                roughExam: widget.roughExam,
+                onFocus: toggleFooter,
+              ),
+              CostumerInput(
+                label: FormLabel.weight,
+                roughExam: widget.roughExam,
+                onFocus: toggleFooter,
+              ),
+              CostumerInput(
+                label: FormLabel.rights,
+                roughExam: widget.roughExam,
+                onFocus: toggleFooter,
+              ),
+              CostumerInput(
+                label: FormLabel.bedTime,
+                roughExam: widget.roughExam,
+                onFocus: toggleFooter,
+              ),
+              CostumerInput(
+                label: FormLabel.wakeUpTime,
+                roughExam: widget.roughExam,
                 onFocus: toggleFooter,
               ),
             ],

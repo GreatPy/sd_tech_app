@@ -10,6 +10,7 @@ import 'package:sd_tech/widgets/costumer/exam_infos.dart';
 import 'package:sd_tech/widgets/costumer/incomplete_costumer_info.dart';
 import 'package:sd_tech/widgets/costumer/costumer_btn.dart';
 import 'package:sd_tech/widgets/costumer/costumer_card.dart';
+import 'package:sd_tech/widgets/costumer/btns/patient_profil_edit/profile.dart';
 
 class CostumerContent extends StatefulWidget {
   const CostumerContent({
@@ -121,30 +122,39 @@ class _PatientContentState extends State<CostumerContent> {
             ),
             const SizedBox(height: 16),
             CostmumerBtn(
+                page: Profile(roughExam: widget.typedExam.roughExam),
                 patientBtnLabel: PatientBtnLabel.document,
                 typedExam: widget.typedExam),
             CostmumerBtn(
+                page: Profile(roughExam: widget.typedExam.roughExam),
                 patientBtnLabel: PatientBtnLabel.payment,
                 typedExam: widget.typedExam),
             CostmumerBtn(
+                page: Profile(roughExam: widget.typedExam.roughExam),
                 patientBtnLabel: PatientBtnLabel.schedule,
                 typedExam: widget.typedExam),
             CostmumerBtn(
+                page: Profile(roughExam: widget.typedExam.roughExam),
                 patientBtnLabel: PatientBtnLabel.status,
                 typedExam: widget.typedExam),
             CostmumerBtn(
+                page: Profile(roughExam: widget.typedExam.roughExam),
                 patientBtnLabel: PatientBtnLabel.tel,
                 typedExam: widget.typedExam),
             CostmumerBtn(
+                page: Profile(roughExam: widget.typedExam.roughExam),
                 patientBtnLabel: PatientBtnLabel.sms,
                 typedExam: widget.typedExam),
             CostmumerBtn(
+                page: Profile(roughExam: widget.typedExam.roughExam),
                 patientBtnLabel: PatientBtnLabel.whatsapp,
                 typedExam: widget.typedExam),
             CostmumerBtn(
+                page: Profile(roughExam: widget.typedExam.roughExam),
                 patientBtnLabel: PatientBtnLabel.gps,
                 typedExam: widget.typedExam),
             CostmumerBtn(
+                page: Profile(roughExam: widget.typedExam.roughExam),
                 patientBtnLabel: PatientBtnLabel.edit,
                 typedExam: widget.typedExam),
           ],

@@ -9,51 +9,51 @@ class CostmumerBtn extends StatelessWidget {
     super.key,
     required this.patientBtnLabel,
     required this.typedExam,
+    required this.page,
   });
   final TypedExam typedExam;
   final PatientBtnLabel patientBtnLabel;
+  final Widget page;
   @override
   Widget build(BuildContext context) {
     late String label;
     late IconData iconData;
-    late Widget page;
     switch (patientBtnLabel) {
       case PatientBtnLabel.document:
         label = "Documents";
         iconData = Icons.attach_file_outlined;
-        page = const Text("hello");
+
       case PatientBtnLabel.payment:
         label = "Paiements";
         iconData = Icons.euro_symbol_outlined;
-        page = const Text("hello");
+
       case PatientBtnLabel.schedule:
         label = "Date de livraison";
         iconData = Icons.calendar_today_outlined;
-        page = const Text("hello");
+
       case PatientBtnLabel.status:
         label = "Satut";
         iconData = Icons.sell_outlined;
-        page = const Text("hello");
+
       case PatientBtnLabel.tel:
         label = "Téléphone";
         iconData = Icons.phone_outlined;
-        page = const Text("hello");
+
       case PatientBtnLabel.sms:
         label = "SMS";
         iconData = Icons.local_post_office_outlined;
-        page = const Text("hello");
+
       case PatientBtnLabel.whatsapp:
         label = "Whatsapp";
         iconData = Icons.chat_outlined;
-        page = const Text("hello");
+
       case PatientBtnLabel.gps:
         label = "GPS";
         iconData = Icons.directions_car_outlined;
-        page = const Text("hello");
+
       case PatientBtnLabel.edit:
         label = "Informations patient";
         iconData = Icons.create_outlined;
-        page = const Text("hello");
     }
     return Column(
       children: [
@@ -62,7 +62,11 @@ class CostmumerBtn extends StatelessWidget {
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: primaryColorLigth),
             onPressed: () {
-              print("hey");
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (ctx) => page,
+                  ));
             },
             child: Padding(
               padding: const EdgeInsets.all(16),
