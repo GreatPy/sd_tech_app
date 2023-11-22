@@ -25,13 +25,6 @@ class _ExamInfosState extends State<ExamInfos> {
   void initState() {
     super.initState();
     initializeDateFormatting("fr_FR", null);
-    if (widget.typedExam.roughExam.deliveryDate != null) {
-      String hours = DateFormat("HH", "fr_FR")
-          .format(widget.typedExam.roughExam.deliveryDate!);
-      String minuts = DateFormat("mm", "fr_FR")
-          .format(widget.typedExam.roughExam.deliveryDate!);
-      time = "${hours}h$minuts";
-    }
   }
 
   @override
@@ -47,11 +40,18 @@ class _ExamInfosState extends State<ExamInfos> {
 ${delay.inDays.toString()} $daysDelay""";
     }
     if (date != null) {
+      if (widget.typedExam.roughExam.deliveryDate != null) {
+        String hours = DateFormat("HH", "fr_FR")
+            .format(widget.typedExam.roughExam.deliveryDate!);
+        String minuts = DateFormat("mm", "fr_FR")
+            .format(widget.typedExam.roughExam.deliveryDate!);
+        time = "${hours}h$minuts";
+      }
       String weekDay = DateFormat("EEEE", "fr_FR").format(date);
-      String date2 = DateFormat("dd LLLL yyyy", "fr_FR").format(date);
+      String dateEnd = DateFormat("dd LLLL yyyy", "fr_FR").format(date);
       // content = "${date.day} / ${date.month} / ${date.year}";
       content = """$weekDay
-$date2
+$dateEnd
 $time""";
     }
 

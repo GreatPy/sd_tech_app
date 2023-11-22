@@ -86,6 +86,11 @@ class _ProfileState extends State<Profile> {
                 onFocus: toggleFooter,
               ),
               CostumerInput(
+                label: FormLabel.access,
+                roughExam: widget.roughExam,
+                onFocus: toggleFooter,
+              ),
+              CostumerInput(
                 label: FormLabel.birthdate,
                 roughExam: widget.roughExam,
                 onFocus: toggleFooter,

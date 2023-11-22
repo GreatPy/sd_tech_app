@@ -21,7 +21,6 @@ class _ShiftState extends State<Shift> {
   void initState() {
     super.initState();
     initializeDateFormatting("fr_FR", null);
-    // formatedDate = DateFormat("EEEE dd LLLL yyyy", "fr_FR").format(date());
   }
 
   @override

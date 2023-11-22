@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:sd_tech/models/costumer.dart';
 import 'package:sd_tech/models/enums/rights.dart';
 import 'package:sd_tech/models/rough_exam.dart';
@@ -25,6 +27,7 @@ class _TechInputState extends State<CostumerInput> {
   @override
   void initState() {
     super.initState();
+    initializeDateFormatting("fr_FR", null);
     _focusNode.addListener(() {
       widget.onFocus();
     });
@@ -47,7 +50,7 @@ class _TechInputState extends State<CostumerInput> {
         initialValue = costumer.lastname;
       case FormLabel.phone:
         strinLabel = "téléphone";
-        type = TextInputType.phone;
+        type = TextInputType.text;
         initialValue = costumer.phone;
       case FormLabel.mail:
         strinLabel = "mail";
@@ -59,41 +62,28 @@ class _TechInputState extends State<CostumerInput> {
         initialValue = costumer.address;
       case FormLabel.city:
         strinLabel = "ville";
-        type = TextInputType.streetAddress;
+        type = TextInputType.text;
         initialValue = costumer.city;
       case FormLabel.birthdate:
         strinLabel = "date de naissance";
-        type = TextInputType.streetAddress;
+        type = TextInputType.datetime;
         DateTime? birthdate = costumer.birthdate;
         String stringBirthdate = birthdate == null
             ? ""
-            : "${birthdate.day}/${birthdate.month}/${birthdate.year}";
+            : DateFormat("dd/MM/yyyy", "fr_FR").format(birthdate);
         initialValue = stringBirthdate;
       case FormLabel.nir:
         strinLabel = "n° carte vitale";
-        type = TextInputType.streetAddress;
+        type = TextInputType.text;
         initialValue = costumer.nir;
       case FormLabel.hight:
-        strinLabel = "taille";
-        type = TextInputType.streetAddress;
-        initialValue = costumer.hight.toString();
+        strinLabel = "taille (cm)";
+        type = TextInputType.number;
+        initialValue = costumer.hight != null ? costumer.hight.toString() : "";
       case FormLabel.weight:
-        strinLabel = "poids";
-        type = TextInputType.streetAddress;
-        initialValue = costumer.weight.toString();
-      case FormLabel.rights:
-        strinLabel = "droits";
-        type = TextInputType.streetAddress;
-        initialValue = "";
-        if (costumer.rights == null) {
-          initialValue = "";
-        }
-        if (costumer.rights == Rights.required) {
-          initialValue = "1/3 payant requis";
-        }
-        if (costumer.rights == Rights.notRequired) {
-          initialValue = "prise en charge à 100%";
-        }
+        strinLabel = "poids (kg)";
+        type = TextInputType.number;
+        initialValue = costumer.hight != null ? costumer.weight.toString() : "";
       case FormLabel.access:
         strinLabel = "accès";
         type = TextInputType.streetAddress;
@@ -101,9 +91,11 @@ class _TechInputState extends State<CostumerInput> {
       case FormLabel.bedTime:
         strinLabel = "début d'enregistrement";
         type = TextInputType.streetAddress;
+        initialValue = widget.roughExam.bedTime;
       case FormLabel.wakeUpTime:
         strinLabel = "fin d'enregistrement";
         type = TextInputType.streetAddress;
+        initialValue = widget.roughExam.wakeUpTime;
 
       default:
     }
