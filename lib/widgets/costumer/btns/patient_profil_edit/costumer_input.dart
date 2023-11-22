@@ -2,20 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:sd_tech/models/costumer.dart';
-import 'package:sd_tech/models/enums/rights.dart';
 import 'package:sd_tech/models/rough_exam.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/enums/form_label.dart';
 
 class CostumerInput extends StatefulWidget {
-  const CostumerInput(
-      {super.key,
-      required this.label,
-      required this.roughExam,
-      required this.onFocus});
+  const CostumerInput({
+    super.key,
+    required this.label,
+    required this.roughExam,
+    required this.onFocus,
+    // this.formKey,
+  });
   final FormLabel label;
   final RoughExam roughExam;
   final void Function() onFocus;
+  // final formKey;
 
   @override
   State<CostumerInput> createState() => _TechInputState();
@@ -39,11 +41,23 @@ class _TechInputState extends State<CostumerInput> {
     String? initialValue = "";
     Costumer costumer = widget.roughExam.customer;
     TextInputType type = TextInputType.text;
+    String? Function(String?)? validator;
+
     switch (widget.label) {
       case FormLabel.firstname:
         strinLabel = "prénom";
-        type = TextInputType.name;
+        type = TextInputType.text;
         initialValue = costumer.firstname;
+        validator = (value) {
+          if (value.toString().isEmpty) {
+            return "le prénom de peut pas être un champs vide";
+          }
+          if (RegExp(r'[^[A-Za-z -]').hasMatch(value!)) {
+            return "le prénom ne peut comporter que des lettres";
+          } else {
+            return null;
+          }
+        };
       case FormLabel.lastname:
         strinLabel = "nom";
         type = TextInputType.name;
@@ -119,7 +133,9 @@ class _TechInputState extends State<CostumerInput> {
         ),
       ),
       keyboardType: type,
+      validator: validator,
       initialValue: initialValue,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
     );
   }
 }

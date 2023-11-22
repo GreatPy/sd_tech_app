@@ -19,7 +19,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  final _formKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
   Footer? footerContent;
   @override
   void initState() {
@@ -52,13 +52,14 @@ class _ProfileState extends State<Profile> {
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: Form(
-          key: _formKey,
+          key: formKey,
           child: Column(
             children: [
               CostumerInput(
                 label: FormLabel.firstname,
                 roughExam: widget.roughExam,
                 onFocus: toggleFooter,
+                // formKey: formKey,
               ),
               CostumerInput(
                 label: FormLabel.lastname,
@@ -107,11 +108,6 @@ class _ProfileState extends State<Profile> {
               ),
               CostumerInput(
                 label: FormLabel.weight,
-                roughExam: widget.roughExam,
-                onFocus: toggleFooter,
-              ),
-              CostumerInput(
-                label: FormLabel.rights,
                 roughExam: widget.roughExam,
                 onFocus: toggleFooter,
               ),
