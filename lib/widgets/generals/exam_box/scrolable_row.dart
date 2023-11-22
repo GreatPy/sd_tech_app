@@ -15,7 +15,6 @@ class ScrolableRow extends StatefulWidget {
   });
   final ExamCostuerInfoLine line;
   final TypedExam exam;
-
   @override
   State<ScrolableRow> createState() => _ScrolableRowState();
 }
@@ -26,6 +25,10 @@ class _ScrolableRowState extends State<ScrolableRow> {
   void initState() {
     super.initState();
     initializeDateFormatting("fr_FR", null);
+  }
+
+  @override
+  Widget build(BuildContext context) {
     if (widget.exam.roughExam.deliveryDate != null) {
       String hours =
           DateFormat("HH", "fr_FR").format(widget.exam.roughExam.deliveryDate!);
@@ -33,10 +36,6 @@ class _ScrolableRowState extends State<ScrolableRow> {
           DateFormat("mm", "fr_FR").format(widget.exam.roughExam.deliveryDate!);
       time = "${hours}h$minuts";
     }
-  }
-
-  @override
-  Widget build(BuildContext context) {
     final Widget content;
     final DateTime today = DateTime.now();
     Costumer customer = widget.exam.roughExam.customer;
