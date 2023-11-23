@@ -42,6 +42,43 @@ class _TechInputState extends State<CostumerInput> {
     Costumer costumer = widget.roughExam.customer;
     TextInputType type = TextInputType.text;
     String? Function(String?)? validator;
+    String? notEmptyStringValidator(String? value) {
+      if (value.toString().isEmpty) {
+        return "le prénom de peut pas être un champs vide";
+      }
+      if (RegExp(r'[^a-zA-Z éèêëîïàâäàôöûü]').hasMatch(value!)) {
+        return "ce champs ne peut comporter que des lettres";
+      } else {
+        return null;
+      }
+    }
+
+    String? onlyNumbers(String? value) {
+      if (value.toString().isNotEmpty) {
+        if (RegExp(r'^(?!(\d{2,3})$).*$').hasMatch(value!)) {
+          return "ce champs doit comporter entre 2 et 3 chiffres";
+        } else {
+          return null;
+        }
+      }
+      return null;
+    }
+
+    String? time(String? value) {
+      if (value.toString().isNotEmpty) {
+        if (RegExp(r'^(?!([0-2]?\d:[0-5]\d)$).*$').hasMatch(value!)) {
+          return "ce champs doit comporter un horrair valide :     HH:MM";
+        }
+        if (value.length > 4) {
+          if (int.parse(value[1]) > 3) {
+            return "horraire invalide";
+          }
+        } else {
+          return null;
+        }
+      }
+      return null;
+    }
 
     switch (widget.label) {
       case FormLabel.firstname:
@@ -49,27 +86,39 @@ class _TechInputState extends State<CostumerInput> {
         type = TextInputType.text;
         initialValue = costumer.firstname;
         validator = (value) {
-          if (value.toString().isEmpty) {
-            return "le prénom de peut pas être un champs vide";
-          }
-          if (RegExp(r'[^[A-Za-z -]').hasMatch(value!)) {
-            return "le prénom ne peut comporter que des lettres";
-          } else {
-            return null;
-          }
+          return notEmptyStringValidator(value);
         };
       case FormLabel.lastname:
         strinLabel = "nom";
-        type = TextInputType.name;
+        type = TextInputType.text;
         initialValue = costumer.lastname;
+        validator = (value) {
+          return notEmptyStringValidator(value);
+        };
       case FormLabel.phone:
         strinLabel = "téléphone";
         type = TextInputType.text;
         initialValue = costumer.phone;
+        validator = (value) {
+          if (RegExp(r'[^0-9 +]').hasMatch(value!)) {
+            return "ce champs ne peut comporter que des chiffres";
+          } else {
+            return null;
+          }
+        };
       case FormLabel.mail:
         strinLabel = "mail";
         type = TextInputType.emailAddress;
         initialValue = costumer.mail;
+        validator = (value) {
+          if (RegExp(
+                  r'^((?!\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b).)*$')
+              .hasMatch(value!)) {
+            return "ce champs doit comporter une adresse mail valide";
+          } else {
+            return null;
+          }
+        };
       case FormLabel.address:
         strinLabel = "adresse";
         type = TextInputType.streetAddress;
@@ -78,6 +127,13 @@ class _TechInputState extends State<CostumerInput> {
         strinLabel = "ville";
         type = TextInputType.text;
         initialValue = costumer.city;
+        validator = (value) {
+          if (RegExp(r'[^a-zA-Z éèêëîïàâäàôöûü]').hasMatch(value!)) {
+            return "ce champs ne peut comporter que des lettres";
+          } else {
+            return null;
+          }
+        };
       case FormLabel.birthdate:
         strinLabel = "date de naissance";
         type = TextInputType.datetime;
@@ -86,31 +142,62 @@ class _TechInputState extends State<CostumerInput> {
             ? ""
             : DateFormat("dd/MM/yyyy", "fr_FR").format(birthdate);
         initialValue = stringBirthdate;
+        validator = (value) {
+          if (RegExp(
+                  r'^(?!(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[0-2])/(\d{4})$).*$')
+              .hasMatch(value!)) {
+            return "ce champs doit être au format JJ/MM/AAAA";
+          } else {
+            return null;
+          }
+        };
       case FormLabel.nir:
         strinLabel = "n° carte vitale";
-        type = TextInputType.text;
+        type = TextInputType.datetime;
         initialValue = costumer.nir;
+        validator = (value) {
+          if (value.toString().isEmpty) {
+            String trimedValue = value!.replaceAll(RegExp(r'\s'), '');
+            if (RegExp(r'^(?!(\d{15})$).*$').hasMatch(trimedValue)) {
+              return "ce champs doit comporter 15 chiffres";
+            } else {
+              return null;
+            }
+          }
+          return null;
+        };
       case FormLabel.hight:
         strinLabel = "taille (cm)";
         type = TextInputType.number;
         initialValue = costumer.hight != null ? costumer.hight.toString() : "";
+        validator = (value) {
+          return onlyNumbers(value);
+        };
       case FormLabel.weight:
         strinLabel = "poids (kg)";
         type = TextInputType.number;
         initialValue = costumer.hight != null ? costumer.weight.toString() : "";
+        validator = (value) {
+          return onlyNumbers(value);
+        };
       case FormLabel.access:
         strinLabel = "accès";
         type = TextInputType.streetAddress;
         initialValue = costumer.access;
       case FormLabel.bedTime:
         strinLabel = "début d'enregistrement";
-        type = TextInputType.streetAddress;
-        initialValue = widget.roughExam.bedTime;
+        type = TextInputType.datetime;
+        initialValue = widget.roughExam.bedTime.replaceAll("h", ":");
+        validator = (value) {
+          return time(value);
+        };
       case FormLabel.wakeUpTime:
         strinLabel = "fin d'enregistrement";
-        type = TextInputType.streetAddress;
-        initialValue = widget.roughExam.wakeUpTime;
-
+        type = TextInputType.datetime;
+        initialValue = widget.roughExam.wakeUpTime.replaceAll("h", ":");
+        validator = (value) {
+          return time(value);
+        };
       default:
     }
 
