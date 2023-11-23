@@ -156,7 +156,7 @@ class _TechInputState extends State<CostumerInput> {
         type = TextInputType.datetime;
         initialValue = costumer.nir;
         validator = (value) {
-          if (value.toString().isEmpty) {
+          if (value.toString().isNotEmpty) {
             String trimedValue = value!.replaceAll(RegExp(r'\s'), '');
             if (RegExp(r'^(?!(\d{15})$).*$').hasMatch(trimedValue)) {
               return "ce champs doit comporter 15 chiffres";
