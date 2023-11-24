@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:sd_tech/models/costumer.dart';
 import 'package:sd_tech/models/enums/patient_box_label.dart';
 import 'package:sd_tech/models/enums/patient_btn_label.dart';
@@ -160,6 +161,20 @@ class _PatientContentState extends State<CostumerContent> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class CopyPastBtn extends StatelessWidget {
+  const CopyPastBtn({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        print("hello");
+      },
+      child: const Text("copier l'adresse"),
     );
   }
 }

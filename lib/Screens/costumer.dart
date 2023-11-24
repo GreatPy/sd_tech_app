@@ -20,7 +20,10 @@ class _PatientState extends State<Patient> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Header(screen: Screen.patient, exam: widget.typedExam),
+      appBar: Header(
+        screen: Screen.patient,
+        exam: widget.typedExam,
+      ),
       body: Body(
         content: CostumerContent(
           typedExam: widget.typedExam,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sd_tech/models/enums/patient_btn_label.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/typed_exam.dart';
@@ -10,12 +11,15 @@ class CostmumerBtn extends StatelessWidget {
     required this.patientBtnLabel,
     required this.typedExam,
     required this.page,
+    // this.additionnalAction,
   });
   final TypedExam typedExam;
   final PatientBtnLabel patientBtnLabel;
   final Widget page;
+  // final void Function()? additionnalAction;
   @override
   Widget build(BuildContext context) {
+    void Function()? additionnalAction;
     late String label;
     late IconData iconData;
     switch (patientBtnLabel) {
@@ -50,6 +54,14 @@ class CostmumerBtn extends StatelessWidget {
       case PatientBtnLabel.gps:
         label = "GPS";
         iconData = Icons.directions_car_outlined;
+        additionnalAction = () {
+          final String dataToCopy =
+              typedExam.roughExam.customer.address.toString();
+          Clipboard.setData(ClipboardData(text: dataToCopy));
+          // Vous pouvez ajouter un feedback ou un message pour informer l'utilisateur que la copie a été effectuée.
+          // Par exemple : Scaffold.of(context).showSnackBar(SnackBar(content: Text('Donnée copiée dans le presse-papiers')));
+          print(dataToCopy);
+        };
 
       case PatientBtnLabel.edit:
         label = "Informations patient";
@@ -62,6 +74,9 @@ class CostmumerBtn extends StatelessWidget {
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: primaryColorLigth),
             onPressed: () {
+              if (additionnalAction != null) {
+                additionnalAction();
+              }
               Navigator.push(
                   context,
                   MaterialPageRoute(
