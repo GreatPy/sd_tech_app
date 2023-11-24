@@ -87,7 +87,7 @@ class _TechInputState extends State<CostumerInput> {
         type = TextInputType.text;
         initialValue = costumer.city;
         validator = (value) {
-          return methods.mailValidator(value);
+          return methods.stringValidator(value);
         };
       case FormLabel.birthdate:
         stringLabel = "date de naissance";

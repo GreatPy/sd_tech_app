@@ -3,7 +3,7 @@ import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:sd_tech/models/enums/screen.dart';
 import 'package:sd_tech/models/enums/form_label.dart';
 import 'package:sd_tech/models/rough_exam.dart';
-import 'package:sd_tech/widgets/costumer/btns/patient_profil_edit/costumer_input.dart';
+import 'package:sd_tech/widgets/costumer/page_btn/patient_profil_edit/costumer_input.dart';
 import 'package:sd_tech/widgets/generals/footer/footer.dart';
 import 'package:sd_tech/widgets/generals/header.dart';
 import 'package:sd_tech/widgets/generals/body.dart';

@@ -26,6 +26,14 @@ class Methods {
     }
   }
 
+  String? stringValidator(String? value) {
+    if (RegExp(r'[^a-zA-Z éèêëîïàâäàôöûü-]').hasMatch(value!)) {
+      return "ce champs ne peut comporter que des lettres";
+    } else {
+      return null;
+    }
+  }
+
   String? onlyNumbersValidator(String? value) {
     if (value.toString().isNotEmpty) {
       if (RegExp(r'^(?!(\d{2,3})$).*$').hasMatch(value!)) {
