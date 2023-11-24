@@ -31,7 +31,7 @@ class App extends StatelessWidget {
           content: PlanningContent(),
           footer: Footer(
             icons: [
-              Screen.profile,
+              Screen.techProfile,
               Screen.searche,
               Screen.filters,
               Screen.today

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sd_tech/Screens/Profile.dart';
+import 'package:sd_tech/Screens/tech_profile.dart';
 import 'package:sd_tech/Screens/search.dart';
 import 'package:sd_tech/Screens/filters.dart';
 import 'package:sd_tech/Screens/today.dart';
@@ -18,7 +18,7 @@ class FooterIcon extends StatelessWidget {
     late final IconData iconData;
     late final Widget page;
     switch (icon) {
-      case Screen.profile:
+      case Screen.techProfile:
         iconData = Icons.person_outline;
         page = const Profile();
       case Screen.searche:

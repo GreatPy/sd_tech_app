@@ -29,7 +29,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
       case Screen.planning:
         title = "Planning";
         iconData = Icons.calendar_today_outlined;
-      case Screen.profile:
+      case Screen.techProfile:
         title = "Profile";
         iconData = Icons.person_outline;
       case Screen.searche:
@@ -45,6 +45,12 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
         title = """${costumer!.firstname}
 ${costumer.lastname}""";
         iconData = Icons.sentiment_satisfied;
+      case Screen.costumerProfile:
+        title = "informations patient";
+        iconData = Icons.create_outlined;
+      case Screen.costumerGgs:
+        title = "PGS";
+        iconData = Icons.directions_car_outlined;
       default:
     }
     Icon icon = Icon(iconData, color: whiteColor);

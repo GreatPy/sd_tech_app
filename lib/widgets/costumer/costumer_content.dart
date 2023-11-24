@@ -6,12 +6,13 @@ import 'package:sd_tech/models/enums/patient_btn_label.dart';
 import 'package:sd_tech/models/enums/status.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/typed_exam.dart';
+import 'package:sd_tech/widgets/costumer/page_btn/costumer_gps.dart';
 import 'package:sd_tech/widgets/generals/styled_text.dart';
 import 'package:sd_tech/widgets/costumer/exam_infos.dart';
 import 'package:sd_tech/widgets/costumer/incomplete_costumer_info.dart';
 import 'package:sd_tech/widgets/costumer/costumer_btn.dart';
 import 'package:sd_tech/widgets/costumer/costumer_card.dart';
-import 'package:sd_tech/widgets/costumer/page_btn/patient_profil_edit/profile.dart';
+import 'package:sd_tech/widgets/costumer/page_btn/patient_profil_edit/costumer_profile.dart';
 
 class CostumerContent extends StatefulWidget {
   const CostumerContent({
@@ -123,58 +124,53 @@ class _PatientContentState extends State<CostumerContent> {
             ),
             const SizedBox(height: 16),
             CostmumerBtn(
-                page: Profile(roughExam: widget.typedExam.roughExam),
-                patientBtnLabel: PatientBtnLabel.document,
-                typedExam: widget.typedExam),
+              page: Profile(roughExam: widget.typedExam.roughExam),
+              patientBtnLabel: PatientBtnLabel.document,
+              typedExam: widget.typedExam,
+            ),
             CostmumerBtn(
-                page: Profile(roughExam: widget.typedExam.roughExam),
-                patientBtnLabel: PatientBtnLabel.payment,
-                typedExam: widget.typedExam),
+              page: Profile(roughExam: widget.typedExam.roughExam),
+              patientBtnLabel: PatientBtnLabel.payment,
+              typedExam: widget.typedExam,
+            ),
             CostmumerBtn(
-                page: Profile(roughExam: widget.typedExam.roughExam),
-                patientBtnLabel: PatientBtnLabel.schedule,
-                typedExam: widget.typedExam),
+              page: Profile(roughExam: widget.typedExam.roughExam),
+              patientBtnLabel: PatientBtnLabel.schedule,
+              typedExam: widget.typedExam,
+            ),
             CostmumerBtn(
-                page: Profile(roughExam: widget.typedExam.roughExam),
-                patientBtnLabel: PatientBtnLabel.status,
-                typedExam: widget.typedExam),
+              page: Profile(roughExam: widget.typedExam.roughExam),
+              patientBtnLabel: PatientBtnLabel.status,
+              typedExam: widget.typedExam,
+            ),
             CostmumerBtn(
-                page: Profile(roughExam: widget.typedExam.roughExam),
-                patientBtnLabel: PatientBtnLabel.tel,
-                typedExam: widget.typedExam),
+              page: Profile(roughExam: widget.typedExam.roughExam),
+              patientBtnLabel: PatientBtnLabel.tel,
+              typedExam: widget.typedExam,
+            ),
             CostmumerBtn(
-                page: Profile(roughExam: widget.typedExam.roughExam),
-                patientBtnLabel: PatientBtnLabel.sms,
-                typedExam: widget.typedExam),
+              page: Profile(roughExam: widget.typedExam.roughExam),
+              patientBtnLabel: PatientBtnLabel.sms,
+              typedExam: widget.typedExam,
+            ),
             CostmumerBtn(
-                page: Profile(roughExam: widget.typedExam.roughExam),
-                patientBtnLabel: PatientBtnLabel.whatsapp,
-                typedExam: widget.typedExam),
+              page: Profile(roughExam: widget.typedExam.roughExam),
+              patientBtnLabel: PatientBtnLabel.whatsapp,
+              typedExam: widget.typedExam,
+            ),
             CostmumerBtn(
-                page: Profile(roughExam: widget.typedExam.roughExam),
-                patientBtnLabel: PatientBtnLabel.gps,
-                typedExam: widget.typedExam),
+              page: const GpsScreen(),
+              patientBtnLabel: PatientBtnLabel.gps,
+              typedExam: widget.typedExam,
+            ),
             CostmumerBtn(
-                page: Profile(roughExam: widget.typedExam.roughExam),
-                patientBtnLabel: PatientBtnLabel.edit,
-                typedExam: widget.typedExam),
+              page: Profile(roughExam: widget.typedExam.roughExam),
+              patientBtnLabel: PatientBtnLabel.edit,
+              typedExam: widget.typedExam,
+            ),
           ],
         ),
       ),
-    );
-  }
-}
-
-class CopyPastBtn extends StatelessWidget {
-  const CopyPastBtn({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        print("hello");
-      },
-      child: const Text("copier l'adresse"),
     );
   }
 }

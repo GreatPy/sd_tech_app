@@ -6,7 +6,7 @@ import 'package:sd_tech/models/enums/form_label.dart';
 import 'package:sd_tech/widgets/generals/footer/footer.dart';
 import 'package:sd_tech/widgets/generals/header.dart';
 import 'package:sd_tech/widgets/generals/body.dart';
-import 'package:sd_tech/widgets/profile/tech_input.dart';
+import 'package:sd_tech/widgets/tech_profile/tech_input.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -103,7 +103,7 @@ class _ProfileState extends State<Profile> {
         child: Scaffold(
           // resizeToAvoidBottomInset: false,
           appBar: const Header(
-            screen: Screen.profile,
+            screen: Screen.techProfile,
           ),
           body: Body(
             content: bodyContent,

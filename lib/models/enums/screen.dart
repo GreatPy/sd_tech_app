@@ -1,9 +1,11 @@
 enum Screen {
   planning,
-  profile,
+  techProfile,
   searche,
   filters,
   today,
   patient,
   keyboard,
+  costumerProfile,
+  costumerGgs,
 }
