@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sd_tech/data/tech.dart';
+import 'package:sd_tech/models/rough_exam.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/tech.dart';
 import 'package:sd_tech/models/enums/form_label.dart';
@@ -34,23 +35,36 @@ class _TechInputState extends State<TechInput> {
     String stringLabel = "";
     TextInputType type = TextInputType.text;
     String initialValue = "";
+    String? Function(String?)? validator;
     switch (widget.label) {
       case FormLabel.firstname:
         stringLabel = "prénom";
-        type = TextInputType.name;
+        type = TextInputType.text;
         initialValue = vahe.firstname;
+        validator = (value) {
+          return methods.notEmptyStringValidator(value);
+        };
       case FormLabel.lastname:
         stringLabel = "nom";
-        type = TextInputType.name;
+        type = TextInputType.text;
         initialValue = vahe.lastname;
+        validator = (value) {
+          return methods.notEmptyStringValidator(value);
+        };
       case FormLabel.phone:
         stringLabel = "téléphone";
         type = TextInputType.phone;
         initialValue = vahe.phone;
+        validator = (value) {
+          return methods.phoneNumberValidator(value);
+        };
       case FormLabel.mail:
         stringLabel = "mail";
         type = TextInputType.emailAddress;
         initialValue = vahe.mail;
+        validator = (value) {
+          return methods.mailValidator(value);
+        };
       case FormLabel.address:
         stringLabel = "adresse";
         type = TextInputType.streetAddress;
@@ -58,11 +72,17 @@ class _TechInputState extends State<TechInput> {
       case FormLabel.pg:
         stringLabel = "nombre de PGs";
         type = TextInputType.number;
-        initialValue = vahe.pg.toString();
+        initialValue = vahe.pgCount.toString();
+        validator = (value) {
+          return methods.machinNumberValidator(value);
+        };
       case FormLabel.psg:
         stringLabel = "nombre de PSGs";
         type = TextInputType.number;
-        initialValue = vahe.psg.toString();
+        initialValue = vahe.psgCount.toString();
+        validator = (value) {
+          return methods.machinNumberValidator(value);
+        };
       default:
     }
 
@@ -85,6 +105,8 @@ class _TechInputState extends State<TechInput> {
         ),
       ),
       keyboardType: type,
+      validator: validator,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       initialValue: initialValue,
       onSaved: (newValue) {
         print("$stringLabel : $newValue");

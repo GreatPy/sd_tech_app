@@ -42,43 +42,6 @@ class _TechInputState extends State<CostumerInput> {
     Costumer costumer = widget.roughExam.customer;
     TextInputType type = TextInputType.text;
     String? Function(String?)? validator;
-    String? notEmptyStringValidator(String? value) {
-      if (value.toString().isEmpty) {
-        return "le prénom de peut pas être un champs vide";
-      }
-      if (RegExp(r'[^a-zA-Z éèêëîïàâäàôöûü]').hasMatch(value!)) {
-        return "ce champs ne peut comporter que des lettres";
-      } else {
-        return null;
-      }
-    }
-
-    String? onlyNumbers(String? value) {
-      if (value.toString().isNotEmpty) {
-        if (RegExp(r'^(?!(\d{2,3})$).*$').hasMatch(value!)) {
-          return "ce champs doit comporter entre 2 et 3 chiffres";
-        } else {
-          return null;
-        }
-      }
-      return null;
-    }
-
-    String? time(String? value) {
-      if (value.toString().isNotEmpty) {
-        if (RegExp(r'^(?!([0-2]?\d:[0-5]\d)$).*$').hasMatch(value!)) {
-          return "ce champs doit comporter un horrair valide :     HH:MM";
-        }
-        if (value.length > 4) {
-          if (int.parse(value[1]) > 3) {
-            return "horraire invalide";
-          }
-        } else {
-          return null;
-        }
-      }
-      return null;
-    }
 
     switch (widget.label) {
       case FormLabel.firstname:
@@ -86,25 +49,21 @@ class _TechInputState extends State<CostumerInput> {
         type = TextInputType.text;
         initialValue = costumer.firstname;
         validator = (value) {
-          return notEmptyStringValidator(value);
+          return methods.notEmptyStringValidator(value);
         };
       case FormLabel.lastname:
         stringLabel = "nom";
         type = TextInputType.text;
         initialValue = costumer.lastname;
         validator = (value) {
-          return notEmptyStringValidator(value);
+          return methods.notEmptyStringValidator(value);
         };
       case FormLabel.phone:
         stringLabel = "téléphone";
         type = TextInputType.text;
         initialValue = costumer.phone;
         validator = (value) {
-          if (RegExp(r'[^0-9 +]').hasMatch(value!)) {
-            return "ce champs ne peut comporter que des chiffres";
-          } else {
-            return null;
-          }
+          return methods.phoneNumberValidator(value);
         };
       case FormLabel.mail:
         stringLabel = "mail";
@@ -128,11 +87,7 @@ class _TechInputState extends State<CostumerInput> {
         type = TextInputType.text;
         initialValue = costumer.city;
         validator = (value) {
-          if (RegExp(r'[^a-zA-Z éèêëîïàâäàôöûü]').hasMatch(value!)) {
-            return "ce champs ne peut comporter que des lettres";
-          } else {
-            return null;
-          }
+          return methods.mailValidator(value);
         };
       case FormLabel.birthdate:
         stringLabel = "date de naissance";
@@ -143,42 +98,28 @@ class _TechInputState extends State<CostumerInput> {
             : DateFormat("dd/MM/yyyy", "fr_FR").format(birthdate);
         initialValue = stringBirthdate;
         validator = (value) {
-          if (RegExp(
-                  r'^(?!(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[0-2])/(\d{4})$).*$')
-              .hasMatch(value!)) {
-            return "ce champs doit être au format JJ/MM/AAAA";
-          } else {
-            return null;
-          }
+          return methods.birthdateValidator(value);
         };
       case FormLabel.nir:
         stringLabel = "n° carte vitale";
         type = TextInputType.datetime;
         initialValue = costumer.nir;
         validator = (value) {
-          if (value.toString().isNotEmpty) {
-            String trimedValue = value!.replaceAll(RegExp(r'\s'), '');
-            if (RegExp(r'^(?!(\d{15})$).*$').hasMatch(trimedValue)) {
-              return "ce champs doit comporter 15 chiffres";
-            } else {
-              return null;
-            }
-          }
-          return null;
+          return methods.nirValidator(value);
         };
       case FormLabel.hight:
         stringLabel = "taille (cm)";
         type = TextInputType.number;
         initialValue = costumer.hight != null ? costumer.hight.toString() : "";
         validator = (value) {
-          return onlyNumbers(value);
+          return methods.onlyNumbersValidator(value);
         };
       case FormLabel.weight:
         stringLabel = "poids (kg)";
         type = TextInputType.number;
         initialValue = costumer.hight != null ? costumer.weight.toString() : "";
         validator = (value) {
-          return onlyNumbers(value);
+          return methods.onlyNumbersValidator(value);
         };
       case FormLabel.access:
         stringLabel = "accès";
@@ -189,14 +130,14 @@ class _TechInputState extends State<CostumerInput> {
         type = TextInputType.datetime;
         initialValue = widget.roughExam.bedTime.replaceAll("h", ":");
         validator = (value) {
-          return time(value);
+          return methods.timeValidator(value);
         };
       case FormLabel.wakeUpTime:
         stringLabel = "fin d'enregistrement";
         type = TextInputType.datetime;
         initialValue = widget.roughExam.wakeUpTime.replaceAll("h", ":");
         validator = (value) {
-          return time(value);
+          return methods.timeValidator(value);
         };
       default:
     }
@@ -221,8 +162,8 @@ class _TechInputState extends State<CostumerInput> {
       ),
       keyboardType: type,
       validator: validator,
-      initialValue: initialValue,
       autovalidateMode: AutovalidateMode.onUserInteraction,
+      initialValue: initialValue,
       onSaved: (newValue) {
         print("$stringLabel : $newValue");
       },

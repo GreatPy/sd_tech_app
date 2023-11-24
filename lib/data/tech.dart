@@ -7,6 +7,6 @@ Tech vahe = const Tech(
   phone: "06 00 00 00 00",
   mail: "vs@sleepdoctor.me",
   address: "45 rue Pierre Charron, 75008 PARIS",
-  pg: 3,
-  psg: 1,
+  pgs: ["SN 300 001", "SN 300 002", "SN 300 003"],
+  psgs: ["SN 316 002"],
 );

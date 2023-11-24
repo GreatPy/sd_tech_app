@@ -6,8 +6,8 @@ class Tech {
     required this.phone,
     required this.mail,
     required this.address,
-    required this.pg,
-    required this.psg,
+    required this.pgs,
+    required this.psgs,
   });
   final int id;
   final String firstname;
@@ -15,6 +15,8 @@ class Tech {
   final String phone;
   final String mail;
   final String address;
-  final int pg;
-  final int psg;
+  final List<String> pgs;
+  final List<String> psgs;
+  int get pgCount => pgs.length;
+  int get psgCount => psgs.length;
 }
