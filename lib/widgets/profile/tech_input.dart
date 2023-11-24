@@ -31,36 +31,36 @@ class _TechInputState extends State<TechInput> {
 
   @override
   Widget build(BuildContext context) {
-    String strinLabel = "";
+    String stringLabel = "";
     TextInputType type = TextInputType.text;
     String initialValue = "";
     switch (widget.label) {
       case FormLabel.firstname:
-        strinLabel = "prénom";
+        stringLabel = "prénom";
         type = TextInputType.name;
         initialValue = vahe.firstname;
       case FormLabel.lastname:
-        strinLabel = "nom";
+        stringLabel = "nom";
         type = TextInputType.name;
         initialValue = vahe.lastname;
       case FormLabel.phone:
-        strinLabel = "téléphone";
+        stringLabel = "téléphone";
         type = TextInputType.phone;
         initialValue = vahe.phone;
       case FormLabel.mail:
-        strinLabel = "mail";
+        stringLabel = "mail";
         type = TextInputType.emailAddress;
         initialValue = vahe.mail;
       case FormLabel.address:
-        strinLabel = "adresse";
+        stringLabel = "adresse";
         type = TextInputType.streetAddress;
         initialValue = vahe.address;
       case FormLabel.pg:
-        strinLabel = "nombre de PGs";
+        stringLabel = "nombre de PGs";
         type = TextInputType.number;
         initialValue = vahe.pg.toString();
       case FormLabel.psg:
-        strinLabel = "nombre de PSGs";
+        stringLabel = "nombre de PSGs";
         type = TextInputType.number;
         initialValue = vahe.psg.toString();
       default:
@@ -76,7 +76,7 @@ class _TechInputState extends State<TechInput> {
         fontSize: 20,
       ),
       decoration: InputDecoration(
-        label: Text(strinLabel),
+        label: Text(stringLabel),
         labelStyle: TextStyle(color: primaryColorLigth),
         enabledBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.transparent)),
@@ -86,6 +86,9 @@ class _TechInputState extends State<TechInput> {
       ),
       keyboardType: type,
       initialValue: initialValue,
+      onSaved: (newValue) {
+        print("$stringLabel : $newValue");
+      },
     );
   }
 }

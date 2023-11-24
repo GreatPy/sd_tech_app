@@ -37,7 +37,7 @@ class _TechInputState extends State<CostumerInput> {
 
   @override
   Widget build(BuildContext context) {
-    String strinLabel = "";
+    String stringLabel = "";
     String? initialValue = "";
     Costumer costumer = widget.roughExam.customer;
     TextInputType type = TextInputType.text;
@@ -82,21 +82,21 @@ class _TechInputState extends State<CostumerInput> {
 
     switch (widget.label) {
       case FormLabel.firstname:
-        strinLabel = "prénom";
+        stringLabel = "prénom";
         type = TextInputType.text;
         initialValue = costumer.firstname;
         validator = (value) {
           return notEmptyStringValidator(value);
         };
       case FormLabel.lastname:
-        strinLabel = "nom";
+        stringLabel = "nom";
         type = TextInputType.text;
         initialValue = costumer.lastname;
         validator = (value) {
           return notEmptyStringValidator(value);
         };
       case FormLabel.phone:
-        strinLabel = "téléphone";
+        stringLabel = "téléphone";
         type = TextInputType.text;
         initialValue = costumer.phone;
         validator = (value) {
@@ -107,7 +107,7 @@ class _TechInputState extends State<CostumerInput> {
           }
         };
       case FormLabel.mail:
-        strinLabel = "mail";
+        stringLabel = "mail";
         type = TextInputType.emailAddress;
         initialValue = costumer.mail;
         validator = (value) {
@@ -120,11 +120,11 @@ class _TechInputState extends State<CostumerInput> {
           }
         };
       case FormLabel.address:
-        strinLabel = "adresse";
+        stringLabel = "adresse";
         type = TextInputType.streetAddress;
         initialValue = costumer.address;
       case FormLabel.city:
-        strinLabel = "ville";
+        stringLabel = "ville";
         type = TextInputType.text;
         initialValue = costumer.city;
         validator = (value) {
@@ -135,7 +135,7 @@ class _TechInputState extends State<CostumerInput> {
           }
         };
       case FormLabel.birthdate:
-        strinLabel = "date de naissance";
+        stringLabel = "date de naissance";
         type = TextInputType.datetime;
         DateTime? birthdate = costumer.birthdate;
         String stringBirthdate = birthdate == null
@@ -152,7 +152,7 @@ class _TechInputState extends State<CostumerInput> {
           }
         };
       case FormLabel.nir:
-        strinLabel = "n° carte vitale";
+        stringLabel = "n° carte vitale";
         type = TextInputType.datetime;
         initialValue = costumer.nir;
         validator = (value) {
@@ -167,32 +167,32 @@ class _TechInputState extends State<CostumerInput> {
           return null;
         };
       case FormLabel.hight:
-        strinLabel = "taille (cm)";
+        stringLabel = "taille (cm)";
         type = TextInputType.number;
         initialValue = costumer.hight != null ? costumer.hight.toString() : "";
         validator = (value) {
           return onlyNumbers(value);
         };
       case FormLabel.weight:
-        strinLabel = "poids (kg)";
+        stringLabel = "poids (kg)";
         type = TextInputType.number;
         initialValue = costumer.hight != null ? costumer.weight.toString() : "";
         validator = (value) {
           return onlyNumbers(value);
         };
       case FormLabel.access:
-        strinLabel = "accès";
+        stringLabel = "accès";
         type = TextInputType.streetAddress;
         initialValue = costumer.access;
       case FormLabel.bedTime:
-        strinLabel = "début d'enregistrement";
+        stringLabel = "début d'enregistrement";
         type = TextInputType.datetime;
         initialValue = widget.roughExam.bedTime.replaceAll("h", ":");
         validator = (value) {
           return time(value);
         };
       case FormLabel.wakeUpTime:
-        strinLabel = "fin d'enregistrement";
+        stringLabel = "fin d'enregistrement";
         type = TextInputType.datetime;
         initialValue = widget.roughExam.wakeUpTime.replaceAll("h", ":");
         validator = (value) {
@@ -211,7 +211,7 @@ class _TechInputState extends State<CostumerInput> {
         fontSize: 20,
       ),
       decoration: InputDecoration(
-        label: Text(strinLabel),
+        label: Text(stringLabel),
         labelStyle: TextStyle(color: primaryColorLigth),
         enabledBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.transparent)),
@@ -223,6 +223,9 @@ class _TechInputState extends State<CostumerInput> {
       validator: validator,
       initialValue: initialValue,
       autovalidateMode: AutovalidateMode.onUserInteraction,
+      onSaved: (newValue) {
+        print("$stringLabel : $newValue");
+      },
     );
   }
 }

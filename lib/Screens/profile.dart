@@ -21,8 +21,12 @@ class _ProfileState extends State<Profile> {
   @override
   void initState() {
     super.initState();
-    footerContent = const Footer(
-        icons: [Screen.planning], needsDeconexion: true, needsValidation: true);
+    footerContent = Footer(
+      icons: const [Screen.planning],
+      needsDeconexion: true,
+      needsValidation: true,
+      formKey: _formKey,
+    );
   }
 
   void toggleFooter() {
@@ -32,10 +36,13 @@ class _ProfileState extends State<Profile> {
         return;
       }
       if (footerContent == null) {
-        footerContent = const Footer(
-            icons: [Screen.planning],
-            needsDeconexion: true,
-            needsValidation: true);
+        footerContent = Footer(
+          icons: const [Screen.planning],
+          needsDeconexion: true,
+          needsValidation: true,
+          formKey: _formKey,
+        );
+
         return;
       }
     });

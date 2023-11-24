@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:sd_tech/models/styles.dart';
 
 class ValidationFooter extends StatelessWidget {
-  const ValidationFooter({super.key});
-
+  const ValidationFooter({
+    super.key,
+    this.formKey,
+  });
+  final GlobalKey<FormState>? formKey;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,12 +17,20 @@ class ValidationFooter extends StatelessWidget {
         children: [
           TextButton(
             style: TextButton.styleFrom(foregroundColor: primaryColor),
-            onPressed: () {},
+            onPressed: () {
+              formKey!.currentState!.reset();
+            },
             child: const Text("annuler"),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: primaryColor),
-            onPressed: () {},
+            onPressed: () {
+              if (formKey!.currentState!.validate()) {
+                formKey!.currentState!.save();
+              } else {
+                print("certains champs ne sont pas valides");
+              }
+            },
             child: const Text("enregister"),
           )
         ],
