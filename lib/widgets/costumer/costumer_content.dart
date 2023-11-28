@@ -12,7 +12,7 @@ import 'package:sd_tech/widgets/costumer/exam_infos.dart';
 import 'package:sd_tech/widgets/costumer/incomplete_costumer_info.dart';
 import 'package:sd_tech/widgets/costumer/costumer_btn.dart';
 import 'package:sd_tech/widgets/costumer/costumer_card.dart';
-import 'package:sd_tech/widgets/costumer/page_btn/patient_profil_edit/costumer_profile.dart';
+import 'package:sd_tech/widgets/costumer/page_btn/costumer_profil_edit/costumer_profile.dart';
 
 class CostumerContent extends StatefulWidget {
   const CostumerContent({
