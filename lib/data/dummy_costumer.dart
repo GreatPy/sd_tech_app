@@ -90,7 +90,6 @@ Costumer costumer7 = Costumer(
   id: 7,
   firstname: "Jean",
   lastname: "TALOULA",
-  address: "20 rue Lord Byron, 75016 PARIS",
   city: "PARIS",
   birthdate: DateTime(1950, 02, 21),
   phone: "06 99 82 29 11",
