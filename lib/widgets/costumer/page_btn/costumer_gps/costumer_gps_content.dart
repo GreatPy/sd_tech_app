@@ -15,7 +15,7 @@ class GpsContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String? address = roughExam.customer.address;
-    Widget missingAdress = Row(
+    Widget missingAddress = Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Icon(Icons.warning_amber_rounded, color: dangerColor),
@@ -44,7 +44,7 @@ class GpsContent extends StatelessWidget {
       ],
     );
     Widget addressContent =
-        address == null || address.isEmpty ? missingAdress : presentAddress;
+        address == null || address.isEmpty ? missingAddress : presentAddress;
     return Body(
       content: Column(
         children: [
@@ -55,9 +55,10 @@ class GpsContent extends StatelessWidget {
         ],
       ),
       footer: const Footer(
-          icons: [Screen.planning],
-          needsValidation: false,
-          needsDeconexion: false),
+        icons: [Screen.planning],
+        needsValidation: false,
+        needsDeconexion: false,
+      ),
     );
   }
 }
