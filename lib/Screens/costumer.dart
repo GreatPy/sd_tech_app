@@ -17,16 +17,31 @@ class Patient extends StatefulWidget {
 }
 
 class _PatientState extends State<Patient> {
+  late TypedExam typedExam;
+  @override
+  void initState() {
+    typedExam = widget.typedExam;
+    super.initState();
+  }
+
+  void updateTypedExam(TypedExam updatedTypedExam) {
+    setState(() {
+      typedExam = updatedTypedExam;
+      print("data updayed !");
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Header(
         screen: Screen.patient,
-        exam: widget.typedExam,
+        exam: typedExam,
       ),
       body: Body(
         content: CostumerContent(
-          typedExam: widget.typedExam,
+          typedExam: typedExam,
+          updateTypedExam: updateTypedExam,
         ),
         footer: const Footer(
           icons: [Screen.planning],

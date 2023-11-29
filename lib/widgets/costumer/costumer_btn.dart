@@ -11,11 +11,13 @@ class CostmumerBtn extends StatelessWidget {
     required this.patientBtnLabel,
     required this.typedExam,
     required this.page,
+    this.updateTypedExam,
     // this.additionnalAction,
   });
   final TypedExam typedExam;
   final PatientBtnLabel patientBtnLabel;
   final Widget page;
+  final void Function(TypedExam updatedTypedExam)? updateTypedExam;
   // final void Function()? additionnalAction;
   @override
   Widget build(BuildContext context) {

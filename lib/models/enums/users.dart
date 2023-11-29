@@ -1,0 +1,1 @@
+enum Users { tech, costumer }

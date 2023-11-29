@@ -6,14 +6,18 @@ import 'package:sd_tech/models/tech.dart';
 import 'package:sd_tech/models/enums/form_label.dart';
 
 class TechInput extends StatefulWidget {
-  const TechInput(
-      {super.key,
-      required this.label,
-      required this.tech,
-      required this.onFocus});
+  const TechInput({
+    super.key,
+    required this.label,
+    required this.tech,
+    required this.onFocus,
+    required this.updateTechProperty,
+  });
   final FormLabel label;
   final Tech tech;
   final void Function() onFocus;
+  final void Function({required FormLabel label, String? newValue})
+      updateTechProperty;
 
   @override
   State<TechInput> createState() => _TechInputState();
@@ -21,21 +25,25 @@ class TechInput extends StatefulWidget {
 
 class _TechInputState extends State<TechInput> {
   final _focusNode = FocusNode();
+  late Tech tech;
 
   @override
   void initState() {
-    super.initState();
+    tech = widget.tech;
+    // print(tech.firstname);
     _focusNode.addListener(() {
       widget.onFocus();
     });
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    String stringLabel = "";
+    String? stringLabel = "";
     TextInputType type = TextInputType.text;
-    String initialValue = "";
+    String? initialValue = "";
     String? Function(String?)? validator;
+
     switch (widget.label) {
       case FormLabel.firstname:
         stringLabel = "prénom";
@@ -87,30 +95,28 @@ class _TechInputState extends State<TechInput> {
     }
 
     return TextFormField(
-      // controller: _inputControler,
-      focusNode: _focusNode,
-      cursorColor: primaryColorLigth,
-      cursorWidth: 4,
-      style: TextStyle(
-        color: neutral,
-        fontSize: 20,
-      ),
-      decoration: InputDecoration(
-        label: Text(stringLabel),
-        labelStyle: TextStyle(color: primaryColorLigth),
-        enabledBorder: const UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.transparent)),
-        focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(width: 2, color: primaryColorLigth),
+        focusNode: _focusNode,
+        cursorColor: primaryColorLigth,
+        cursorWidth: 4,
+        style: TextStyle(
+          color: neutral,
+          fontSize: 20,
         ),
-      ),
-      keyboardType: type,
-      validator: validator,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      initialValue: initialValue,
-      onSaved: (newValue) {
-        print("$stringLabel : $newValue");
-      },
-    );
+        decoration: InputDecoration(
+          label: Text(stringLabel),
+          labelStyle: TextStyle(color: primaryColorLigth),
+          enabledBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.transparent)),
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(width: 2, color: primaryColorLigth),
+          ),
+        ),
+        keyboardType: type,
+        validator: validator,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        initialValue: initialValue,
+        onSaved: (value) {
+          widget.updateTechProperty(label: widget.label, newValue: value);
+        });
   }
 }

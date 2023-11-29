@@ -18,8 +18,10 @@ class CostumerContent extends StatefulWidget {
   const CostumerContent({
     super.key,
     required this.typedExam,
+    required this.updateTypedExam,
   });
   final TypedExam typedExam;
+  final void Function(TypedExam updatedTypedExam) updateTypedExam;
 
   @override
   State<CostumerContent> createState() => _PatientContentState();
@@ -114,6 +116,7 @@ class _PatientContentState extends State<CostumerContent> {
               roughExam: widget.typedExam.roughExam,
               label: PatientBoxLabel.notes,
             ),
+            //CARDS
             CostumerCard(
               roughExam: widget.typedExam.roughExam,
               label: PatientBoxLabel.acces,
@@ -124,37 +127,38 @@ class _PatientContentState extends State<CostumerContent> {
             ),
             const SizedBox(height: 16),
             CostmumerBtn(
-              page: Profile(roughExam: widget.typedExam.roughExam),
+              page: GpsScreen(roughExam: widget.typedExam.roughExam),
               patientBtnLabel: PatientBtnLabel.document,
               typedExam: widget.typedExam,
             ),
+            //BTNs
             CostmumerBtn(
-              page: Profile(roughExam: widget.typedExam.roughExam),
+              page: GpsScreen(roughExam: widget.typedExam.roughExam),
               patientBtnLabel: PatientBtnLabel.payment,
               typedExam: widget.typedExam,
             ),
             CostmumerBtn(
-              page: Profile(roughExam: widget.typedExam.roughExam),
+              page: GpsScreen(roughExam: widget.typedExam.roughExam),
               patientBtnLabel: PatientBtnLabel.schedule,
               typedExam: widget.typedExam,
             ),
             CostmumerBtn(
-              page: Profile(roughExam: widget.typedExam.roughExam),
+              page: GpsScreen(roughExam: widget.typedExam.roughExam),
               patientBtnLabel: PatientBtnLabel.status,
               typedExam: widget.typedExam,
             ),
             CostmumerBtn(
-              page: Profile(roughExam: widget.typedExam.roughExam),
+              page: GpsScreen(roughExam: widget.typedExam.roughExam),
               patientBtnLabel: PatientBtnLabel.tel,
               typedExam: widget.typedExam,
             ),
             CostmumerBtn(
-              page: Profile(roughExam: widget.typedExam.roughExam),
+              page: GpsScreen(roughExam: widget.typedExam.roughExam),
               patientBtnLabel: PatientBtnLabel.sms,
               typedExam: widget.typedExam,
             ),
             CostmumerBtn(
-              page: Profile(roughExam: widget.typedExam.roughExam),
+              page: GpsScreen(roughExam: widget.typedExam.roughExam),
               patientBtnLabel: PatientBtnLabel.whatsapp,
               typedExam: widget.typedExam,
             ),
@@ -164,9 +168,12 @@ class _PatientContentState extends State<CostumerContent> {
               typedExam: widget.typedExam,
             ),
             CostmumerBtn(
-              page: Profile(roughExam: widget.typedExam.roughExam),
+              page: Profile(
+                typedExam: widget.typedExam,
+              ),
               patientBtnLabel: PatientBtnLabel.edit,
               typedExam: widget.typedExam,
+              updateTypedExam: widget.updateTypedExam,
             ),
           ],
         ),

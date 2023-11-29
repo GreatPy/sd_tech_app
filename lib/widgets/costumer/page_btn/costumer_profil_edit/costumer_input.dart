@@ -5,17 +5,18 @@ import 'package:sd_tech/models/costumer.dart';
 import 'package:sd_tech/models/rough_exam.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/enums/form_label.dart';
+import 'package:sd_tech/models/typed_exam.dart';
 
 class CostumerInput extends StatefulWidget {
   const CostumerInput({
     super.key,
     required this.label,
-    required this.roughExam,
+    required this.typedExam,
     required this.onFocus,
     // this.formKey,
   });
   final FormLabel label;
-  final RoughExam roughExam;
+  final TypedExam typedExam;
   final void Function() onFocus;
   // final formKey;
 
@@ -25,21 +26,22 @@ class CostumerInput extends StatefulWidget {
 
 class _TechInputState extends State<CostumerInput> {
   final _focusNode = FocusNode();
-
+  late TypedExam typedExam;
   @override
   void initState() {
-    super.initState();
+    typedExam = widget.typedExam;
     initializeDateFormatting("fr_FR", null);
     _focusNode.addListener(() {
       widget.onFocus();
     });
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     String stringLabel = "";
     String? initialValue = "";
-    Costumer costumer = widget.roughExam.customer;
+    Costumer costumer = typedExam.roughExam.customer;
     TextInputType type = TextInputType.text;
     String? Function(String?)? validator;
 
@@ -128,14 +130,14 @@ class _TechInputState extends State<CostumerInput> {
       case FormLabel.bedTime:
         stringLabel = "début d'enregistrement";
         type = TextInputType.datetime;
-        initialValue = widget.roughExam.bedTime.replaceAll("h", ":");
+        initialValue = typedExam.roughExam.bedTime.replaceAll("h", ":");
         validator = (value) {
           return methods.timeValidator(value);
         };
       case FormLabel.wakeUpTime:
         stringLabel = "fin d'enregistrement";
         type = TextInputType.datetime;
-        initialValue = widget.roughExam.wakeUpTime.replaceAll("h", ":");
+        initialValue = typedExam.roughExam.wakeUpTime.replaceAll("h", ":");
         validator = (value) {
           return methods.timeValidator(value);
         };

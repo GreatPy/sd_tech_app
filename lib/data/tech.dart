@@ -1,6 +1,6 @@
 import 'package:sd_tech/models/tech.dart';
 
-Tech vahe = const Tech(
+Tech vahe = Tech(
   id: 1,
   firstname: "Vahé",
   lastname: "Serdjanian",
