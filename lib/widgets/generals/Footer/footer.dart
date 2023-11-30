@@ -18,6 +18,11 @@ class Footer extends StatelessWidget {
     this.costumer,
     this.tech,
     this.techProperties,
+    this.initalPgs,
+    this.initalPsgs,
+    this.resetMachines,
+    this.saveMachines,
+    this.isMachinesSaved,
   });
   final List<Screen> icons;
   final bool needsValidation;
@@ -26,6 +31,11 @@ class Footer extends StatelessWidget {
   final Costumer? costumer;
   final Tech? tech;
   final Map? techProperties;
+  final List<String>? initalPgs;
+  final List<String>? initalPsgs;
+  final void Function()? resetMachines;
+  final void Function()? saveMachines;
+  final bool? isMachinesSaved;
   @override
   Widget build(BuildContext context) {
     Widget deconexion = needsDeconexion ? const Deconexion() : const SizedBox();
@@ -34,6 +44,10 @@ class Footer extends StatelessWidget {
             formKey: formKey,
             tech: vahe,
             techProperties: techProperties,
+            initalPgs: initalPgs!,
+            initalPsgs: initalPsgs!,
+            resetMachines: resetMachines,
+            saveMachines: saveMachines,
           )
         : const SizedBox();
     return Column(
@@ -42,14 +56,17 @@ class Footer extends StatelessWidget {
         validation,
         Container(
           height: 92,
-          // width: double.infinity,
           color: primaryColor,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              //action items:
-              for (var icon in icons) FooterIcon(icon: icon)
+              for (var icon in icons)
+                FooterIcon(
+                  icon: icon,
+                  resetMachines: resetMachines,
+                  isMachinesSaved: isMachinesSaved,
+                )
             ],
           ),
         ),

@@ -4,12 +4,10 @@ import 'package:sd_tech/data/tech.dart';
 import 'package:sd_tech/models/enums/exam_type_enum.dart';
 import 'package:sd_tech/models/enums/screen.dart';
 import 'package:sd_tech/models/enums/form_label.dart';
-import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/tech.dart';
 import 'package:sd_tech/widgets/generals/footer/footer.dart';
 import 'package:sd_tech/widgets/generals/header.dart';
 import 'package:sd_tech/widgets/generals/body.dart';
-import 'package:sd_tech/widgets/generals/styled_text.dart';
 import 'package:sd_tech/widgets/tech_profile/exam_header.dart';
 import 'package:sd_tech/widgets/tech_profile/serial_numeber_box.dart';
 import 'package:sd_tech/widgets/tech_profile/tech_input.dart';
@@ -26,7 +24,9 @@ class _ProfileState extends State<Profile> {
   Footer? footerContent;
   late Tech tech;
   late Map techProperties;
-
+  late final List<String> initalPgs;
+  late final List<String> initalPsgs;
+  bool isMachinesSaved = false;
   @override
   void initState() {
     tech = vahe;
@@ -39,7 +39,8 @@ class _ProfileState extends State<Profile> {
       FormLabel.pg.name: tech.pgCount,
       FormLabel.psg.name: tech.psgCount,
     };
-
+    initalPgs = [...tech.pgs];
+    initalPsgs = [...tech.psgs];
     footerContent = Footer(
       icons: const [Screen.planning],
       needsDeconexion: true,
@@ -47,8 +48,51 @@ class _ProfileState extends State<Profile> {
       formKey: _formKey,
       tech: tech,
       techProperties: techProperties,
+      initalPgs: initalPgs,
+      initalPsgs: initalPsgs,
+      resetMachines: resetMachines,
+      saveMachines: saveMachines,
+      isMachinesSaved: isMachinesSaved,
     );
     super.initState();
+  }
+
+  void saveMachines() {
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        isMachinesSaved = true;
+      });
+      _formKey.currentState!.save();
+      tech.firstname = techProperties[FormLabel.firstname.name];
+      tech.lastname = techProperties[FormLabel.lastname.name];
+      tech.phone = techProperties[FormLabel.phone.name];
+      tech.mail = techProperties[FormLabel.mail.name];
+      tech.address = techProperties[FormLabel.address.name];
+      tech.pgs = tech.pgs;
+      tech.psgs = tech.psgs;
+    } else {
+      print("certains champs ne sont pas valides");
+    }
+  }
+
+  void deleteMachine(
+      {required List<String> machines, required String machine}) {
+    setState(() {
+      machines.remove(machines[machines.indexOf(machine)]);
+    });
+  }
+
+  void updateTechProperty({required FormLabel label, String? newValue}) {
+    techProperties[label.name] = newValue;
+  }
+
+  void resetMachines() {
+    setState(() {
+      if (!isMachinesSaved!) {
+        tech.pgs = [...initalPgs];
+        tech.psgs = [...initalPsgs];
+      }
+    });
   }
 
   void toggleFooter() {
@@ -65,6 +109,11 @@ class _ProfileState extends State<Profile> {
           formKey: _formKey,
           tech: tech,
           techProperties: techProperties,
+          initalPgs: initalPgs,
+          initalPsgs: initalPsgs,
+          resetMachines: resetMachines,
+          saveMachines: saveMachines,
+          isMachinesSaved: isMachinesSaved,
         );
         return;
       }
@@ -73,17 +122,6 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
-    void deleteMachine(
-        {required List<String> machines, required String machine}) {
-      setState(() {
-        machines.remove(machines[machines.indexOf(machine)]);
-      });
-    }
-
-    void updateTechProperty({required FormLabel label, String? newValue}) {
-      techProperties[label.name] = newValue;
-    }
-
     Widget bodyContent = SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(24),

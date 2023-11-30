@@ -10,9 +10,12 @@ class FooterIcon extends StatelessWidget {
   const FooterIcon({
     super.key,
     required this.icon,
+    this.resetMachines,
+    this.isMachinesSaved,
   });
   final Screen icon;
-
+  final void Function()? resetMachines;
+  final bool? isMachinesSaved;
   @override
   Widget build(BuildContext context) {
     late final IconData iconData;
@@ -41,6 +44,7 @@ class FooterIcon extends StatelessWidget {
         Navigator.push(context, MaterialPageRoute(builder: (context) => page));
       }
       if (iconData == Icons.arrow_back_ios_new_rounded) {
+        resetMachines!();
         Navigator.of(context).pop();
       }
     }
