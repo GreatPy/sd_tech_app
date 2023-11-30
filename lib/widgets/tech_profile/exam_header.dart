@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:sd_tech/models/enums/exam_type_enum.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/tech.dart';
+import 'package:sd_tech/widgets/generals/footer/validation_footer.dart';
 import 'package:sd_tech/widgets/generals/styled_text.dart';
+import 'package:sd_tech/widgets/tech_profile/bottom_modal.dart';
 
 class ExamHeader extends StatelessWidget {
   const ExamHeader({
@@ -43,7 +45,14 @@ class ExamHeader extends StatelessWidget {
           child: ElevatedButton(
               style:
                   ElevatedButton.styleFrom(backgroundColor: primaryColorLigth),
-              onPressed: () {},
+              onPressed: () {
+                print("add machine");
+                showModalBottomSheet(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return const BottomModal();
+                    });
+              },
               child: StyledText(content: "ajouter un $machineType")),
         )
       ],
