@@ -44,7 +44,9 @@ class FooterIcon extends StatelessWidget {
         Navigator.push(context, MaterialPageRoute(builder: (context) => page));
       }
       if (iconData == Icons.arrow_back_ios_new_rounded) {
-        resetMachines!();
+        if (resetMachines != null) {
+          resetMachines!();
+        }
         Navigator.of(context).pop();
       }
     }

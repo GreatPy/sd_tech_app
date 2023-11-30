@@ -20,7 +20,6 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  final _focusNode = FocusNode();
   final _formKey = GlobalKey<FormState>();
   Footer? footerContent;
   late Tech tech;

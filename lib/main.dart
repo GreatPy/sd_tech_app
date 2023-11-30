@@ -34,7 +34,6 @@ class App extends StatelessWidget {
               Screen.techProfile,
               Screen.searche,
               Screen.filters,
-              Screen.today
             ],
             needsDeconexion: false,
             needsValidation: false,
