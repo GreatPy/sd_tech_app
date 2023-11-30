@@ -93,7 +93,7 @@ class ExamHeader extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                               backgroundColor: primaryColorLigth),
                           child: const StyledText(
-                            content: "enregistrer",
+                            content: "valider",
                           ),
                         )
                       ],

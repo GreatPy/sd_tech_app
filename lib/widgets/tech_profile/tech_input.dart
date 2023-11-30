@@ -93,11 +93,13 @@ class _TechInputState extends State<TechInput> {
           return methods.machinNumberValidator(value);
         };
       case FormLabel.serialNumberPg:
+        stringLabel = "numéro de série du PG";
         type = TextInputType.emailAddress;
         validator = (value) {
           return methods.serialNumberValidator(value);
         };
       case FormLabel.serialNumberPsg:
+        stringLabel = "numéro de série du PSG";
         type = TextInputType.emailAddress;
         validator = (value) {
           return methods.serialNumberValidator(value);
