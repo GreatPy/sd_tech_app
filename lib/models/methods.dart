@@ -102,6 +102,21 @@ class Methods {
     return null;
   }
 
+  String? serialNumberValidator(String? value) {
+    if (value.toString().isNotEmpty) {
+      String trimedValue = value!.replaceAll(RegExp(r'\s'), '');
+      if (RegExp(r'^(?!(\d*)$).*$').hasMatch(trimedValue)) {
+        return "uniquement des chiffres";
+      }
+      if (RegExp(r'^(?!(\d{9})$).*$').hasMatch(trimedValue)) {
+        return "ce champs doit comporter 9 chiffres";
+      } else {
+        return null;
+      }
+    }
+    return null;
+  }
+
   String? machinNumberValidator(String? value) {
     if (value.toString().isNotEmpty) {
       if (RegExp(r'^(?!(\d{1,2})$).*$').hasMatch(value!)) {

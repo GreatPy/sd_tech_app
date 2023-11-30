@@ -92,6 +92,11 @@ class _TechInputState extends State<TechInput> {
         validator = (value) {
           return methods.machinNumberValidator(value);
         };
+      case FormLabel.serialNumber:
+        type = TextInputType.emailAddress;
+        validator = (value) {
+          return methods.serialNumberValidator(value);
+        };
       default:
     }
 
