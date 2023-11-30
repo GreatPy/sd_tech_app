@@ -44,8 +44,8 @@ class Footer extends StatelessWidget {
             formKey: formKey,
             tech: vahe,
             techProperties: techProperties,
-            initalPgs: initalPgs!,
-            initalPsgs: initalPsgs!,
+            initalPgs: initalPgs,
+            initalPsgs: initalPsgs,
             resetMachines: resetMachines,
             saveMachines: saveMachines,
           )
@@ -72,7 +72,5 @@ class Footer extends StatelessWidget {
         ),
       ],
     );
-
-    //purple footer:
   }
 }

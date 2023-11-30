@@ -19,8 +19,8 @@ class ValidationFooter extends StatelessWidget {
   final TypedExam? typedExam;
   final Tech? tech;
   final Map? techProperties;
-  final List<String> initalPgs;
-  final List<String> initalPsgs;
+  final List<String>? initalPgs;
+  final List<String>? initalPsgs;
   final void Function()? resetMachines;
   final void Function()? saveMachines;
 
