@@ -15,5 +15,6 @@ enum FormLabel {
   wakeUpTime,
   pg,
   psg,
-  serialNumber,
+  serialNumberPg,
+  serialNumberPsg,
 }

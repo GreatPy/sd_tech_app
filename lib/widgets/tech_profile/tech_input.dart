@@ -92,7 +92,12 @@ class _TechInputState extends State<TechInput> {
         validator = (value) {
           return methods.machinNumberValidator(value);
         };
-      case FormLabel.serialNumber:
+      case FormLabel.serialNumberPg:
+        type = TextInputType.emailAddress;
+        validator = (value) {
+          return methods.serialNumberValidator(value);
+        };
+      case FormLabel.serialNumberPsg:
         type = TextInputType.emailAddress;
         validator = (value) {
           return methods.serialNumberValidator(value);
@@ -101,29 +106,49 @@ class _TechInputState extends State<TechInput> {
     }
 
     return TextFormField(
-        autofocus: widget.isFocus ?? false,
-        focusNode: _focusNode,
-        cursorColor: primaryColorLigth,
-        cursorWidth: 4,
-        style: TextStyle(
-          color: neutral,
-          fontSize: 20,
+      autofocus: widget.isFocus ?? false,
+      focusNode: _focusNode,
+      cursorColor: primaryColorLigth,
+      cursorWidth: 4,
+      style: TextStyle(
+        color: neutral,
+        fontSize: 20,
+      ),
+      decoration: InputDecoration(
+        label: Text(stringLabel),
+        labelStyle: TextStyle(color: primaryColorLigth),
+        enabledBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.transparent)),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(width: 2, color: primaryColorLigth),
         ),
-        decoration: InputDecoration(
-          label: Text(stringLabel),
-          labelStyle: TextStyle(color: primaryColorLigth),
-          enabledBorder: const UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.transparent)),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(width: 2, color: primaryColorLigth),
-          ),
-        ),
-        keyboardType: type,
-        validator: validator,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        initialValue: initialValue,
-        onSaved: (value) {
+      ),
+      keyboardType: type,
+      validator: validator,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      initialValue: initialValue,
+      onSaved: (value) {
+        if (widget.label != FormLabel.serialNumberPg &&
+            widget.label != FormLabel.serialNumberPsg) {
           widget.updateTechProperty!(label: widget.label, newValue: value);
-        });
+        }
+        if (widget.label == FormLabel.serialNumberPg) {
+          if (value!.isNotEmpty) {
+            tech.pgs.add(value);
+            Navigator.pop(context);
+          } else {
+            print("no serial number");
+          }
+        }
+        if (widget.label == FormLabel.serialNumberPsg) {
+          if (value!.isNotEmpty) {
+            tech.psgs.add(value);
+            Navigator.pop(context);
+          } else {
+            print("nothing");
+          }
+        }
+      },
+    );
   }
 }

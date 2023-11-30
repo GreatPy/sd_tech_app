@@ -19,18 +19,29 @@ class ExamHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final formKey = GlobalKey<FormState>();
     late String stringMachine;
     late int machineCount;
     late String machineType;
+    late FormLabel label;
     if (examType == ExamTypeEnum.pg) {
       stringMachine = tech.pgCount > 1 ? "PGs" : "PG";
       machineCount = tech.pgCount;
       machineType = "PG";
+      label = FormLabel.serialNumberPg;
     }
     if (examType == ExamTypeEnum.psg) {
       stringMachine = tech.psgCount > 1 ? "PSGs" : "PSG";
       machineCount = tech.psgCount;
       machineType = "PSG";
+      label = FormLabel.serialNumberPsg;
+    }
+    saveNewMachine() {
+      if (formKey.currentState!.validate()) {
+        formKey.currentState!.save();
+      } else {
+        print("unvalid serial number");
+      }
     }
 
     return Row(
@@ -55,8 +66,9 @@ class ExamHeader extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                   content: Form(
+                    key: formKey,
                     child: TechInput(
-                      label: FormLabel.serialNumber,
+                      label: label,
                       tech: tech,
                       onFocus: onFocus,
                       isFocus: true,
@@ -75,7 +87,9 @@ class ExamHeader extends StatelessWidget {
                               color: primaryColorLigth,
                             )),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            saveNewMachine();
+                          },
                           style: ElevatedButton.styleFrom(
                               backgroundColor: primaryColorLigth),
                           child: const StyledText(
