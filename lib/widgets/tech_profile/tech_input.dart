@@ -11,12 +11,14 @@ class TechInput extends StatefulWidget {
     required this.label,
     required this.tech,
     required this.onFocus,
-    required this.updateTechProperty,
+    this.updateTechProperty,
+    this.isFocus,
   });
+  final bool? isFocus;
   final FormLabel label;
   final Tech tech;
   final void Function() onFocus;
-  final void Function({required FormLabel label, String? newValue})
+  final void Function({required FormLabel label, String? newValue})?
       updateTechProperty;
 
   @override
@@ -30,7 +32,6 @@ class _TechInputState extends State<TechInput> {
   @override
   void initState() {
     tech = widget.tech;
-    // print(tech.firstname);
     _focusNode.addListener(() {
       widget.onFocus();
     });
@@ -95,6 +96,7 @@ class _TechInputState extends State<TechInput> {
     }
 
     return TextFormField(
+        autofocus: widget.isFocus ?? false,
         focusNode: _focusNode,
         cursorColor: primaryColorLigth,
         cursorWidth: 4,
@@ -116,7 +118,7 @@ class _TechInputState extends State<TechInput> {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         initialValue: initialValue,
         onSaved: (value) {
-          widget.updateTechProperty(label: widget.label, newValue: value);
+          widget.updateTechProperty!(label: widget.label, newValue: value);
         });
   }
 }

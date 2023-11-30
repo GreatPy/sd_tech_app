@@ -20,6 +20,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  final _focusNode = FocusNode();
   final _formKey = GlobalKey<FormState>();
   Footer? footerContent;
   late Tech tech;
@@ -161,7 +162,11 @@ class _ProfileState extends State<Profile> {
                 updateTechProperty: updateTechProperty,
               ),
               const SizedBox(height: 12),
-              ExamHeader(examType: ExamTypeEnum.pg, tech: tech),
+              ExamHeader(
+                examType: ExamTypeEnum.pg,
+                tech: tech,
+                onFocus: toggleFooter,
+              ),
               for (final pg in tech.pgs)
                 SerialNumberBox(
                   serialNumber: pg,
@@ -169,7 +174,11 @@ class _ProfileState extends State<Profile> {
                   deleteMachine: deleteMachine,
                 ),
               const SizedBox(height: 32),
-              ExamHeader(examType: ExamTypeEnum.psg, tech: tech),
+              ExamHeader(
+                examType: ExamTypeEnum.psg,
+                tech: tech,
+                onFocus: toggleFooter,
+              ),
               for (final psg in tech.psgs)
                 SerialNumberBox(
                   serialNumber: psg,

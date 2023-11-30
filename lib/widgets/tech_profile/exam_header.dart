@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:sd_tech/models/enums/exam_type_enum.dart';
+import 'package:sd_tech/models/enums/form_label.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/tech.dart';
 import 'package:sd_tech/widgets/generals/styled_text.dart';
-import 'package:sd_tech/widgets/tech_profile/bottom_modal.dart';
+import 'package:sd_tech/widgets/tech_profile/tech_input.dart';
 
 class ExamHeader extends StatelessWidget {
   const ExamHeader({
     super.key,
     required this.examType,
     required this.tech,
+    required this.onFocus,
   });
   final ExamTypeEnum examType;
   final Tech tech;
+  final void Function() onFocus;
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +55,11 @@ class ExamHeader extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                   content: Form(
-                    child: TextFormField(
-                      autofocus: true,
+                    child: TechInput(
+                      label: FormLabel.serialNumber,
+                      tech: tech,
+                      onFocus: onFocus,
+                      isFocus: true,
                     ),
                   ),
                   actions: [
