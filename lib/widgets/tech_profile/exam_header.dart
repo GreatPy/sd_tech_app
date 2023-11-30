@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sd_tech/models/enums/exam_type_enum.dart';
 import 'package:sd_tech/models/styles.dart';
 import 'package:sd_tech/models/tech.dart';
-import 'package:sd_tech/widgets/generals/footer/validation_footer.dart';
 import 'package:sd_tech/widgets/generals/styled_text.dart';
 import 'package:sd_tech/widgets/tech_profile/bottom_modal.dart';
 
@@ -40,21 +39,50 @@ class ExamHeader extends StatelessWidget {
           fontSize: 24,
           fontWeight: FontWeight.bold,
         ),
-        SizedBox(
-          width: 200,
-          child: ElevatedButton(
-              style:
-                  ElevatedButton.styleFrom(backgroundColor: primaryColorLigth),
-              onPressed: () {
-                print("add machine");
-                showModalBottomSheet(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return const BottomModal();
-                    });
-              },
-              child: StyledText(content: "ajouter un $machineType")),
-        )
+        ElevatedButton(
+            style: ElevatedButton.styleFrom(backgroundColor: primaryColorLigth),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: StyledText(
+                    content: "ajouter un ${examType.name.toUpperCase()}",
+                    color: primaryColorLigth,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  content: Form(
+                    child: TextFormField(
+                      autofocus: true,
+                    ),
+                  ),
+                  actions: [
+                    ButtonBar(
+                      alignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: StyledText(
+                              content: "annuler",
+                              color: primaryColorLigth,
+                            )),
+                        ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: primaryColorLigth),
+                          child: const StyledText(
+                            content: "enregistrer",
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              );
+            },
+            child: StyledText(content: "ajouter un $machineType"))
       ],
     );
   }

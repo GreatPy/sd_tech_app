@@ -186,7 +186,6 @@ class _ProfileState extends State<Profile> {
       gestures: const [GestureType.onVerticalDragDown],
       child: GestureDetector(
         child: Scaffold(
-          // resizeToAvoidBottomInset: false,
           appBar: const Header(
             screen: Screen.techProfile,
           ),
